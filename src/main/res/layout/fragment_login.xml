@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:id="@+id/llHeader1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:orientation="vertical">
+
+            <android.support.v7.widget.AppCompatEditText
+                android:id="@+id/appCompatButtonuserName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:gravity="center"
+                android:background="@drawable/button_background"
+                android:padding="10dp"
+                android:fontFamily="monospace"
+                android:text="@string/Label_Username"
+                android:textColor="@color/colorTextColor" />
+
+            <android.support.v7.widget.AppCompatEditText
+                android:id="@+id/appCompatButtonPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:fontFamily="monospace"
+                android:gravity="center"
+                android:background="@drawable/button_background"
+                android:padding="10dp"
+                android:text="@string/Label_Password"
+                android:textColor="@color/colorTextColor"/>
+
+
+            <!-- <android.support.v7.widget.AppCompatEditText
+                 android:id="@+id/AppCompatEditTextUserName"
+                 style="@style/EditText"
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content"
+                 android:layout_marginTop="15dp"
+                 android:background="@drawable/edit_text_background"
+                 android:hint="@string/Label_Username" />
+     -->
+            <!--<android.support.v7.widget.AppCompatEditText
+                android:id="@+id/AppCompatEditTextPassword"
+                style="@style/EditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/edit_text_background"
+                android:hint="@string/Label_Password"
+
+                />-->
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            >
+
+            <android.support.v7.widget.AppCompatButton
+                android:id="@+id/AppCompatButtonLogIn"
+                android:layout_width="140dp"
+                android:layout_height="50dp"
+                android:layout_marginStart="200dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/login_btn_background"
+                android:text="@string/Label_Login"
+                android:textColor="@android:color/white" />
+        </LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout>

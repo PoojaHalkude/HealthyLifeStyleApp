@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBlack">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:orientation="vertical">
+
+        <android.support.v7.widget.AppCompatButton
+            android:onClick="onClick"
+            android:id="@+id/appCompatButtonSignUpEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/button_background"
+            android:drawableLeft="@drawable/ic_email_black"
+            android:drawableTint="@android:color/darker_gray"
+            android:padding="10dp"
+            android:fontFamily="monospace"
+            android:text="@string/Label_SignupEmail"
+            android:textColor="@android:color/black" />
+
+        <android.support.v7.widget.AppCompatButton
+            android:onClick="onClick"
+            android:id="@+id/appCompatButtonSignUpPhone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:fontFamily="monospace"
+            android:background="@drawable/button_background"
+            android:drawableLeft="@drawable/ic_phone_black"
+            android:drawableTint="@android:color/darker_gray"
+            android:padding="10dp"
+            android:text="@string/Label_SignupPhone"
+            android:textColor="@android:color/black" />
+    </LinearLayout>-->
+
+</RelativeLayout>

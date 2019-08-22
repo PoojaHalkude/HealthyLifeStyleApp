@@ -1,0 +1,57 @@
+<resources>
+    <string name="app_name">HealthyLifeStyleApp</string>
+    <string name="Label_Heading">Healthy Lifestyle</string>
+    <string name="Label_Account">Create a \nNew  Account</string>
+    <string name="Label_BestExperince">For the best experience \nwith App</string>
+    <string name="Label_Sign_up">Sign up</string>
+    <string name="Label_Login">Log In</string>
+    <string name="Label_SignupEmail">Signup with Email </string>
+    <string name="Label_SignupPhone">Signup with Phone Number </string>
+    <string name="Label_Username">User Name</string>
+    <string name="Label_Password">Password</string>
+    <string name="Label_Email">Email</string>
+    <string name="Label_Phone">Mobile Number</string>
+    <string name="Label_GetStarted">Get Started</string>
+    <string name="Label_Physiques">Enter Your Physiques</string>
+    <string name="Label_Age">Age</string>
+    <string name="Label_Height">Height</string>
+    <string name="Label_Weight">Weight</string>
+    <string name="Label_Level">Level</string>
+    <string name="Label_Settings">Settings</string>
+    <string name="Label_Profile">Profile</string>
+    <string name="Label_Language">Language Options</string>
+    <string name="Label_HeathData">Health data</string>
+    <string name="Label_createPlans">Create Plan</string>
+    <string name="Label_referFriend">Refer Friend</string>
+    <string name="Label_Feedback">Feedback</string>
+    <string name="Label_LogOut">LogOut</string>
+    <string name="Label_SelectLevel">Select your Level</string>
+    <string name="Label_Beginner">Beginner</string>
+    <string name="Label_Advance">Advance</string>
+    <string name="Label_Intermidiate">Intermediate</string>
+    <string name="Label_SelectWeight">Select your weight</string>
+    <string name="Label_SelectHeight">Select your Height</string>
+    <string name="Label_SelectAge">Select your Age</string>
+    <string name="Label_ConfiemDetails">Confirm Details</string>
+    <string name="Label_Finish">Finish</string>
+    <string name="title_activity_user_profile">UserProfileActivity</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_home">Home</string>
+    <string name="menu_plans">Plans</string>
+    <string name="menu_recipes">Recipes</string>
+    <string name="menu_aboutus">About Us</string>
+    <string name="menu_privacy">Privacy Policy</string>
+    <string name="menu_logout">LogOut</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slideshow</string>
+    <string name="menu_tools">Tools</string>
+    <string name="menu_share">Share</string>
+    <string name="menu_send">Send</string>
+
+</resources>

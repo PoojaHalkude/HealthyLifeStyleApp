@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "1058374750041",
+    "firebase_url": "https://healthylifestyle-822ba.firebaseio.com",
+    "project_id": "healthylifestyle-822ba",
+    "storage_bucket": "healthylifestyle-822ba.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1058374750041:android:7849a9903d4b11f1",
+        "android_client_info": {
+          "package_name": "com.example.healthylifestyleapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1058374750041-kaer07imqv158qgs2f7140dfnvld4rqu.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.healthylifestyleapp",
+            "certificate_hash": "435fc0d00fff948420aece1af55c470e49e70944"
+          }
+        },
+        {
+          "client_id": "1058374750041-v2kv2i32jrm45e5uin1d7gcbsjgaa30l.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAvk_zyoyP8wH3v4e8Y2nRHJorHCqjk9fY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1058374750041-v2kv2i32jrm45e5uin1d7gcbsjgaa30l.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
