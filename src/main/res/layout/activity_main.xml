@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+
   >
 
-
-<RelativeLayout
-    android:layout_width="match_parent"
+    <RelativeLayout
+        android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity"
     android:background="@color/colorBlack">
@@ -19,7 +18,8 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <android.support.v7.widget.AppCompatTextView
+
+        <androidx.appcompat.widget.AppCompatTextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="20dp"
@@ -38,7 +38,7 @@
             android:layout_marginRight="20dp"
             android:background="@color/colorYellow" />
 
-        <android.support.v7.widget.AppCompatTextView
+        <androidx.appcompat.widget.AppCompatTextView
             style="@style/TextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -56,7 +56,7 @@
             android:layout_marginBottom="10dp"
             android:background="@android:color/white" />
 
-        <android.support.v7.widget.AppCompatTextView
+        <androidx.appcompat.widget.AppCompatTextView
             style="@style/TextViewClick"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -72,7 +72,7 @@
             android:orientation="horizontal"
             android:weightSum="10">
 
-            <android.support.v7.widget.AppCompatTextView
+            <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/AppCompatTextViewSignUp"
                 style="@style/TextViewClick"
                 android:layout_width="0dp"
@@ -83,7 +83,7 @@
                 android:gravity="center"
                 android:text="@string/Label_Sign_up" />
 
-            <android.support.v7.widget.AppCompatTextView
+            <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/AppCompatTextViewLogin"
                 style="@style/TextViewClick"
                 android:layout_width="0dp"
@@ -93,13 +93,7 @@
                 android:onClick="onClick"
                 android:text="@string/Label_Login" />
         </LinearLayout>
-        <ProgressBar
-            android:id="@+id/progressBar"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_gravity="center|bottom"
-            android:layout_marginBottom="20dp"
-            android:visibility="gone" />
+
 
         <fragment
             android:layout_marginTop="10dp"

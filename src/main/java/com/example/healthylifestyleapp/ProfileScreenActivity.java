@@ -1,17 +1,14 @@
 package com.example.healthylifestyleapp;
 
-/*
-import android.support.v7.app.AppCompatActivity;
-*/
-import android.os.Bundle;
-
 import androidx.appcompat.app.AppCompatActivity;
 
-public class StartedActivity extends AppCompatActivity {
+import android.os.Bundle;
+
+public class ProfileScreenActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_started);
+        setContentView(R.layout.activity_profile_screen);
     }
 }

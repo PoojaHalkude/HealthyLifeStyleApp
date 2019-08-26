@@ -26,7 +26,7 @@
 
                 />
 
-            <android.support.v7.widget.AppCompatEditText
+            <androidx.appcompat.widget.AppCompatEditText
                 android:id="@+id/AppCompatEditTextEmail"
                 style="@style/TextView"
                 android:layout_width="match_parent"
@@ -57,7 +57,7 @@
 
                 />
 
-            <android.support.v7.widget.AppCompatEditText
+            <androidx.appcompat.widget.AppCompatEditText
                 android:id="@+id/AppCompatEditTextUserName"
                 style="@style/TextView"
                 android:layout_width="match_parent"
@@ -85,7 +85,7 @@
 
                 />
 
-            <android.support.v7.widget.AppCompatEditText
+            <androidx.appcompat.widget.AppCompatEditText
                 android:id="@+id/AppCompatEditTextPassword"
                 style="@style/TextView"
                 android:layout_width="match_parent"
@@ -97,12 +97,19 @@
 
 
                 />
+            <ProgressBar
+                android:id="@+id/progressBar"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_gravity="center|bottom"
+                android:layout_marginBottom="20dp"
+                android:visibility="gone" />
         </LinearLayout>
 
 
 
 
-        <android.support.v7.widget.AppCompatButton
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/AppCompatButtonSignUp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -112,6 +119,7 @@
             android:drawableTint="@android:color/white"
             android:padding="15dp"
             android:text="@string/Label_Sign_up"
+            android:onClick="onClick"
             android:textAllCaps="true"
             android:textColor="@android:color/white"
             android:textSize="18dp"

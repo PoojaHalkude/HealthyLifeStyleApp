@@ -50,14 +50,16 @@
             android:src="@drawable/ic_search_black"
             android:tint="@android:color/white" />
     </RelativeLayout>
+
     <LinearLayout
-        android:layout_below="@+id/rlHeader"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
+        android:layout_below="@+id/rlHeader"
         android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"
         android:layout_marginRight="20dp"
-        android:layout_marginTop="10dp">
+        android:orientation="vertical">
+
         <RelativeLayout
             android:id="@+id/rlHeaderProfile"
             android:layout_width="match_parent"
@@ -68,99 +70,103 @@
                 android:id="@+id/ImageViewProfile"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="10dp"
-                android:layout_marginRight="20dp"
                 android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginBottom="10dp"
                 android:src="@drawable/ic_account_circle"
-                 />
+                android:tint="@color/colorYellow" />
 
             <TextView
                 android:id="@+id/textViewProfile"
+                style="@style/AppcompatTextView"
                 android:layout_width="176dp"
-                android:layout_toRightOf="@+id/ImageViewProfile"
                 android:layout_height="wrap_content"
-               style="@style/AppcompatTextView"
-                android:text="@string/Label_Profile"/>
+                android:layout_toRightOf="@+id/ImageViewProfile"
+                android:text="@string/Label_Profile" />
         </RelativeLayout>
+
         <RelativeLayout
             android:id="@+id/rlHeaderLanguage"
-            android:layout_marginTop="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
             android:background="@drawable/background_layout">
 
             <ImageView
                 android:id="@+id/ImageViewLangauge"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="10dp"
-                android:layout_marginRight="20dp"
                 android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginBottom="10dp"
                 android:src="@drawable/ic_language_black"
-                />
+                android:tint="@color/colorYellow" />
 
             <TextView
                 android:id="@+id/textViewLanguage"
-                android:layout_width="176dp"
-                android:layout_toRightOf="@+id/ImageViewLangauge"
-                android:layout_height="wrap_content"
                 style="@style/AppcompatTextView"
-                android:text="@string/Label_Language"/>
+                android:layout_width="176dp"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/ImageViewLangauge"
+                android:text="@string/Label_Language" />
         </RelativeLayout>
+
         <RelativeLayout
-        android:id="@+id/rlHeaderHealthData"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+            android:id="@+id/rlHeaderHealthData"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-        android:background="@drawable/background_layout">
+            android:background="@drawable/background_layout">
 
             <ImageView
                 android:id="@+id/ImageViewHealthdata"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="10dp"
-                android:layout_marginRight="20dp"
                 android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginBottom="10dp"
                 android:src="@drawable/ic_account_circle"
-                />
+                android:tint="@color/colorYellow" />
 
-        <TextView
-            android:id="@+id/textViewHealthData"
-            android:layout_width="176dp"
-            android:layout_toRightOf="@+id/ImageViewHealthdata"
-            android:layout_height="wrap_content"
-            style="@style/AppcompatTextView"
-            android:text="@string/Label_HeathData"/>
-    </RelativeLayout>
+            <TextView
+                android:id="@+id/textViewHealthData"
+                style="@style/AppcompatTextView"
+                android:layout_width="176dp"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/ImageViewHealthdata"
+                android:text="@string/Label_HeathData" />
+        </RelativeLayout>
+
         <RelativeLayout
-        android:id="@+id/rlHeaderCreatePlan"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:background="@drawable/background_layout">
-
-        <ImageView
-            android:id="@+id/ImageViewCreatePlan"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"
-            android:layout_marginRight="20dp"
-            android:layout_marginLeft="20dp"
-            android:src="@drawable/ic_notifications"
-            />
-
-        <TextView
-            android:id="@+id/textViewCreatePlan"
-            android:layout_width="176dp"
-            android:layout_toRightOf="@+id/ImageViewCreatePlan"
+            android:id="@+id/rlHeaderCreatePlan"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            style="@style/AppcompatTextView"
-            android:text="@string/Label_createPlans"/>
-    </RelativeLayout>
+            android:layout_marginTop="10dp"
+            android:background="@drawable/background_layout">
+
+            <ImageView
+                android:id="@+id/ImageViewCreatePlan"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginBottom="10dp"
+                android:src="@drawable/ic_notifications"
+                android:tint="@color/colorYellow" />
+
+            <TextView
+                android:id="@+id/textViewCreatePlan"
+                style="@style/AppcompatTextView"
+                android:layout_width="176dp"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/ImageViewCreatePlan"
+                android:text="@string/Label_createPlans" />
+        </RelativeLayout>
+
         <RelativeLayout
             android:id="@+id/rlHeaderReferFriend"
             android:layout_width="match_parent"
@@ -172,21 +178,22 @@
                 android:id="@+id/ImageViewReferFriend"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="10dp"
-                android:layout_marginRight="20dp"
                 android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginBottom="10dp"
                 android:src="@drawable/ic_share_black"
-                />
+                android:tint="@color/colorYellow" />
 
             <TextView
                 android:id="@+id/textViewReferFriend"
-                android:layout_width="176dp"
-                android:layout_toRightOf="@+id/ImageViewReferFriend"
-                android:layout_height="wrap_content"
                 style="@style/AppcompatTextView"
-                android:text="@string/Label_referFriend"/>
+                android:layout_width="176dp"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/ImageViewReferFriend"
+                android:text="@string/Label_referFriend" />
         </RelativeLayout>
+
         <RelativeLayout
             android:id="@+id/rlHeaderFeedback"
             android:layout_width="match_parent"
@@ -198,21 +205,22 @@
                 android:id="@+id/ImageViewFeedback"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="10dp"
-                android:layout_marginRight="20dp"
                 android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginBottom="10dp"
                 android:src="@drawable/ic_feedback_black"
-                />
+                android:tint="@color/colorYellow" />
 
             <TextView
                 android:id="@+id/textViewFeedback"
-                android:layout_width="176dp"
-                android:layout_toRightOf="@+id/ImageViewFeedback"
-                android:layout_height="wrap_content"
                 style="@style/AppcompatTextView"
-                android:text="@string/Label_Feedback"/>
+                android:layout_width="176dp"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/ImageViewFeedback"
+                android:text="@string/Label_Feedback" />
         </RelativeLayout>
+
         <RelativeLayout
             android:id="@+id/rlHeaderLogOut"
             android:layout_width="match_parent"
@@ -224,41 +232,41 @@
                 android:id="@+id/ImageViewLogOut"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="10dp"
-                android:layout_marginRight="20dp"
                 android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginBottom="10dp"
                 android:src="@drawable/log_out"
-                />
+                android:tint="@color/colorYellow" />
 
             <TextView
                 android:id="@+id/textViewLogOut"
-                android:layout_width="176dp"
-                android:layout_toRightOf="@+id/ImageViewLogOut"
-                android:layout_height="wrap_content"
                 style="@style/AppcompatTextView"
-                android:text="@string/Label_LogOut"/>
+                android:layout_width="176dp"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/ImageViewLogOut"
+                android:text="@string/Label_LogOut" />
         </RelativeLayout>
     </LinearLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:orientation="horizontal"
         android:layout_marginTop="10dp"
-        android:weightSum="15"
-      >
+        android:orientation="horizontal"
+        android:weightSum="15">
 
         <ImageView
             android:id="@+id/ImageViewActivity"
             android:layout_width="30dp"
             android:layout_height="30dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"
-            android:layout_marginRight="20dp"
             android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="10dp"
             android:src="@drawable/ic_account_circle"
-            />
+            android:tint="@color/colorYellow" />
 
         <ImageView
             android:id="@+id/ImageViewHome"
@@ -269,7 +277,8 @@
             android:layout_marginRight="20dp"
             android:layout_marginBottom="10dp"
             android:layout_toRightOf="@+id/ImageViewActivity"
-            android:src="@drawable/ic_home_black" />
+            android:src="@drawable/ic_home_black"
+            android:tint="@color/colorYellow" />
 
         <ImageView
             android:id="@+id/ImageViewSettings"
@@ -280,6 +289,7 @@
             android:layout_marginRight="20dp"
             android:layout_marginBottom="10dp"
             android:layout_toRightOf="@+id/ImageViewHome"
-            android:src="@drawable/ic_settings_black" />
+            android:src="@drawable/ic_settings_black"
+            android:tint="@color/colorYellow" />
     </LinearLayout>
 </RelativeLayout>

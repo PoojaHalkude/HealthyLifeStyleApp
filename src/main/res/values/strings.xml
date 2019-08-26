@@ -34,6 +34,17 @@
     <string name="Label_SelectAge">Select your Age</string>
     <string name="Label_ConfiemDetails">Confirm Details</string>
     <string name="Label_Finish">Finish</string>
+    <string name="Label_CompletedTask">Completed Task</string>
+    <string name="Label_Goals">Goals</string>
+    <string name="Label_Reminders">Reminders</string>
+    <string name="Label_Plans">Plans</string>
+    <string name="Label_FitnessDevice">Fitness Device</string>
+
+
+
+
+
+
     <string name="title_activity_user_profile">UserProfileActivity</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>

@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".PhysiquesDetailsActivity"
     android:orientation="vertical">
-    <android.support.v7.widget.AppCompatTextView
+    <androidx.appcompat.widget.AppCompatTextView
 
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -19,6 +19,7 @@
         android:textStyle="bold" />
 
     <LinearLayout
+        android:id="@+id/LLHeaderAge"
         android:layout_width="match_parent"
         android:layout_height="38dp"
         android:layout_marginLeft="20dp"
@@ -28,7 +29,7 @@
         android:orientation="horizontal"
         android:weightSum="10">
 
-        <android.support.v7.widget.AppCompatTextView
+        <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/AppCompatTextViewAge"
             android:layout_width="0dp"
             android:layout_height="match_parent"
@@ -39,7 +40,7 @@
             android:text="@string/Label_Age"
             android:textSize="20dp" />
 
-        <android.support.v7.widget.AppCompatTextView
+        <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/AppCompatTextViewNewAge"
             android:layout_width="0dp"
             android:layout_height="38dp"
@@ -50,6 +51,7 @@
             android:textSize="20dp" />
     </LinearLayout>
     <LinearLayout
+        android:id="@+id/LLHeaderHeight"
         android:layout_width="match_parent"
         android:layout_height="38dp"
         android:layout_marginLeft="20dp"
@@ -59,7 +61,7 @@
         android:orientation="horizontal"
         android:weightSum="10">
 
-        <android.support.v7.widget.AppCompatTextView
+        <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/AppCompatTextViewHeight"
             android:layout_width="0dp"
             android:layout_height="match_parent"
@@ -70,7 +72,7 @@
             android:text="@string/Label_Height"
             android:textSize="20dp" />
 
-        <android.support.v7.widget.AppCompatTextView
+        <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/AppCompatTextViewNewHeight"
             android:layout_width="0dp"
             android:layout_height="38dp"
@@ -79,7 +81,9 @@
             android:textColor="@color/colorBlack"
             android:text="@string/Label_Height"
             android:textSize="20dp" />
-    </LinearLayout> <LinearLayout
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/LLHeaderWeight"
     android:layout_width="match_parent"
     android:layout_height="38dp"
     android:layout_marginLeft="20dp"
@@ -89,7 +93,7 @@
     android:orientation="horizontal"
     android:weightSum="10">
 
-    <android.support.v7.widget.AppCompatTextView
+    <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/AppCompatTextViewWeight"
         android:layout_width="0dp"
         android:layout_height="match_parent"
@@ -100,7 +104,7 @@
         android:text="@string/Label_Weight"
         android:textSize="20dp" />
 
-    <android.support.v7.widget.AppCompatTextView
+    <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/AppCompatTextViewNewWeight"
         android:layout_width="0dp"
         android:layout_height="38dp"
@@ -109,7 +113,9 @@
         android:textColor="@color/colorBlack"
         android:text="@string/Label_Weight"
         android:textSize="20dp" />
-</LinearLayout> <LinearLayout
+</LinearLayout>
+    <LinearLayout
+        android:id="@+id/LLHeaderLevel"
     android:layout_width="match_parent"
     android:layout_height="38dp"
     android:layout_marginLeft="20dp"
@@ -119,7 +125,7 @@
     android:orientation="horizontal"
     android:weightSum="10">
 
-    <android.support.v7.widget.AppCompatTextView
+    <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/AppCompatTextViewLevel"
         android:layout_width="0dp"
         android:layout_height="match_parent"
@@ -130,7 +136,7 @@
         android:text="@string/Label_Level"
         android:textSize="20dp" />
 
-    <android.support.v7.widget.AppCompatTextView
+    <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/AppCompatTextViewNewLevel"
         android:layout_width="0dp"
         android:layout_height="38dp"
@@ -141,7 +147,8 @@
         android:textSize="20dp" />
 </LinearLayout>
 
-    <android.support.v7.widget.AppCompatButton
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/AppCompatButtonFinish"
         android:layout_margin="30dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
