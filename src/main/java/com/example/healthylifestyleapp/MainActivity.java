@@ -43,16 +43,22 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        //setContentView(R.layout.fragment_email);
+
         iniUI();
         initListner();
         //Get Firebase auth instance
-//        auth = FirebaseAuth.getInstance();
-        FirebaseApp.initializeApp(context);
+//      auth = FirebaseAuth.getInstance();
+//        FirebaseApp.initializeApp(context);
 
     }
-
-
+   /* @Override
+    public void onStart() {
+        super.onStart();
+        // Check if user is signed in (non-null) and update UI accordingly.
+        FirebaseUser currentUser = auth.getCurrentUser();
+        updateUI(currentUser);
+    }
+*/
     private void initListner() {
         AppCompatTextViewSignUp.setOnClickListener(this);
     }

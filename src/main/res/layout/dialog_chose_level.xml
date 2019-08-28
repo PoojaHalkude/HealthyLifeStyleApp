@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/edit_text_background"
-
+    android:gravity="center"
 
     >
     <androidx.appcompat.widget.AppCompatTextView
@@ -16,9 +17,50 @@
         android:inputType="text"
         android:layout_marginTop="20dp"
         android:gravity="center"
+        android:textSize="18dp"
+        android:textStyle="bold"
         />
+    <RadioGroup
+        android:id="@+id/RadioGroupLevel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:onClick="onClick"
+        >
 
-    <RadioButton
+        <RadioButton
+            android:id="@+id/RadioButtonBeginner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="20dp"
+            android:text="@string/Label_Beginner"
+            android:textSize="18dp"
+
+         />
+
+        <RadioButton
+            android:id="@+id/RadioButtonIntermediate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="20dp"
+            android:text="@string/Label_Intermidiate"
+            android:textSize="18dp"
+
+        />
+        <RadioButton
+            android:id="@+id/RadioButtonAdvance"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/Label_Advance"
+            android:gravity="center"
+            android:padding="20dp"
+            android:textSize="18dp"
+         />
+
+    </RadioGroup>
+   <!-- <RadioButton
         android:id="@+id/RadioButtonBeginner"
         android:layout_width="155dp"
         android:layout_height="wrap_content"
@@ -44,5 +86,5 @@
         android:padding="20dp"
         android:onClick="onClick"/>
 
-
+-->
 </LinearLayout>

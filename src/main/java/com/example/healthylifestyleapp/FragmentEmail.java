@@ -30,7 +30,7 @@ public class FragmentEmail extends android.app.Fragment implements View.OnClickL
     AppCompatButton AppCompatButtonSignUp;
     AppCompatEditText AppCompatEditTextEmail,AppCompatEditTextUserName,AppCompatEditTextPassword;
     private ProgressBar progressBar;
-    private FirebaseAuth auth;
+    FirebaseAuth mAuth;
 
 
 
@@ -40,21 +40,20 @@ public class FragmentEmail extends android.app.Fragment implements View.OnClickL
         View rootView = inflater.inflate(R.layout.fragment_email, container, false);
 
 
-        //Inflate the layout for this fragment
         AppCompatButtonSignUp = (AppCompatButton) rootView.findViewById(R.id.AppCompatButtonSignUp);
         AppCompatEditTextEmail=rootView.findViewById(R.id.AppCompatEditTextEmail);
         AppCompatEditTextPassword=rootView.findViewById(R.id.AppCompatEditTextPassword);
         AppCompatEditTextUserName=rootView.findViewById(R.id.AppCompatEditTextUserName);
         progressBar=rootView.findViewById(R.id.progressBar);
      FirebaseApp.initializeApp(getActivity());
-//    auth = FirebaseAuth.getInstance();
+  mAuth = FirebaseAuth.getInstance();
        /* if(auth.getCurrentUser() != null){
 
             startActivity(new Intent(getActivity(), UserProfileActivity.class));
         }
 */
 
-
+        FirebaseApp.initializeApp(getActivity());
         AppCompatButtonSignUp.setOnClickListener(this);
         return rootView;
 
@@ -91,7 +90,7 @@ public class FragmentEmail extends android.app.Fragment implements View.OnClickL
                 progressBar.setVisibility(View.VISIBLE);
 
 
-                auth.createUserWithEmailAndPassword(email, password)
+                mAuth.createUserWithEmailAndPassword(email, password)
                         .addOnCompleteListener(getActivity(), new OnCompleteListener<AuthResult>() {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
@@ -112,7 +111,7 @@ public class FragmentEmail extends android.app.Fragment implements View.OnClickL
 
                             }
                         });
-                Intent myIntent=new Intent(getActivity(), UserProfileActivity.class);
+                Intent myIntent=new Intent(getActivity(), StartedActivity.class);
                 startActivity(myIntent);
         }
 

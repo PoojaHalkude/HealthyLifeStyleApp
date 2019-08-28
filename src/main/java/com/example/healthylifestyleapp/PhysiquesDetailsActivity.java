@@ -28,6 +28,7 @@ public class PhysiquesDetailsActivity extends AppCompatActivity implements View.
         switch (v.getId())
         {
             case R.id.AppCompatButtonFinish:
+                //Luanching the new activity
                 Intent newIntent= new Intent(this, ConfirmDetailsActivity.class);
                 startActivity(newIntent);
         }

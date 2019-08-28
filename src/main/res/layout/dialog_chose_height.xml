@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@drawable/edit_text_background">
+    android:layout_height="match_parent">
     <androidx.appcompat.widget.AppCompatTextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/Label_SelectAge"
+        android:text="@string/Label_SelectHeight"
         style="@style/TextView"
         android:textAllCaps="true"
         android:padding="10dp"
@@ -16,14 +15,23 @@
         android:textSize="18dp"
         android:textStyle="bold"
         />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
     <Spinner
-        android:id="@+id/spinnerAge"
+        android:id="@+id/SpinnerHeight1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="18dp"
-        android:textStyle="bold"/>
-
-
-
-
+        android:textStyle="bold"
+        ></Spinner>
+    <Spinner
+        android:id="@+id/SpinnerHeight2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="18dp"
+        android:textStyle="bold"
+        ></Spinner>
+</LinearLayout>
 </LinearLayout>

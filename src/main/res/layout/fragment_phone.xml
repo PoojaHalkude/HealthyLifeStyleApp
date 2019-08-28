@@ -27,6 +27,7 @@
                 />
 
             <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/AppCompatEditTextPhone"
                 style="@style/TextView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -57,6 +58,7 @@
                 />
 
             <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/AppCompatEditTextUserName"
                 style="@style/TextView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -84,6 +86,7 @@
                 />
 
             <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/AppCompatEditTextPassword"
                 style="@style/TextView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -95,10 +98,35 @@
 
                 />
         </LinearLayout>
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/buttonVerifiactionCode"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:background="@drawable/sign_up_background"
+            android:drawableRight="@drawable/ic_play_circle_outline"
+            android:drawableTint="@android:color/white"
+            android:padding="15dp"
+            android:text="Get Verification Code"
+            android:textAllCaps="true"
+            android:textColor="@android:color/white"
+            android:textSize="18dp"
+            android:textStyle="bold" />
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/AppCompatEditTextVerficationCode"
+            style="@style/TextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter verification code"
+            android:inputType="textPassword"
+            android:padding="10dp"
+            android:textAllCaps="true"
 
 
+            />
 
         <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/buttonSignUpPhone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"

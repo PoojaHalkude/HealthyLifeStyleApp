@@ -11,6 +11,10 @@
     <color name="colorGreen">#3A6A75</color>
     <color name="colorGray">#D4D4D4</color>
     <color name="colorSettingBack">#102B46</color>
+    <color name="colorForProgress">#A1840E</color>
+    <color name="colorbackgroundProgess">#FDF4D1</color>
+
+
 
 
 </resources>
