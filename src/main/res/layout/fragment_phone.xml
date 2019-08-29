@@ -77,15 +77,28 @@
 
             >
 
-            <ImageView
+            <!--<ImageView
                 android:layout_width="30dp"
                 android:layout_height="30dp"
                 android:src="@drawable/password"
                 android:tint="@android:color/darker_gray"
 
-                />
+                />-->
+            <!--<androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/AppCompatEditTextVerficationCode"
+                style="@style/TextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Enter verification code"
+                android:inputType="textPassword"
+                android:padding="10dp"
+                android:textAllCaps="true"
 
-            <androidx.appcompat.widget.AppCompatEditText
+
+                />-->
+
+
+            <!--<androidx.appcompat.widget.AppCompatEditText
                 android:id="@+id/AppCompatEditTextPassword"
                 style="@style/TextView"
                 android:layout_width="match_parent"
@@ -97,7 +110,7 @@
 
 
                 />
-        </LinearLayout>
+-->        </LinearLayout>
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/buttonVerifiactionCode"
             android:layout_width="match_parent"
@@ -112,7 +125,7 @@
             android:textColor="@android:color/white"
             android:textSize="18dp"
             android:textStyle="bold" />
-        <androidx.appcompat.widget.AppCompatEditText
+       <!-- <androidx.appcompat.widget.AppCompatEditText
             android:id="@+id/AppCompatEditTextVerficationCode"
             style="@style/TextView"
             android:layout_width="match_parent"
@@ -124,8 +137,8 @@
 
 
             />
-
-        <androidx.appcompat.widget.AppCompatButton
+-->
+        <!--<androidx.appcompat.widget.AppCompatButton
             android:id="@+id/buttonSignUpPhone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -138,6 +151,6 @@
             android:textAllCaps="true"
             android:textColor="@android:color/white"
             android:textSize="18dp"
-            android:textStyle="bold" />
+            android:textStyle="bold" />-->
     </LinearLayout>
 </RelativeLayout>

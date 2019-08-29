@@ -47,8 +47,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         iniUI();
         initListner();
         //Get Firebase auth instance
-//      auth = FirebaseAuth.getInstance();
-//        FirebaseApp.initializeApp(context);
+     auth = FirebaseAuth.getInstance();
+     FirebaseApp.initializeApp(context);
 
     }
    /* @Override
@@ -103,8 +103,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         FragmentTransaction fragmentTransaction = fm.beginTransaction();
         fragmentTransaction.replace(R.id.fragment_place, fr);
         fragmentTransaction.commit();
-
-
 
     }
 

@@ -286,7 +286,7 @@ public class ConfirmDetailsActivity extends AppCompatActivity implements View.On
             CharSequence str = text.getText().toString();
             return TextUtils.isEmpty(str);
 
-        }
+    }
 }
 
 

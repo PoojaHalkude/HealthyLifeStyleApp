@@ -43,6 +43,8 @@
     <string name="Label_Food">FOOD</string>
     <string name="Label_Sleep">Sleep</string>
 
+    <string name="Label_Activity">Activity</string>
+    <string name="Label_DailyAgenda">Daily Agenda</string>
 
     <string name="title_activity_user_profile">UserProfileActivity</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
