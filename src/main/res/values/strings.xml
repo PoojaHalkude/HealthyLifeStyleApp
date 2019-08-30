@@ -67,5 +67,31 @@
     <string name="menu_send">Send</string>
     <string name="Label_ProgressStaticData">Lorem ipsum dolor sit amet, consectetur adipisicing elite, sed do</string>
 
-
+    <array name="material_calendar_months_array">
+        <item>January</item>
+        <item>February</item>
+        <item>March</item>
+        <item>April</item>
+        <item>May</item>
+        <item>June</item>
+        <item>July</item>
+        <item>August</item>
+        <item>September</item>
+        <item>October</item>
+        <item>November</item>
+        <item>December</item>
+    </array>
+    <string name="material_calendar_today_button">Today</string>
+    <string name="material_calendar_positive_button">OK</string>
+    <string name="material_calendar_negative_button">Cancel</string>
+    <string name="current_date">June, 2016</string>
+    <string name="add_event">ADD CALENDAR EVENT</string>
+    <string name="sun">SUN</string>
+    <string name="mon">MON</string>
+    <string name="tue">TUE</string>
+    <string name="wed">WED</string>
+    <string name="thu">THU</string>
+    <string name="fri">FRI</string>
+    <string name="sat">SAT</string>
+    <string name="last_date">30</string>
 </resources>

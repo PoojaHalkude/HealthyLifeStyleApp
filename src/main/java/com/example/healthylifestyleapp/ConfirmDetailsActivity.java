@@ -1,3 +1,4 @@
+
 package com.example.healthylifestyleapp;
 
 /*
@@ -186,7 +187,7 @@ public class ConfirmDetailsActivity extends AppCompatActivity implements View.On
                 dialogHeight.show();
                 final Spinner SpinnerHeight1, SpinnerHeight2;
                 SpinnerHeight1 = dialogHeight.findViewById(R.id.SpinnerHeight1);
-                SpinnerHeight2 = dialogHeight.findViewById(R.id.SpinnerHeight2);
+               // SpinnerHeight2 = dialogHeight.findViewById(R.id.SpinnerHeight2);
                 List HeightMeter = new ArrayList<Integer>();
                 for (int i = 1; i <= 10; i++) {
                     HeightMeter.add(Integer.toString(i));
@@ -200,12 +201,12 @@ public class ConfirmDetailsActivity extends AppCompatActivity implements View.On
                 for (int i = 5; i <= 100; i++) {
                     HeightCM.add(Integer.toString(i));
                 }
-                ArrayAdapter<Integer> SpinnerHeightAdapater2 = new ArrayAdapter<Integer>(
+               /* ArrayAdapter<Integer> SpinnerHeightAdapater2 = new ArrayAdapter<Integer>(
                         this, android.R.layout.simple_spinner_item, HeightCM);
                 SpinnerHeightAdapater2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
                 SpinnerHeight2.setAdapter(SpinnerHeightAdapater2);
-
+*/
                 SpinnerHeight1.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
 
                     @Override
@@ -223,7 +224,7 @@ public class ConfirmDetailsActivity extends AppCompatActivity implements View.On
                     }
                 });
 
-                SpinnerHeight2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                /*SpinnerHeight2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
 
                     @Override
                     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -238,14 +239,14 @@ public class ConfirmDetailsActivity extends AppCompatActivity implements View.On
                     public void onNothingSelected(AdapterView<?> parent) {
 
                     }
-                });
+                });*/
 
             case R.id.AppCompatButtonConfirmDetails:
                 //check if input details are filled or not
                 if(validate())
             {
                 AppCompatButtonConfirmDetails.setText("FINISH");
-                Intent myIntent = new Intent(this, HomeScreenActivity.class );
+                Intent myIntent = new Intent(this, UserProfileActivity.class );
                 startActivity(myIntent);
             }
 
@@ -281,7 +282,7 @@ public class ConfirmDetailsActivity extends AppCompatActivity implements View.On
     boolean isEmpty(AppCompatTextView text) {
         AppCompatButtonConfirmDetails.setText("FINISH");
         AppCompatButtonConfirmDetails.setBackground(getResources().getDrawable(R.drawable.sign_up_background));
-        Intent myIntent = new Intent(this, HomeScreenActivity.class );
+        Intent myIntent = new Intent(this, UserProfileActivity.class );
         startActivity(myIntent);
             CharSequence str = text.getText().toString();
             return TextUtils.isEmpty(str);

@@ -1,5 +1,6 @@
 package com.example.healthylifestyleapp;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -86,10 +87,10 @@ public class UserProfileActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_home) {
-            // Handle the camera action
-        } else if (id == R.id.nav_home) {
+            Intent homeIntent= new Intent(this, ProfileScreenActivity.class);
+            startActivity(homeIntent);
 
-        } else if (id ==R.id.nav_home_recipes) {
+        }  else if (id ==R.id.nav_home_recipes) {
 
         } else if (id == R.id.nav_about_us) {
 

@@ -64,7 +64,7 @@
         android:orientation="horizontal" />
 
     <RelativeLayout
-        android:id="@+id/rlHeader1"
+        android:id="@+id/rlHeaderDailyAgenda"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/coloragendaback"
@@ -73,7 +73,7 @@
        >
 
     <ImageView
-        android:id="@+id/ImageViewMenu1"
+        android:id="@+id/ImageViewShoowCalendar"
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:layout_marginRight="10dp"
@@ -86,13 +86,160 @@
         android:layout_width="176dp"
         android:layout_height="wrap_content"
 
-        android:layout_toRightOf="@+id/ImageViewMenu1"
+        android:layout_toRightOf="@+id/ImageViewShoowCalendar"
         android:gravity="center_vertical"
         android:text="@string/Label_DailyAgenda"
         android:textColor="@color/colorYellow"
         android:textSize="18dp"
         android:fontFamily="monospace"
         android:textAllCaps="true"/>
+
+
     </RelativeLayout>
+    <TextView
+        android:id="@+id/Selecteddate"
+        android:layout_width="176dp"
+        android:layout_height="wrap_content"
+
+        android:layout_toRightOf="@+id/ImageViewShoowCalendar"
+        android:gravity="center_vertical"
+        android:text="Selected date"
+        android:textColor="@color/colorYellow"
+        android:textSize="18dp"
+        android:fontFamily="monospace"
+        android:textAllCaps="true"/>
+   <!-- <DatePicker
+        android:id="@+id/datepicker"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </DatePicker>-->
 
 </LinearLayout>
+       <!-- <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
+            android:background="@color/colorAccent"
+            android:orientation="horizontal">
+            <ImageView
+                android:id="@+id/previous_month"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:contentDescription="@string/app_name"
+                android:src="@drawable/left_arrow"
+                android:layout_weight="1"/>
+            <TextView
+                android:id="@+id/display_current_date"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textColor="@color/colorPrimaryDark"
+                android:text="@string/current_date"
+                android:layout_marginTop="4dp"
+                android:textStyle="bold"
+                android:layout_weight="3"/>
+            <ImageView
+                android:id="@+id/next_month"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:contentDescription="@string/app_name"
+                android:src="@drawable/right_arrow"
+                android:layout_weight="1"/>
+        </LinearLayout>
+        <Button
+            android:id="@+id/add_calendar_event"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textSize="12sp"
+            android:text="@string/add_event"
+            android:gravity="center"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimaryDark"
+            android:paddingBottom="4dp"
+            android:paddingTop="4dp"
+            android:orientation="horizontal">
+            <TextView
+                android:id="@+id/sun"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textColor="@android:color/white"
+                android:text="@string/sun"
+                android:layout_marginTop="4dp"
+                android:textStyle="bold"
+                android:layout_weight="1"/>
+            <TextView
+                android:id="@+id/mon"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textColor="@android:color/white"
+                android:text="@string/mon"
+                android:layout_marginTop="4dp"
+                android:textStyle="bold"
+                android:layout_weight="1"/>
+            <TextView
+                android:id="@+id/tue"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textColor="@android:color/white"
+                android:text="@string/tue"
+                android:layout_marginTop="4dp"
+                android:textStyle="bold"
+                android:layout_weight="1"/>
+            <TextView
+                android:id="@+id/wed"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textColor="@android:color/white"
+                android:text="@string/wed"
+                android:layout_marginTop="4dp"
+                android:textStyle="bold"
+                android:layout_weight="1"/>
+            <TextView
+                android:id="@+id/thu"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textColor="@android:color/white"
+                android:text="@string/thu"
+                android:layout_marginTop="4dp"
+                android:textStyle="bold"
+                android:layout_weight="1"/>
+            <TextView
+                android:id="@+id/fri"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textColor="@android:color/white"
+                android:text="@string/fri"
+                android:layout_marginTop="4dp"
+                android:textStyle="bold"
+                android:layout_weight="1"/>
+            <TextView
+                android:id="@+id/sat"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textColor="@android:color/white"
+                android:text="@string/sat"
+                android:layout_marginTop="4dp"
+                android:textStyle="bold"
+                android:layout_weight="1"/>
+        </LinearLayout>
+        <GridView
+            android:id="@+id/calendar_grid"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:numColumns="7"/>
+-->
+
