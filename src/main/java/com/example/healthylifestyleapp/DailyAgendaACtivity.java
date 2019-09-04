@@ -6,9 +6,12 @@ import androidx.core.content.ContextCompat;
 import androidx.viewpager.widget.ViewPager;
 
 import android.app.DatePickerDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.provider.CalendarContract;
 import android.view.View;
+import android.widget.Button;
 import android.widget.CalendarView;
 import android.widget.DatePicker;
 import android.widget.ImageView;
@@ -27,7 +30,7 @@ import java.util.Locale;
 import java.util.Timer;
 import java.util.TimerTask;
 
-public class DailyAgendaACtivity extends AppCompatActivity {
+public class DailyAgendaACtivity extends AppCompatActivity implements View.OnClickListener {
     ViewPager viewPager;
     LinearLayout sliderDotspanel;
     private int dotscount;
@@ -39,7 +42,7 @@ public class DailyAgendaACtivity extends AppCompatActivity {
     int dayOfMonth;
     Calendar calendar;
     TextView Selecteddate;
-
+    Button addEventButton;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,11 +52,36 @@ public class DailyAgendaACtivity extends AppCompatActivity {
         SlidingImage_Adapter viewPagerAdapter = new SlidingImage_Adapter(this);
         rlHeaderDailyAgenda =findViewById(R.id.rlHeaderDailyAgenda);
         Selecteddate=findViewById(R.id.Selecteddate);
-
+        addEventButton=findViewById(R.id.addEventButton);
         viewPager.setAdapter(viewPagerAdapter);
         dotscount = viewPagerAdapter.getCount();
         dots = new ImageView[dotscount];
-        rlHeaderDailyAgenda.setOnClickListener(new View.OnClickListener() {
+
+        addEventButton.setOnClickListener(new View.OnClickListener() {
+                                              @Override
+                                              public void onClick(View view) {
+                                                  Intent intent = new Intent(Intent.ACTION_INSERT);
+                                                  intent.setType("vnd.android.cursor.item/event");
+
+                                                  Calendar cal = Calendar.getInstance();
+                                                  long startTime = cal.getTimeInMillis();
+                                                  long endTime = cal.getTimeInMillis() + 60 * 60 * 1000;
+
+                                                  intent.putExtra(CalendarContract.EXTRA_EVENT_BEGIN_TIME, startTime);
+                                                  intent.putExtra(CalendarContract.EXTRA_EVENT_END_TIME, endTime);
+                                                  intent.putExtra(CalendarContract.EXTRA_EVENT_ALL_DAY, true);
+
+                                                  intent.putExtra(CalendarContract.Events.TITLE, "Neel Birthday");
+                                                  intent.putExtra(CalendarContract.Events.DESCRIPTION, "This is a sample description");
+                                                  intent.putExtra(CalendarContract.Events.EVENT_LOCATION, "My Guest House");
+                                                  intent.putExtra(CalendarContract.Events.RRULE, "FREQ=YEARLY");
+
+                                                  startActivity(intent);
+
+                                              }
+                                          });
+
+       /* rlHeaderDailyAgenda.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 calendar = Calendar.getInstance();
@@ -71,7 +99,8 @@ public class DailyAgendaACtivity extends AppCompatActivity {
                 datePickerDialog.show();
                 //updateLabel();
             }
-        });
+        });*/
+        Selecteddate.setOnClickListener(this);
 
         for(int i = 0; i < dotscount; i++){
 
@@ -112,6 +141,12 @@ public class DailyAgendaACtivity extends AppCompatActivity {
         });
         
     }
+
+    @Override
+    public void onClick(View v) {
+
+    }
+
 
     /*private void updateLabel() {
         String myFormat = "MM/dd/yy"; //In which you need put here

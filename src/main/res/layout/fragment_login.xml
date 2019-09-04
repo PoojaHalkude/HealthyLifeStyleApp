@@ -14,7 +14,7 @@
             android:orientation="vertical">
 
             <androidx.appcompat.widget.AppCompatEditText
-                android:id="@+id/appCompatButtonuserName"
+                android:id="@+id/AppCompatEditTextUserName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
@@ -22,11 +22,11 @@
                 android:background="@drawable/button_background"
                 android:padding="10dp"
                 android:fontFamily="monospace"
-                android:text="@string/Label_Username"
+                android:hint="@string/Label_Username"
                 android:textColor="@color/colorTextColor" />
 
             <androidx.appcompat.widget.AppCompatEditText
-                android:id="@+id/appCompatButtonPassword"
+                android:id="@+id/AppCompatEditTextPassword"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
@@ -34,7 +34,7 @@
                 android:gravity="center"
                 android:background="@drawable/button_background"
                 android:padding="10dp"
-                android:text="@string/Label_Password"
+                android:hint="@string/Label_Password"
                 android:textColor="@color/colorTextColor"/>
 
 
@@ -57,6 +57,13 @@
                 android:hint="@string/Label_Password"
 
                 />-->
+            <ProgressBar
+                android:id="@+id/progressBar"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_gravity="center|bottom"
+                android:layout_marginBottom="20dp"
+                android:visibility="gone" />
         </LinearLayout>
 
         <LinearLayout

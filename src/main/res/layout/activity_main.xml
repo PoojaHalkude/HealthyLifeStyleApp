@@ -71,12 +71,10 @@
             android:layout_marginRight="20dp"
             android:orientation="horizontal"
             android:weightSum="10">
-
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/AppCompatTextViewSignUp"
                 style="@style/TextViewClick"
                 android:layout_width="0dp"
-
                 android:layout_height="wrap_content"
                 android:layout_weight="5"
                 android:clickable="true"

@@ -45,8 +45,15 @@ public class FragmentEmail extends android.app.Fragment implements View.OnClickL
         AppCompatEditTextPassword=rootView.findViewById(R.id.AppCompatEditTextPassword);
         AppCompatEditTextUserName=rootView.findViewById(R.id.AppCompatEditTextUserName);
         progressBar=rootView.findViewById(R.id.progressBar);
-     FirebaseApp.initializeApp(getActivity());
+        FirebaseApp.initializeApp(getActivity());
         mAuth = FirebaseAuth.getInstance();
+       /* if(auth.getCurrentUser() != null){
+
+            startActivity(new Intent(getActivity(), UserProfileActivity.class));
+        }
+*/
+
+        FirebaseApp.initializeApp(getActivity());
         AppCompatButtonSignUp.setOnClickListener(this);
         return rootView;
 
@@ -81,43 +88,28 @@ public class FragmentEmail extends android.app.Fragment implements View.OnClickL
                 }
 
                 progressBar.setVisibility(View.VISIBLE);
-                /*mAuth.createUserWithEmailAndPassword(email, password)
-                        .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                            @Override
-                            public void onComplete(@NonNull Task<AuthResult> task) {
-                                if (task.isSuccessful()) {
-                                    Toast.makeText(getApplicationContext(), "Registration successful!", Toast.LENGTH_LONG).show();
-                                    progressBar.setVisibility(View.GONE);
 
-                                    Intent intent = new Intent(getActivity(), MainActivity.class);
-                                    startActivity(intent);
-                                }
-                                else {
-                                    Toast.makeText(getApplicationContext(), "Registration failed! Please try again later", Toast.LENGTH_LONG).show();
-                                    progressBar.setVisibility(View.GONE);
-                                }
-                            }
-                        });*/
 
                 mAuth.createUserWithEmailAndPassword(email, password)
                         .addOnCompleteListener(getActivity(), new OnCompleteListener<AuthResult>() {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 Toast.makeText(getActivity(),"createUserWithEmail:onComplete:" + task.isSuccessful(), Toast.LENGTH_SHORT).show();
-                               /* FragmentTransaction ft = getFragmentManager().beginTransaction();
-                                Fragment mFrag = new NextFragment();
-                                ft.replace(R.id.fra, mFrag);
-                                ft.commit();
-                                progressBar.setVisibility(View.GONE);*/
+
+                                progressBar.setVisibility(View.GONE);
 
                                 if (!task.isSuccessful()) {
                                     Toast.makeText(getActivity(), "Authentication failed." + task.getException(),
                                             Toast.LENGTH_SHORT).show();
                                 } else {
-                                    startActivity(new Intent(getActivity(), MainActivity.class));
+                                    Toast.makeText(getApplicationContext(), "Registration Successful!", Toast.LENGTH_LONG).show();
+                                    progressBar.setVisibility(View.GONE);
+                                    Intent myIntent=new Intent(getActivity(), StartedActivity.class);
+                                    startActivity(myIntent);
+
+                                    // startActivity(new Intent(getActivity(), MainActivity.class));
                                 }
-                                Intent myIntent=new Intent(getActivity(), StartedActivity.class);
-                                startActivity(myIntent);
+
 
                             }
                         });
@@ -132,6 +124,30 @@ public class FragmentEmail extends android.app.Fragment implements View.OnClickL
         super.onResume();
         progressBar.setVisibility(View.GONE);
     }
+    @Override
+
+    public void onStart() {
+        super.onStart();
+        if (mAuth.getCurrentUser()!=null)
+        {
+            getActivity().finish();
+            startActivity(new Intent(getActivity(),ProfileScreenActivity.class ));
+
+        }
+    }
 
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+

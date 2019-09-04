@@ -97,11 +97,17 @@ public class UserProfileActivity extends AppCompatActivity
         } else if (id == R.id.nav_privacy) {
 
         } else if (id == R.id.nav_logout) {
+            logOut();
 
         }
-
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    private void logOut() {
+        Intent logoutIntent = new Intent(this, MainActivity.class);
+        logoutIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+    startActivity(logoutIntent);
     }
 }
