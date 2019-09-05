@@ -1,8 +1,6 @@
 package com.example.healthylifestyleapp;
 
 import android.annotation.SuppressLint;
-import android.app.FragmentTransaction;
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -15,8 +13,6 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.widget.AppCompatButton;
 import androidx.appcompat.widget.AppCompatEditText;
-import androidx.appcompat.widget.AppCompatTextView;
-import androidx.fragment.app.Fragment;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -47,11 +43,10 @@ public class FragmentEmail extends android.app.Fragment implements View.OnClickL
         progressBar=rootView.findViewById(R.id.progressBar);
         FirebaseApp.initializeApp(getActivity());
         mAuth = FirebaseAuth.getInstance();
-       /* if(auth.getCurrentUser() != null){
+        if(mAuth.getCurrentUser() != null){
 
             startActivity(new Intent(getActivity(), UserProfileActivity.class));
         }
-*/
 
         FirebaseApp.initializeApp(getActivity());
         AppCompatButtonSignUp.setOnClickListener(this);

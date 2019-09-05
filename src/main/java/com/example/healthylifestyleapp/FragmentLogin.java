@@ -1,6 +1,5 @@
 package com.example.healthylifestyleapp;
 
-import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -19,10 +18,6 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-
-import java.util.concurrent.Executor;
-
-import static com.firebase.ui.auth.AuthUI.getApplicationContext;
 
 public class FragmentLogin extends android.app.Fragment implements View.OnClickListener {
 
@@ -106,7 +101,7 @@ public class FragmentLogin extends android.app.Fragment implements View.OnClickL
                                 } else {
                                     Toast.makeText(getActivity(), "Login Successful!", Toast.LENGTH_LONG).show();
                                     progressBar.setVisibility(View.GONE);
-                                    Intent myIntent=new Intent(getActivity(), ProfileScreenActivity.class);
+                                    Intent myIntent=new Intent(getActivity(), StartedActivity.class);
                                     startActivity(myIntent);
 
                                     // startActivity(new Intent(getActivity(), MainActivity.class));

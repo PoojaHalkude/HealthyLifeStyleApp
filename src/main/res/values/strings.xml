@@ -95,5 +95,6 @@
     <string name="sat">SAT</string>
     <string name="last_date">30</string>
 
-
+    <string name="facebook_app_id">2476754999088180</string>
+    <string name="fb_login_protocol_scheme">fb2476754999088180</string>
 </resources>
