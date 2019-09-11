@@ -1,9 +1,11 @@
 package com.example.healthylifestyleapp;
 
+import android.os.Bundle;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 public class ProfileScreenActivity extends AppCompatActivity {
-  /* ImageView ImageViewProfilePic;
+   /*ImageView ImageViewProfilePic;
 TextView TextViewUserName,TextViewMobile;
     // Folder path for Firebase Storage.
     String Storage_Path = "All_Image_Uploads/";
@@ -19,7 +21,7 @@ TextView TextViewUserName,TextViewMobile;
     // Image request code for onActivityResult() .
     int Image_Request_Code = 7;
 
-    ProgressDialog progressDialog ;
+    ProgressDialog progressDialog ;*/
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,9 +31,8 @@ TextView TextViewUserName,TextViewMobile;
      //   TextViewMobile.findViewById(R.id.TextViewMobile);
        // loadUserInfo();
 
-*/
-   /* }
+    }
 
-    private void loadUserInfo() {
+    /*private void loadUserInfo() {
     }*/
 }

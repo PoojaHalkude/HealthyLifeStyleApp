@@ -249,39 +249,33 @@
         android:layout_alignParentBottom="true"
         android:layout_marginTop="10dp"
         android:orientation="horizontal"
-        android:weightSum="15">
+        android:weightSum="15"
+        android:layout_marginBottom="20dp">
 
         <ImageView
             android:id="@+id/ImageViewActivity"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginRight="20dp"
-            android:layout_marginBottom="10dp"
-            android:src="@drawable/ic_account_circle"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="5"
+
+            android:src="@drawable/activity_image"
             android:tint="@color/colorYellow" />
 
         <ImageView
             android:id="@+id/ImageViewHome"
-            android:layout_width="30dp"
+            android:layout_width="0dp"
             android:layout_height="30dp"
-            android:layout_marginLeft="120dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginRight="20dp"
-            android:layout_marginBottom="10dp"
+            android:layout_weight="5"
             android:layout_toRightOf="@+id/ImageViewActivity"
             android:src="@drawable/ic_home_black"
             android:tint="@color/colorYellow" />
 
         <ImageView
             android:id="@+id/ImageViewSettings"
-            android:layout_width="30dp"
+            android:layout_width="0dp"
             android:layout_height="30dp"
-            android:layout_marginLeft="100dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginRight="20dp"
-            android:layout_marginBottom="10dp"
+            android:layout_weight="5"
+
             android:layout_toRightOf="@+id/ImageViewHome"
             android:src="@drawable/ic_settings_black"
             android:tint="@color/colorYellow" />

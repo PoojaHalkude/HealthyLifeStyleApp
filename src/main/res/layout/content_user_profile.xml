@@ -7,70 +7,28 @@
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context=".UserProfileActivity"
     tools:showIn="@layout/app_bar_user_profile">
-    <!--<RelativeLayout
-        android:id="@+id/rlHeader"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/colorSettingBack"
-        >
-
-        <ImageView
-            android:id="@+id/ImageViewMenu"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_margin="20dp"
-            android:src="@drawable/ic_menu_black"
-            android:tint="@android:color/white" />
-
-        <TextView
-            android:id="@+id/textViewSettings"
-            android:layout_width="176dp"
-            android:layout_height="wrap_content"
-            android:layout_margin="20dp"
-            android:layout_toRightOf="@+id/ImageViewMenu"
-            android:gravity="center_vertical"
-            android:text="@string/menu_home"
-            android:textColor="@android:color/white"
-            android:textSize="20dp" />
-
-        <ImageView
-            android:id="@+id/ImageViewSearch"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_alignParentRight="true"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginRight="20dp"
-            android:layout_marginBottom="20dp"
-            android:layout_toRightOf="@+id/textViewSettings"
-            android:src="@drawable/ic_search_black"
-            android:tint="@android:color/white" />
-    </RelativeLayout>-->
     <LinearLayout
-
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
         android:layout_below="@+id/rlHeader"
-        android:gravity="center"
         android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
         android:layout_marginTop="10dp"
-        android:layout_marginBottom="10dp">
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="10dp"
+        android:gravity="center"
+        android:orientation="vertical">
         <LinearLayout
+            android:id="@+id/LLHeaderDrink"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
             android:layout_weight="10"
+            android:background="@drawable/background_progrees1"
             android:gravity="center"
-            android:background="@drawable/background_progrees1">
+            android:orientation="horizontal">
             <RelativeLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="5"
-
-                >
-
+                android:layout_weight="5">
                 <ProgressBar
                     android:id="@+id/progressBarDrink"
                     style="?android:attr/progressBarStyleHorizontal"
@@ -89,10 +47,11 @@
                     android:layout_height="wrap_content"
                     android:layout_alignBottom="@+id/progressBarDrink"
                     android:layout_centerInParent="true"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
                     android:textColor="@color/colorYellow"
-                    android:textStyle="bold"
-                    android:textAppearance="?android:attr/textAppearanceMedium"/>
+                    android:textStyle="bold" />
             </RelativeLayout>
+
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
@@ -102,37 +61,38 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/Label_Drink"
                     android:layout_marginLeft="20dp"
                     android:layout_marginBottom="5dp"
+                    android:text="@string/Label_Drink"
+                    android:textColor="@android:color/black"
                     android:textSize="18dp"
-                    android:textStyle="bold"
-                    android:textColor="@android:color/black"/>
+                    android:textStyle="bold" />
+
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/Label_ProgressStaticData"
                     android:layout_marginLeft="20dp"
                     android:layout_marginRight="20dp"
-                    android:textSize="17dp"
+                    android:text="@string/Label_ProgressStaticData"
                     android:textColor="@android:color/black"
-                    />
+                    android:textSize="17dp" />
             </LinearLayout>
         </LinearLayout>
+
         <LinearLayout
+            android:id="@+id/LLHeaderFood"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_weight="10"
             android:layout_marginTop="10dp"
+            android:layout_weight="10"
+            android:background="@drawable/background_progrees1"
             android:gravity="center"
-            android:background="@drawable/background_progrees1">
+            android:orientation="horizontal">
+
             <RelativeLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="5"
-
-                >
+                android:layout_weight="5" >
 
                 <ProgressBar
                     android:id="@+id/progressBarFood"
@@ -152,10 +112,11 @@
                     android:layout_height="wrap_content"
                     android:layout_alignBottom="@+id/progressBarFood"
                     android:layout_centerInParent="true"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
                     android:textColor="@color/colorYellow"
-                    android:textStyle="bold"
-                    android:textAppearance="?android:attr/textAppearanceMedium"/>
+                    android:textStyle="bold" />
             </RelativeLayout>
+
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
@@ -165,37 +126,37 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/Label_Food"
                     android:layout_marginLeft="20dp"
                     android:layout_marginBottom="5dp"
+                    android:text="@string/Label_Food"
+                    android:textColor="@android:color/black"
                     android:textSize="18dp"
-                    android:textStyle="bold"
-                    android:textColor="@android:color/black"/>
+                    android:textStyle="bold" />
+
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/Label_ProgressStaticData"
                     android:layout_marginLeft="20dp"
                     android:layout_marginRight="20dp"
-                    android:textSize="17dp"
+                    android:text="@string/Label_ProgressStaticData"
                     android:textColor="@android:color/black"
-                    />
+                    android:textSize="17dp" />
             </LinearLayout>
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_weight="10"
             android:layout_marginTop="10dp"
+            android:layout_weight="10"
+            android:background="@drawable/background_progrees1"
             android:gravity="center"
-            android:background="@drawable/background_progrees1">
+            android:orientation="horizontal">
+
             <RelativeLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="5"
-
-                >
+                android:layout_weight="5" >
 
                 <ProgressBar
                     android:id="@+id/progressBarSleep"
@@ -215,11 +176,13 @@
                     android:layout_height="wrap_content"
                     android:layout_alignBottom="@+id/progressBarSleep"
                     android:layout_centerInParent="true"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
                     android:textColor="@color/colorYellow"
-                    android:textStyle="bold"
-                    android:textAppearance="?android:attr/textAppearanceMedium"/>
+                    android:textStyle="bold" />
             </RelativeLayout>
+
             <LinearLayout
+                android:id="@+id/LLHeaderSleep"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="5"
@@ -228,24 +191,122 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/Label_Food"
                     android:layout_marginLeft="20dp"
                     android:layout_marginBottom="5dp"
+                    android:text="@string/Label_Sleep"
+                    android:textColor="@android:color/black"
                     android:textSize="18dp"
-                    android:textStyle="bold"
-                    android:textColor="@android:color/black"/>
+                    android:textAllCaps="true"
+                    android:textStyle="bold" />
+
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/Label_ProgressStaticData"
                     android:layout_marginLeft="20dp"
                     android:layout_marginRight="20dp"
-                    android:textSize="17dp"
+                    android:text="@string/Label_ProgressStaticData"
                     android:textColor="@android:color/black"
-                    />
+                    android:textSize="17dp" />
             </LinearLayout>
         </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="10dp"
+            android:layout_weight="10"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:padding="10dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="5"
+                android:text="@string/Label_ProgressStaticData" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="5"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:src="@drawable/ic_favorite_black"
+                    android:tint="@color/colorYellow" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:text="609"
+                    android:textColor="@color/colorYellow" />
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_margin="5dp"
+                    android:src="@drawable/ic_indeterminate_check"
+                    android:tint="@color/colorYellow" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:text="609"
+                    android:textColor="@color/colorYellow" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="10dp"
+
+            android:layout_marginBottom="20dp"
+            android:orientation="horizontal"
+
+
+            android:weightSum="15">
+
+            <ImageView
+                android:id="@+id/ImageViewActivity"
+                android:layout_width="0dp"
+                android:layout_height="30dp"
+                android:layout_weight="5"
+
+                android:src="@drawable/activity_image"
+                android:tint="@color/colorYellow" />
+
+            <ImageView
+                android:id="@+id/ImageViewHome"
+                android:layout_width="0dp"
+                android:layout_height="30dp"
+                android:layout_toRightOf="@+id/ImageViewActivity"
+                android:layout_weight="5"
+                android:src="@drawable/ic_home_black"
+                android:tint="@color/colorYellow" />
+
+            <ImageView
+                android:id="@+id/ImageViewSettings"
+                android:layout_width="0dp"
+                android:layout_height="30dp"
+                android:layout_toRightOf="@+id/ImageViewHome"
+
+                android:layout_weight="5"
+                android:src="@drawable/ic_settings_black"
+                android:tint="@color/colorYellow" />
+        </LinearLayout>
+
     </LinearLayout>
-
-
 </RelativeLayout>

@@ -1,22 +1,7 @@
 package com.example.healthylifestyleapp;
 
-import android.view.View;
-
-import androidx.annotation.NonNull;
-
-import com.firebase.ui.auth.data.model.User;
-import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
-
-import java.util.ArrayList;
-import java.util.List;
-
 public class FirebaseDataHelper {
-    private FirebaseDatabase UserDatabase;
+   /* private FirebaseDatabase UserDatabase;
     private DatabaseReference userReference;
     private List<UserData> userList=new ArrayList<>();
 
@@ -54,7 +39,7 @@ public class FirebaseDataHelper {
             }
         });
     }
-   /* public void addUser(UserData userData, final DataStatus dataStatus) {
+   *//* public void addUser(UserData userData, final DataStatus dataStatus) {
         String key = userReference.push().getKey();
         userReference.child(key).setValue(userList).addOnSuccessListener((OnSuccessListener)
        {

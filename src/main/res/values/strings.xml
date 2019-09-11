@@ -42,6 +42,23 @@
     <string name="Label_Drink">DRINK</string>
     <string name="Label_Food">FOOD</string>
     <string name="Label_Sleep">Sleep</string>
+    <string name="Label_DailyGoal">Daily Goal</string>
+    <string name="Label_CupSize">Cup Size</string>
+    <string name="Label_Reminder">Water Reminder</string>
+    <string name="Label_Time">Time Interval</string>
+    <string name="Label_Start">Start</string>
+    <string name="Label_End">End</string>
+    <string name="Label_Looosemass">Loose Mass</string>
+    <string name="Label_date">May 14-jun13</string>
+
+    <string name="Label_Gainmass">Gain Mass</string>
+    <string name="Label_MealPlan">Meal Plan</string>
+    <string name="Label_Breakfast">Breakfast</string>
+    <string name="Label_personalizedData">Personalized workout will help \n you gain Strength</string>
+    <string name="Label_SeeMore">See More</string>
+    <string name="Label_Snack">Snack</string>
+
+    <string name="Label_SleepReminder">Sleep Reminder</string>
 
     <string name="Label_Activity">Activity</string>
     <string name="Label_DailyAgenda">Daily Agenda</string>

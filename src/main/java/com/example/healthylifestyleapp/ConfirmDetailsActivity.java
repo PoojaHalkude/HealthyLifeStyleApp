@@ -26,8 +26,6 @@ import androidx.appcompat.widget.AppCompatTextView;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.example.healthylifestyleapp.R.drawable.button_background;
-
 public class ConfirmDetailsActivity extends AppCompatActivity implements View.OnClickListener {
     LinearLayout LLHeaderAge, LLHeaderHeight, LLHeaderWeight, LLHeaderLevel;
     AppCompatButton AppCompatButtonConfirmDetails;
@@ -196,11 +194,11 @@ public class ConfirmDetailsActivity extends AppCompatActivity implements View.On
                         this, android.R.layout.simple_spinner_item, HeightMeter);
                 SpinnerHeightAdapater1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
-                SpinnerHeight1.setAdapter(SpinnerHeightAdapater1);
+               /* SpinnerHeight1.setAdapter(SpinnerHeightAdapater1);
                 List HeightCM = new ArrayList<Integer>();
                 for (int i = 5; i <= 100; i++) {
                     HeightCM.add(Integer.toString(i));
-                }
+                }*/
                /* ArrayAdapter<Integer> SpinnerHeightAdapater2 = new ArrayAdapter<Integer>(
                         this, android.R.layout.simple_spinner_item, HeightCM);
                 SpinnerHeightAdapater2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -240,6 +238,7 @@ public class ConfirmDetailsActivity extends AppCompatActivity implements View.On
 
                     }
                 });*/
+                break;
 
             case R.id.AppCompatButtonConfirmDetails:
                 //check if input details are filled or not
@@ -250,7 +249,7 @@ public class ConfirmDetailsActivity extends AppCompatActivity implements View.On
                 startActivity(myIntent);
             }
 
-
+break;
 
         }
     }

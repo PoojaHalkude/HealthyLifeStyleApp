@@ -1,8 +1,6 @@
 package com.example.healthylifestyleapp;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
+import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
 import android.content.ContentResolver;
 import android.content.Intent;
@@ -17,8 +15,13 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
@@ -31,11 +34,12 @@ import java.io.IOException;
 public class UpdateProfileDataActivity extends AppCompatActivity {
 
     // Creating button.
-    Button ChooseButton, UploadButton;
+    Button ChooseButton, UploadButton,ButtonSkip;
 
     // Creating EditText.
-    EditText ImageName, EditTextEmail,EditTextMobileNo,EditTextName;
-
+    EditText ImageName, EditTextEmail, EditTextMobileNo, EditTextName;
+    private FirebaseDatabase mDatabase = FirebaseDatabase.getInstance();
+    private DatabaseReference mDatabaseReference = mDatabase.getReference();
     // Creating ImageView.
     ImageView SelectImage;
 
@@ -51,8 +55,9 @@ public class UpdateProfileDataActivity extends AppCompatActivity {
     DatabaseReference databaseReference;
 
     // Image request code for onActivityResult() .
-    int Image_Request_Code = 7;
-    ProgressDialog progressDialog ;
+    int Image_Request_Code = 71;
+    ProgressDialog progressDialog;
+    FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -62,21 +67,39 @@ public class UpdateProfileDataActivity extends AppCompatActivity {
 
         // Assign FirebaseDatabase instance with root database name.
         databaseReference = FirebaseDatabase.getInstance().getReference(Database_Path);
-        EditTextName=findViewById(R.id.EditTextName);
-        EditTextEmail=findViewById(R.id.EditTextEmail);
-        EditTextMobileNo=findViewById(R.id.EditTextMobileNo);
+        EditTextName = findViewById(R.id.EditTextName);
+        EditTextEmail = findViewById(R.id.EditTextEmail);
+        EditTextMobileNo = findViewById(R.id.EditTextMobileNo);
         //Assign ID'S to button.
-        ChooseButton = (Button)findViewById(R.id.ButtonChooseImage);
-        UploadButton = (Button)findViewById(R.id.ButtonUploadImage);
-
+        ChooseButton = (Button) findViewById(R.id.ButtonChooseImage);
+        UploadButton = (Button) findViewById(R.id.ButtonUploadImage);
+        ButtonSkip=findViewById(R.id.ButtonSkip);
         // Assign ID's to EditText.
-        ImageName = (EditText)findViewById(R.id.EditTextName);
+        ImageName = (EditText) findViewById(R.id.EditTextName);
+        @SuppressLint("RestrictedApi")
+        UserData userNew = new UserData("Mickey","m@gmail.com","9049651515");
+        mDatabaseReference = mDatabase.getReference().child("user");
+        mDatabaseReference.setValue(user);
 
         // Assign ID'S to image view.
-        SelectImage = (ImageView)findViewById(R.id.ShowImageView);
-
+        SelectImage = (ImageView) findViewById(R.id.ShowImageView);
+        mDatabaseReference = mDatabase.getReference().child("name");
+        mDatabaseReference.setValue("Donald Duck");
         // Assigning Id to ProgressDialog.
         progressDialog = new ProgressDialog(this);
+       /* if (user != null)
+        {
+            // Name, email address, and profile photo Url
+            String name = user.getDisplayName();
+            String email = user.getEmail();
+            Uri photoUrl = user.getPhotoUrl();
+
+
+            // The user's ID, unique to the Firebase project. Do NOT use this value to
+            // authenticate with your backend server, if you have one. Use
+            // FirebaseUser.getToken() instead.
+            String uid = user.getUid();
+        }*/
 
         // Adding click listener to Choose image button.
         ChooseButton.setOnClickListener(new View.OnClickListener() {
@@ -93,8 +116,20 @@ public class UpdateProfileDataActivity extends AppCompatActivity {
 
             }
         });
+       /* UserProfileChangeRequest profileUpdates = new UserProfileChangeRequest.Builder()
+                .setDisplayName("Jane Q. User")
+                .setPhotoUri(Uri.parse("https://example.com/jane-q-user/profile.jpg"))
+                .build();
 
-
+        user.updateProfile(profileUpdates)
+                .addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        if (task.isSuccessful()) {
+                            Log.d("pooja", "User profile updated.");
+                        }
+                    }
+                });*/
         // Adding click listener to Upload image button.
         UploadButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -105,12 +140,22 @@ public class UpdateProfileDataActivity extends AppCompatActivity {
 
             }
         });
+        ButtonSkip.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
 
-    }
+                Intent myIntent1 = new Intent(getApplicationContext(), UserProfileActivity.class);
+                startActivity(myIntent1);
+
+
+            }
+        });    }
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 
         super.onActivityResult(requestCode, resultCode, data);
+
 
         if (requestCode == Image_Request_Code && resultCode == RESULT_OK && data != null && data.getData() != null) {
 
@@ -127,12 +172,13 @@ public class UpdateProfileDataActivity extends AppCompatActivity {
                 // After selecting image change choose button above text.
                 ChooseButton.setText("Image Selected");
 
-            }
-            catch (IOException e) {
+            } catch (IOException e) {
 
                 e.printStackTrace();
             }
+
         }
+
     }
 
     // Creating Method to get the selected image file Extension from File Path URI.
@@ -143,7 +189,7 @@ public class UpdateProfileDataActivity extends AppCompatActivity {
         MimeTypeMap mimeTypeMap = MimeTypeMap.getSingleton();
 
         // Returning the file Extension.
-        return mimeTypeMap.getExtensionFromMimeType(contentResolver.getType(uri)) ;
+        return mimeTypeMap.getExtensionFromMimeType(contentResolver.getType(uri));
 
     }
 
@@ -160,7 +206,7 @@ public class UpdateProfileDataActivity extends AppCompatActivity {
             progressDialog.show();
 
             // Creating second StorageReference.
-            StorageReference storageReference2nd = storageReference.child(Storage_Path + System.currentTimeMillis() + "." + GetFileExtension(FilePathUri));
+            StorageReference storageReference2nd = storageReference.child("images/" + System.currentTimeMillis() + "." + GetFileExtension(FilePathUri));
 
             // Adding addOnSuccessListener to second StorageReference.
             storageReference2nd.putFile(FilePathUri)
@@ -170,8 +216,8 @@ public class UpdateProfileDataActivity extends AppCompatActivity {
 
                             // Getting image name from EditText and store into string variable.
                             String Name = EditTextName.getText().toString().trim();
-                            String email=EditTextEmail.getText().toString().trim();
-                            String mobile=EditTextMobileNo.getText().toString().trim();
+                            String email = EditTextEmail.getText().toString().trim();
+                            String mobile = EditTextMobileNo.getText().toString().trim();
                             // Hiding the progressDialog after done uploading.
                             progressDialog.dismiss();
 
@@ -179,7 +225,7 @@ public class UpdateProfileDataActivity extends AppCompatActivity {
                             Toast.makeText(getApplicationContext(), "Image Uploaded Successfully ", Toast.LENGTH_LONG).show();
 
                             @SuppressWarnings("VisibleForTests")
-                            ImageUploadInfo imageUploadInfo = new ImageUploadInfo(Name,email,mobile, taskSnapshot.getClass().toString());
+                            ImageUploadInfo imageUploadInfo = new ImageUploadInfo(Name, email, mobile, taskSnapshot.getClass().toString());
 
                             // Getting image upload ID.
                             String ImageUploadId = databaseReference.push().getKey();
@@ -197,7 +243,7 @@ public class UpdateProfileDataActivity extends AppCompatActivity {
                             progressDialog.dismiss();
 
                             // Showing exception erro message.
-                            Toast.makeText(UpdateProfileDataActivity.this, exception.getMessage(), Toast.LENGTH_LONG).show();
+                            Toast.makeText(UpdateProfileDataActivity.this, "failed"+exception.getMessage(), Toast.LENGTH_LONG).show();
                         }
                     })
 
@@ -211,11 +257,17 @@ public class UpdateProfileDataActivity extends AppCompatActivity {
 
                         }
                     });
-        }
-        else {
+            Intent myIntent= new Intent(this, UserProfileActivity.class);
+            startActivity(myIntent);
+        } else {
 
             Toast.makeText(UpdateProfileDataActivity.this, "Please Select Image or Add Your Details", Toast.LENGTH_LONG).show();
 
         }
+
     }
+
+
 }
+
+

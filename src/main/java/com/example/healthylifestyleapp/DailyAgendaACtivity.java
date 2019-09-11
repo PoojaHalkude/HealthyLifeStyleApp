@@ -1,34 +1,21 @@
 package com.example.healthylifestyleapp;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.content.ContextCompat;
-import androidx.viewpager.widget.ViewPager;
-
 import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
 import android.provider.CalendarContract;
 import android.view.View;
 import android.widget.Button;
-import android.widget.CalendarView;
-import android.widget.DatePicker;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.applandeo.materialcalendarview.EventDay;
-import com.applandeo.materialcalendarview.listeners.OnDayClickListener;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
+import androidx.viewpager.widget.ViewPager;
 
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.List;
-import java.util.Locale;
-import java.util.Timer;
-import java.util.TimerTask;
 
 public class DailyAgendaACtivity extends AppCompatActivity implements View.OnClickListener {
     ViewPager viewPager;
@@ -43,7 +30,7 @@ public class DailyAgendaACtivity extends AppCompatActivity implements View.OnCli
     Calendar calendar;
     TextView Selecteddate;
     Button addEventButton;
-
+    ImageView imageView,ImageViewHome,ImageViewActivity,ImageViewSettings;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_daily_agenda_activity);
@@ -56,7 +43,13 @@ public class DailyAgendaACtivity extends AppCompatActivity implements View.OnCli
         viewPager.setAdapter(viewPagerAdapter);
         dotscount = viewPagerAdapter.getCount();
         dots = new ImageView[dotscount];
+        ImageViewHome=findViewById(R.id.ImageViewHome);
+        ImageViewActivity=findViewById(R.id.ImageViewActivity);
+        ImageViewSettings=findViewById(R.id.ImageViewSettings);
 
+        ImageViewHome.setOnClickListener(this);
+        ImageViewActivity.setOnClickListener(this);
+        ImageViewSettings.setOnClickListener(this);
         addEventButton.setOnClickListener(new View.OnClickListener() {
                                               @Override
                                               public void onClick(View view) {
@@ -144,6 +137,23 @@ public class DailyAgendaACtivity extends AppCompatActivity implements View.OnCli
 
     @Override
     public void onClick(View v) {
+
+            switch (v.getId())
+            {
+                case R.id.ImageViewSettings:
+                    Intent settingIntent= new Intent(this, SettingsActivity.class);
+                    startActivity(settingIntent);
+                    break;
+                case R.id.ImageViewHome:
+                    Intent HomeIntent= new Intent(this, UserProfileActivity.class);
+                    startActivity(HomeIntent);
+                    break;
+                case R.id.ImageViewActivity:
+                    Intent ActivityIntent= new Intent(this, DailyAgendaACtivity.class);
+                    startActivity(ActivityIntent);
+                    break;
+
+            }
 
     }
 

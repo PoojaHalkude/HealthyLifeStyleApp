@@ -2,28 +2,33 @@ package com.example.healthylifestyleapp;
 
 import android.content.Intent;
 import android.os.Bundle;
-
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
-
-import android.view.View;
-
-import androidx.core.view.GravityCompat;
-import androidx.appcompat.app.ActionBarDrawerToggle;
-
+import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
-import com.google.android.material.navigation.NavigationView;
-
-import androidx.drawerlayout.widget.DrawerLayout;
-
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 
-import android.view.Menu;
+import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class UserProfileActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+        implements NavigationView.OnNavigationItemSelectedListener, View.OnClickListener {
+   ImageView imageView,ImageViewHome,ImageViewActivity,ImageViewSettings;
+TextView TextViewUserName,TextViewEmail;
+    DatabaseReference rootRef, demoRef;
+    LinearLayout LLHeaderDrink,LLHeaderSleep, LLHeaderFood;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,7 +36,31 @@ public class UserProfileActivity extends AppCompatActivity
         setContentView(R.layout.activity_user_profile);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-       // FloatingActionButton fab = findViewById(R.id.fab);
+        InitUi();
+        initListner();
+        //database reference pointing to root of database
+        rootRef = FirebaseDatabase.getInstance().getReference();
+
+        //database reference pointing to demo node
+        demoRef = rootRef.child("All_Image_Uploads_Database");
+        demoRef.child("value").addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                String value = dataSnapshot.getValue(String.class);
+               // TextViewUserName.setText(value);
+                //TextViewEmail.setText(value);
+               // int imgval= (int) dataSnapshot.getValue();
+                //imageView.setImageResource(imgval);
+
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+        // FloatingActionButton fab = findViewById(R.id.fab);
       /*  fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -48,6 +77,27 @@ public class UserProfileActivity extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
     }
 
+    private void initListner() {
+        ImageViewHome.setOnClickListener(this);
+        ImageViewActivity.setOnClickListener(this);
+        ImageViewSettings.setOnClickListener(this);
+        LLHeaderDrink.setOnClickListener(this);
+        LLHeaderSleep.setOnClickListener(this);
+        LLHeaderFood.setOnClickListener(this);
+    }
+
+    private void InitUi() {
+        imageView=findViewById(R.id.imageView);
+        TextViewUserName=findViewById(R.id.TextViewUserName);
+        TextViewEmail=findViewById(R.id.TextViewEmail);
+        ImageViewHome=findViewById(R.id.ImageViewHome);
+        ImageViewActivity=findViewById(R.id.ImageViewActivity);
+        ImageViewSettings=findViewById(R.id.ImageViewSettings);
+        LLHeaderDrink=findViewById(R.id.LLHeaderDrink);
+        LLHeaderFood=findViewById(R.id.LLHeaderFood);
+        LLHeaderSleep=findViewById(R.id.LLHeaderSleep);
+    }
+
     @Override
     public void onBackPressed() {
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
@@ -57,6 +107,8 @@ public class UserProfileActivity extends AppCompatActivity
             super.onBackPressed();
         }
     }
+
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -83,6 +135,7 @@ public class UserProfileActivity extends AppCompatActivity
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
+
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
@@ -109,5 +162,41 @@ public class UserProfileActivity extends AppCompatActivity
         Intent logoutIntent = new Intent(this, MainActivity.class);
         logoutIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
     startActivity(logoutIntent);
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId())
+        {
+            case R.id.ImageViewSettings:
+                Intent settingIntent= new Intent(this, SettingsActivity.class);
+                startActivity(settingIntent);
+                break;
+            case R.id.ImageViewHome:
+                Intent HomeIntent= new Intent(this, UserProfileActivity.class);
+                startActivity(HomeIntent);
+                break;
+                case R.id.ImageViewActivity:
+            Intent ActivityIntent= new Intent(this, DailyAgendaACtivity.class);
+            startActivity(ActivityIntent);
+            break;
+            case R.id.LLHeaderDrink:
+                Intent DrinkIntent= new Intent(this, DrinkSettingActivity.class);
+                startActivity(DrinkIntent);
+                break;
+            case R.id.LLHeaderSleep:
+                Intent SleepIntent=new Intent(this,SleepSettingActivity.class);
+                startActivity(SleepIntent);
+                break;
+            case R.id.LLHeaderFood:
+                Intent FoodIntent= new Intent(this, FoodSettingActivity.class);
+                startActivity(FoodIntent);
+
+
+
+
+
+        }
+
     }
 }
