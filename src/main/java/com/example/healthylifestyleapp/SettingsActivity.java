@@ -1,16 +1,20 @@
 package com.example.healthylifestyleapp;
 
+import android.app.Dialog;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 public class SettingsActivity extends AppCompatActivity implements View.OnClickListener {
-     RelativeLayout rlHeaderProfile,rlHeaderLogOut;
+     RelativeLayout rlHeaderProfile,rlHeaderLogOut,rlHeaderLanguage,rlHeaderHealthData;
      ImageView ImageViewHome,ImageViewActivity,ImageViewSettings,ImageViewMenu;
+     Context context=this;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,7 +30,8 @@ public class SettingsActivity extends AppCompatActivity implements View.OnClickL
         ImageViewActivity.setOnClickListener(this);
         rlHeaderLogOut.setOnClickListener(this);
         ImageViewMenu.setOnClickListener(this);
-
+        rlHeaderHealthData.setOnClickListener(this);
+        rlHeaderLanguage.setOnClickListener(this);
     }
 
     private void initUI() {
@@ -36,6 +41,8 @@ public class SettingsActivity extends AppCompatActivity implements View.OnClickL
         ImageViewActivity=findViewById(R.id.ImageViewActivity);
         rlHeaderLogOut=findViewById(R.id.rlHeaderLogOut);
         ImageViewMenu=findViewById(R.id.ImageViewMenu);
+        rlHeaderLanguage=findViewById(R.id.rlHeaderLanguage);
+        rlHeaderHealthData=findViewById(R.id.rlHeaderHealthData);
 
     }
 
@@ -43,12 +50,38 @@ public class SettingsActivity extends AppCompatActivity implements View.OnClickL
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.rlHeaderLogOut:
-                Intent logoutIntent = new Intent(this, MainActivity.class);
-                logoutIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                startActivity(logoutIntent);
+                // custom dialog
+                final Dialog dialog = new Dialog(context);
+                dialog.setContentView(R.layout.custom_daiolg_logout);
+                dialog.setTitle("Title...");
+
+                // set the custom dialog components - text, image and button
+                //TextView text = (TextView) dialog.findViewById(R.id.text);
+                //text.setText("Android custom dialog example!");
+                Button ButtonNo=(Button) dialog.findViewById(R.id.ButtonNo);
+                Button ButtonYes= (Button) dialog.findViewById(R.id.ButtonYes);
+                // if button is clicked, close the custom dialog
+                ButtonNo.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent logoutIntent = new Intent(SettingsActivity.this, MainActivity.class);
+
+                        dialog.dismiss();
+                    }
+                });
+                ButtonYes.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent logoutIntent = new Intent(SettingsActivity.this, MainActivity.class);
+                        logoutIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                        startActivity(logoutIntent);
+                    }
+                });
+                dialog.show();
+
                 break;
                 case R.id.ImageViewSettings:
-                Intent settingIntent = new Intent(this, SettingsActivity.class);
+                Intent settingIntent = new Intent(this, UserProfileActivity.class);
                 startActivity(settingIntent);
                 break;
             case R.id.ImageViewHome:
@@ -60,9 +93,19 @@ public class SettingsActivity extends AppCompatActivity implements View.OnClickL
                 startActivity(ActivityIntent);
                 break;
 
-           /* case R.id.ImageViewMenu:
-                Intent MenuIntent= new Intent (this,)*/
+            case R.id.rlHeaderLanguage:
+                Intent langIntent= new Intent (this,LanguageSettingActivity.class);
+                startActivity(langIntent);
+                break;
 
+            case R.id.rlHeaderHealthData:
+                Intent HealthDataIntent= new Intent (this,HealthDataSettingsActivity.class);
+                startActivity(HealthDataIntent);
+                break;
+            case R.id.rlHeaderProfile:
+                Intent ProfileIntent= new Intent (this,ProfileScreenActivity.class);
+                startActivity(ProfileIntent);
+                break;
         }
     }
 }

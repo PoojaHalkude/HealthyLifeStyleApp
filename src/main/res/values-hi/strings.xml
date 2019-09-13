@@ -1,0 +1,131 @@
+<resources>
+    <string name="app_name">HealthyLifeStyleApp</string>
+    @string/Label_Account
+    <string name="Label_Heading">Healthy Lifestyle</string>
+    <string name="Label_Account">एक नया खाता बनाएं</string>
+
+    <string name="Label_BestExperince">App के साथ सबसे अच्छा अनुभव के लिए</string>
+    <string name="Label_Sign_up">साइन अप करें</string>
+    <string name="Label_Login">लॉग इन करें</string>
+    <string name="Label_SignupEmail">ईमेल के लिए साइन इन करें</string>
+    <string name="Label_SignupPhone">फोन नंबर के साथ भाग लें</string>
+    <string name="Label_Username">उपयोगकर्ता नाम</string>
+    <string name="Label_Password">पारण शब्द</string>
+    <string name="Label_Email">ईमेल</string>
+    <string name="Label_Phone">मोबाइल नंबर</string>
+    <string name="Label_GetStarted">शुरू हो जाओ</string>
+    <string name="Label_Physiques">अपनी भौतिकी दर्ज करें</string>
+    <string name="Label_Age">आयु</string>
+    <string name="Label_Height">ऊंचाई</string>
+    <string name="Label_Weight">वजन</string>
+    <string name="Label_Level">स्तर</string>
+    <string name="Label_Settings">समायोजन</string>
+    <string name="Label_Profile">प्रोफाइल</string>
+    <string name="Label_LanguageOptions">भाषा विकल्प</string>
+    <string name="Label_Language">भाषा</string>
+    <string name="Label_HeathData">स्वास्थ्य डेटा</string>
+    <string name="Label_createPlans">प्लान बनाएं</string>
+    <string name="Label_referFriend">मित्र का संदर्भ लें</string>
+    <string name="Label_Feedback">प्रतिपुष्टि</string>
+    <string name="Label_LogOut">लॉग आउट</string>
+    <string name="Label_SelectLevel">अपने स्तर का चयन करें</string>
+    <string name="Label_Beginner">शुरुआती</string>
+    <string name="Label_Advance">अग्रिम</string>
+    <string name="Label_Intermidiate">मध्यम</string>
+    <string name="Label_SelectWeight">अपना वजन चुनें</string>
+    <string name="Label_SelectHeight">अपनी ऊँचाई का चयन करें</string>
+    <string name="Label_SelectAge">अपनी आयु का चयन करें</string>
+    <string name="Label_ConfiemDetails">विवरण की पुष्टि करें</string>
+    <string name="Label_Finish">समाप्त</string>
+    <string name="Label_CompletedTask">पूरा टास्क</string>
+    <string name="Label_Goals">लक्ष्य</string>
+    <string name="Label_Reminders">अनुस्मारक</string>
+    <string name="Label_Plans">योजनाओं</string>
+    <string name="Label_FitnessDevice">फिटनेस डिवाइस</string>
+    <string name="Label_Drink">पीना</string>
+    <string name="Label_Food">खाना</string>
+    <string name="Label_Sleep">नींद</string>
+    <string name="Label_DailyGoal">दैनिक लक्ष्य</string>
+    <string name="Label_CupSize">कप का आकार</string>
+    <string name="Label_Reminder">जल स्मरण</string>
+    <string name="Label_Time">समय अंतराल</string>
+    <string name="Label_Start">शुरू</string>
+    <string name="Label_End">समाप्त</string>
+    <string name="Label_Looosemass">कम मास</string>
+    <string name="Label_date">14 मई- 13 जून</string>
+    <string name="Label_SureLogout">क्या आप वाकई लॉगआउट करना चाहते हैं?</string>
+    <string name="Label_No">नहीं</string>
+    <string name="Label_Yes">हाँ</string>
+    <string name="Label_Gainmass">गेन मास</string>
+    <string name="Label_MealPlan">भोजन योजना</string>
+    <string name="Label_Breakfast">सुबह का नाश्ता</string>
+    <string name="Label_personalizedData">व्यक्तिगत कसरत आपको स्ट्रेंथ हासिल करने \nमें मदद करेगी</string>
+    <string name="Label_SeeMore">और देखें</string>
+    <string name="Label_Snack">नाश्ता</string>
+    <string name="Label_Close">बंद करे</string>
+
+    <string name="Label_SleepReminder">नींद की याद दिलाते हैं</string>
+
+    <string name="Label_Activity">गतिविधि</string>
+    <string name="Label_DailyAgenda">दैनिक एजेंडा</string>
+    <string name="Label_PrivacyPolicy">गोपनीयता नीति</string>
+    <string name="Label_Article1">लेख 1</string>
+    <string name="Label_whoMayUse">कौन सेवा इस्तेमाल कर सकता है</string>
+    <string name="Label_Privacy">एकांत</string>
+    <string name="Label_PrivacyData">
+जब खुशी का एक दरवाजा बंद हो जाता है, तो दूसरा खुल जाता है, लेकिन अक्सर हम बंद दरवाजे पर इतने लंबे समय तक देखते हैं कि हमें यह नहीं दिखता कि हमारे लिए एक तह खोला गया है।
+    \ n \ t चरण 1: यदि आप हमारे साथ एक बाध्यकारी अनुबंध बनाने के लिए सहमत हैं और आप केवल उन लोगों के लिए उपयोग कर सकते हैं जो लागू अधिकार क्षेत्र के कानूनों के तहत सेवाएं प्राप्त करने से रोकते नहीं हैं। \ n \ t चरण 2: हमारी गोपनीयता नीति बताती है कि जब आप हमारी सेवाओं का उपयोग करते हैं तो हम आपके द्वारा प्रदान की गई जानकारी को संभालते हैं। </string>
+    <string name="Label_PrivacyData1">जब खुशी का एक दरवाजा बंद हो जाता है, तो दूसरा खुल जाता है, लेकिन अक्सर हम बंद दरवाजे पर इतने लंबे समय तक देखते हैं कि हमें यह नहीं दिखता कि हमारे लिए एक तह खोला गया है।
+    </string>
+    <string name="title_activity_user_profile">UserProfileActivity</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_home">घर</string>
+    <string name="menu_plans">योजनाओं</string>
+    <string name="menu_recipes">व्यंजनों</string>
+    <string name="menu_aboutus">हमारे बारे में</string>
+    <string name="menu_privacy">गोपनीयता नीति</string>
+    <string name="menu_logout">लॉग आउट</string>
+    <string name="menu_gallery">गेलरी</string>
+    <string name="menu_slideshow">स्लाइड शो</string>
+    <string name="menu_tools">उपकरण</string>
+    <string name="menu_share">शेयर</string>
+    <string name="menu_send">भेजना</string>
+    <string name="Label_ProgressStaticData">लॉरेम इप्सम डोलर अमेट, कंसेटेटुर एडिपिसिंग एलीट, सेड करते हैं</string>
+
+    <!-- <array name="material_calendar_months_array">
+        <item>January</item>
+        <item>February</item>
+        <item>March</item>
+        <item>April</item>
+        <item>May</item>
+        <item>June</item>
+        <item>July</item>
+        <item>August</item>
+        <item>September</item>
+        <item>October</item>
+        <item>November</item>
+        <item>December</item>
+    </array>
+    <string name="material_calendar_today_button">Today</string>
+    <string name="material_calendar_positive_button">OK</string>
+    <string name="material_calendar_negative_button">Cancel</string>
+    <string name="current_date">June, 2016</string>
+    <string name="add_event">ADD CALENDAR EVENT</string>
+    <string name="sun">SUN</string>
+    <string name="mon">MON</string>
+    <string name="tue">TUE</string>
+    <string name="wed">WED</string>
+    <string name="thu">THU</string>
+    <string name="fri">FRI</string>
+    <string name="sat">SAT</string>
+    <string name="last_date">30</string>-->
+
+    <string name="facebook_app_id">2476754999088180</string>
+    <string name="fb_login_protocol_scheme">fb2476754999088180</string>
+</resources>

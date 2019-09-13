@@ -1,38 +1,32 @@
 package com.example.healthylifestyleapp;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class ProfileScreenActivity extends AppCompatActivity {
-   /*ImageView ImageViewProfilePic;
-TextView TextViewUserName,TextViewMobile;
-    // Folder path for Firebase Storage.
-    String Storage_Path = "All_Image_Uploads/";
+public class ProfileScreenActivity extends AppCompatActivity implements View.OnClickListener {
+    ImageView ImageViewBack;
 
-    // Root Database Name for Firebase Database.
-    String Database_Path = "All_Image_Uploads_Database";
-    // Creating URI.
-    Uri FilePathUri;
-    // Creating StorageReference and DatabaseReference object.
-    StorageReference storageReference;
-    DatabaseReference databaseReference;
 
-    // Image request code for onActivityResult() .
-    int Image_Request_Code = 7;
-
-    ProgressDialog progressDialog ;*/
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile_screen);
-//        ImageViewProfilePic.findViewById(R.id.ImageViewProfilePic);
-//        TextViewUserName.findViewById(R.id.TextViewUserName);
-     //   TextViewMobile.findViewById(R.id.TextViewMobile);
-       // loadUserInfo();
+        ImageViewBack.findViewById(R.id.ImageViewBack);
+        ImageViewBack.setOnClickListener(this);
 
     }
 
-    /*private void loadUserInfo() {
-    }*/
+    @Override
+    public void onClick(View v) {
+        switch (v.getId())
+        {
+            case R.id.ImageViewBack:
+                Intent intentBack= new Intent(this,SettingsActivity.class);
+                startActivity(intentBack);
+        }
+    }
 }

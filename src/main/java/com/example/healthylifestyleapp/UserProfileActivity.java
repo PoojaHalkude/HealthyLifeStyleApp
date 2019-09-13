@@ -1,10 +1,13 @@
 package com.example.healthylifestyleapp;
 
+import android.app.Dialog;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -29,7 +32,7 @@ public class UserProfileActivity extends AppCompatActivity
 TextView TextViewUserName,TextViewEmail;
     DatabaseReference rootRef, demoRef;
     LinearLayout LLHeaderDrink,LLHeaderSleep, LLHeaderFood;
-
+Context context=this;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -149,8 +152,40 @@ TextView TextViewUserName,TextViewEmail;
 
         } else if (id == R.id.nav_privacy) {
 
+            Intent privacyIntent= new Intent(this, PrivacyPolicyActivity.class);
+            startActivity(privacyIntent);
         } else if (id == R.id.nav_logout) {
-            logOut();
+            final Dialog dialog = new Dialog(context);
+            dialog.setContentView(R.layout.custom_daiolg_logout);
+            dialog.setTitle("Title...");
+
+            // set the custom dialog components - text, image and button
+            //TextView text = (TextView) dialog.findViewById(R.id.text);
+            //text.setText("Android custom dialog example!");
+            Button ButtonNo=(Button) dialog.findViewById(R.id.ButtonNo);
+            Button ButtonYes= (Button) dialog.findViewById(R.id.ButtonYes);
+            // if button is clicked, close the custom dialog
+            ButtonNo.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent logoutIntent = new Intent(UserProfileActivity.this, MainActivity.class);
+
+                    dialog.dismiss();
+                }
+            });
+            ButtonYes.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent logoutIntent = new Intent(UserProfileActivity.this, MainActivity.class);
+                    logoutIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                    startActivity(logoutIntent);
+                }
+            });
+            dialog.show();
+
+            ;
+
+            //logOut();
 
         }
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
@@ -158,11 +193,11 @@ TextView TextViewUserName,TextViewEmail;
         return true;
     }
 
-    private void logOut() {
+   /* private void logOut() {
         Intent logoutIntent = new Intent(this, MainActivity.class);
         logoutIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
     startActivity(logoutIntent);
-    }
+    }*/
 
     @Override
     public void onClick(View v) {

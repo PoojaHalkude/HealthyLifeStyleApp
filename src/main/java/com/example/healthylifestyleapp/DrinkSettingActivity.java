@@ -1,14 +1,18 @@
 package com.example.healthylifestyleapp;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.CompoundButton;
+import android.widget.ImageView;
 import android.widget.Switch;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class DrinkSettingActivity extends AppCompatActivity implements CompoundButton.OnCheckedChangeListener {
+public class DrinkSettingActivity extends AppCompatActivity implements CompoundButton.OnCheckedChangeListener, View.OnClickListener {
      Switch simpleSwitch;
+ImageView imgBackSpace;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,11 +25,13 @@ public class DrinkSettingActivity extends AppCompatActivity implements CompoundB
 
     private void initListner() {
         simpleSwitch.setOnCheckedChangeListener(this);
+        imgBackSpace.setOnClickListener(this);
 
     }
 
     private void initUI() {
         simpleSwitch = (Switch) findViewById(R.id.simpleSwitch);
+        imgBackSpace=findViewById(R.id.imgBackSpace);
 
     }
 
@@ -41,5 +47,16 @@ public class DrinkSettingActivity extends AppCompatActivity implements CompoundB
                     Toast.makeText(getApplicationContext(), "OFF", Toast.LENGTH_SHORT).show(); // display the current state for switch's
 
                 }
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId())
+        {
+            case R.id.imgBackSpace:
+                Intent intentBack= new Intent(this,UserProfileActivity.class);
+                startActivity(intentBack);
+        }
+
     }
 }

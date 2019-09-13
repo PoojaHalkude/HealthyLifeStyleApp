@@ -1,7 +1,9 @@
 <resources>
     <string name="app_name">HealthyLifeStyleApp</string>
+    @string/Label_Account
     <string name="Label_Heading">Healthy Lifestyle</string>
-    <string name="Label_Account">Create a \nNew  Account</string>
+    <string name="Label_Account">Create a \nNew Account</string>
+
     <string name="Label_BestExperince">For the best experience \nwith App</string>
     <string name="Label_Sign_up">Sign up</string>
     <string name="Label_Login">Log In</string>
@@ -19,7 +21,13 @@
     <string name="Label_Level">Level</string>
     <string name="Label_Settings">Settings</string>
     <string name="Label_Profile">Profile</string>
-    <string name="Label_Language">Language Options</string>
+    <string name="Label_LanguageOptions">Language Options</string>
+    <string name="Label_Language">Language</string>
+    <string-array name="language_option">
+        <item>English</item>
+        <item>Hindi</item>
+        <item>Spanish</item>
+    </string-array>
     <string name="Label_HeathData">Health data</string>
     <string name="Label_createPlans">Create Plan</string>
     <string name="Label_referFriend">Refer Friend</string>
@@ -62,7 +70,21 @@
 
     <string name="Label_Activity">Activity</string>
     <string name="Label_DailyAgenda">Daily Agenda</string>
+    <string name="Label_PrivacyPolicy">Privacy Policy</string>
+    <string name="Label_Article1">Article 1</string>
+    <string name="Label_whoMayUse">Who May Use The Serivce</string>
+    <string name="Label_Privacy">Privacy</string>
+    <string name="Label_SureLogout">Are you sure want to logout?</string>
+    <string name="Label_No">No</string>
+    <string name="Label_Yes">Yes</string>
 
+    <string name="Label_Close">Close</string>
+
+
+    <string name="Label_PrivacyData">When one door of happiness closes, another opens, but often we look so long at the closed door that we do not see the one taht has been opened for us.
+    \n\t Step 1:You may use the Srvices only if you agree to form a binding contract with us and are not a person barred from receiving services under the laws of the applicable jurisdiction. \n\t Step 2:Our privacy Policy describes hoe we handle the infromation you provide to us when you use our services. </string>
+    <string name="Label_PrivacyData1">When one door of happiness closes, another opens, but often we look so long at the closed door that we do not see the one taht has been opened for us.
+    </string>
     <string name="title_activity_user_profile">UserProfileActivity</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
@@ -84,7 +106,7 @@
     <string name="menu_send">Send</string>
     <string name="Label_ProgressStaticData">Lorem ipsum dolor sit amet, consectetur adipisicing elite, sed do</string>
 
-    <array name="material_calendar_months_array">
+    <!-- <array name="material_calendar_months_array">
         <item>January</item>
         <item>February</item>
         <item>March</item>
@@ -110,7 +132,7 @@
     <string name="thu">THU</string>
     <string name="fri">FRI</string>
     <string name="sat">SAT</string>
-    <string name="last_date">30</string>
+    <string name="last_date">30</string>-->
 
     <string name="facebook_app_id">2476754999088180</string>
     <string name="fb_login_protocol_scheme">fb2476754999088180</string>
