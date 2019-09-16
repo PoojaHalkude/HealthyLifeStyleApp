@@ -3,7 +3,6 @@
     @string/Label_Account
     <string name="Label_Heading">Healthy Lifestyle</string>
     <string name="Label_Account">Create a \nNew Account</string>
-
     <string name="Label_BestExperince">For the best experience \nwith App</string>
     <string name="Label_Sign_up">Sign up</string>
     <string name="Label_Login">Log In</string>
@@ -58,16 +57,13 @@
     <string name="Label_End">End</string>
     <string name="Label_Looosemass">Loose Mass</string>
     <string name="Label_date">May 14-jun13</string>
-
     <string name="Label_Gainmass">Gain Mass</string>
     <string name="Label_MealPlan">Meal Plan</string>
     <string name="Label_Breakfast">Breakfast</string>
     <string name="Label_personalizedData">Personalized workout will help \n you gain Strength</string>
     <string name="Label_SeeMore">See More</string>
     <string name="Label_Snack">Snack</string>
-
     <string name="Label_SleepReminder">Sleep Reminder</string>
-
     <string name="Label_Activity">Activity</string>
     <string name="Label_DailyAgenda">Daily Agenda</string>
     <string name="Label_PrivacyPolicy">Privacy Policy</string>
@@ -77,10 +73,7 @@
     <string name="Label_SureLogout">Are you sure want to logout?</string>
     <string name="Label_No">No</string>
     <string name="Label_Yes">Yes</string>
-
     <string name="Label_Close">Close</string>
-
-
     <string name="Label_PrivacyData">When one door of happiness closes, another opens, but often we look so long at the closed door that we do not see the one taht has been opened for us.
     \n\t Step 1:You may use the Srvices only if you agree to form a binding contract with us and are not a person barred from receiving services under the laws of the applicable jurisdiction. \n\t Step 2:Our privacy Policy describes hoe we handle the infromation you provide to us when you use our services. </string>
     <string name="Label_PrivacyData1">When one door of happiness closes, another opens, but often we look so long at the closed door that we do not see the one taht has been opened for us.
@@ -92,7 +85,6 @@
     <string name="nav_header_subtitle">android.studio@android.com</string>
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
-
     <string name="menu_home">Home</string>
     <string name="menu_plans">Plans</string>
     <string name="menu_recipes">Recipes</string>
@@ -105,35 +97,19 @@
     <string name="menu_share">Share</string>
     <string name="menu_send">Send</string>
     <string name="Label_ProgressStaticData">Lorem ipsum dolor sit amet, consectetur adipisicing elite, sed do</string>
-
-    <!-- <array name="material_calendar_months_array">
-        <item>January</item>
-        <item>February</item>
-        <item>March</item>
-        <item>April</item>
-        <item>May</item>
-        <item>June</item>
-        <item>July</item>
-        <item>August</item>
-        <item>September</item>
-        <item>October</item>
-        <item>November</item>
-        <item>December</item>
-    </array>
-    <string name="material_calendar_today_button">Today</string>
-    <string name="material_calendar_positive_button">OK</string>
-    <string name="material_calendar_negative_button">Cancel</string>
-    <string name="current_date">June, 2016</string>
-    <string name="add_event">ADD CALENDAR EVENT</string>
-    <string name="sun">SUN</string>
-    <string name="mon">MON</string>
-    <string name="tue">TUE</string>
-    <string name="wed">WED</string>
-    <string name="thu">THU</string>
-    <string name="fri">FRI</string>
-    <string name="sat">SAT</string>
-    <string name="last_date">30</string>-->
-
+    <string name="Label_EnterName">Enter Your Name Here</string>
+    <string name="Label_EnterEmail"> Enter Your Email Id</string>
+    <string name="Label_EnterPhone"> Enter Mobile No.</string>
+    <string name="Label_SelectProfile"> Select Profile Picture</string>
+    <string name="Label_Save">Save</string>
+    <string name="Label_Skip">Skip</string>
+    <string name="Label_fillDetails"> Please Fill the details</string>
+    <string name="Label_SundayDate">Sunday,Aug 26</string>
+    <string name="Label_GetCode">Get Verification Code</string>
+    <string name="Label_ManageData">Manage My Data</string>
+    <string name="Label_MyFitnessLevel">My Fitness Level</string>
+    <string name="Label_RestartbasicPlan">Restart Basic Plan</string>
     <string name="facebook_app_id">2476754999088180</string>
     <string name="fb_login_protocol_scheme">fb2476754999088180</string>
+
 </resources>

@@ -10,7 +10,7 @@
     <TextView
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="Please Fill the details"
+        android:text="@string/Label_fillDetails"
         android:id="@+id/textview"
         android:textStyle="bold"
         android:textSize="20dp"
@@ -28,19 +28,21 @@
 
 
     <Button
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
         android:id="@+id/ButtonChooseImage"
+        android:layout_width="206dp"
+        android:layout_height="wrap_content"
         android:layout_below="@+id/ShowImageView"
+        android:layout_gravity="center"
         android:layout_marginTop="20dp"
-        android:text="Select Profile Picture"/>
+        android:background="@drawable/login_btn_background"
+        android:text="@string/Label_SelectProfile" />
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/EditTextName"
         android:layout_marginTop="20dp"
-        android:hint="Enter Your Name Here"
+        android:hint="@string/Label_EnterName"
         android:gravity="center"/>
     <EditText
         android:layout_width="match_parent"
@@ -48,7 +50,7 @@
         android:id="@+id/EditTextEmail"
 
         android:layout_marginTop="20dp"
-        android:hint="Enter Your Email Id"
+        android:hint="@string/Label_EnterEmail"
         android:gravity="center"/>
     <EditText
         android:layout_width="fill_parent"
@@ -56,19 +58,30 @@
         android:id="@+id/EditTextMobileNo"
 
         android:layout_marginTop="20dp"
-        android:hint="Enter Mobile No."
+        android:hint="@string/Label_EnterPhone"
         android:gravity="center"/>
 
-    <Button
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/ButtonUploadImage"
-        android:layout_marginTop="20dp"
-        android:text="SAVE"/>
-    <Button
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/ButtonSkip"
-        android:layout_marginTop="20dp"
-        android:text="Skip"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="86dp"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/ButtonUploadImage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/login_btn_background"
+            android:text="@string/Label_Save" />
+
+        <Button
+            android:id="@+id/ButtonSkip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/login_btn_background"
+            android:text="@string/Label_Skip" />
+    </LinearLayout>
 </LinearLayout>

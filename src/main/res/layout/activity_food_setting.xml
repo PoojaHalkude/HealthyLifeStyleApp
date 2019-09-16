@@ -53,7 +53,7 @@
             android:layout_centerInParent="true"
             android:layout_toRightOf="@id/ImageBackArrow"
             android:gravity="center"
-            android:text="Sunday,Aug 26"
+            android:text="@string/Label_SundayDate"
             android:textSize="20dp"
             android:textStyle="bold" />
 

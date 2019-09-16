@@ -120,7 +120,7 @@
             android:drawableRight="@drawable/ic_play_circle_outline"
             android:drawableTint="@android:color/white"
             android:padding="15dp"
-            android:text="Get Verification Code"
+            android:text="@string/Label_GetCode"
             android:textAllCaps="true"
             android:textColor="@android:color/white"
             android:textSize="18dp"

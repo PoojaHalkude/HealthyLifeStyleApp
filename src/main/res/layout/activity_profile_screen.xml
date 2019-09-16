@@ -75,6 +75,7 @@
                 android:textSize="18dp"
                 android:textColor="@android:color/black" />
             <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/TextViewEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_toRightOf="@+id/ImageViewBack"

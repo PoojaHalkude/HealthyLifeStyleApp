@@ -25,8 +25,9 @@ public class ProfileScreenActivity extends AppCompatActivity implements View.OnC
         switch (v.getId())
         {
             case R.id.ImageViewBack:
-                Intent intentBack= new Intent(this,SettingsActivity.class);
+                Intent intentBack= new Intent(this,UserProfileActivity.class);
                 startActivity(intentBack);
+                break;
         }
     }
 }

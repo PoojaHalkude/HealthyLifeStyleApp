@@ -233,7 +233,7 @@ android:layout_marginLeft="20dp">
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_alignParentLeft="true"
-    android:text="Start"
+    android:text="@string/Label_Start"
     android:textSize="18dp" />
 
 <TextView
@@ -261,7 +261,7 @@ android:layout_margin="20dp"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_alignParentLeft="true"
-    android:text="End"
+    android:text="@string/Label_End"
     android:textSize="18dp" />
 
 <TextView
