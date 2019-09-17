@@ -4,6 +4,7 @@
     package="com.example.healthylifestyleapp">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -12,13 +13,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".LanguageSettingActivity">
+        <activity android:name=".RecipesActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
+        <activity android:name=".LanguageSettingActivity" />
         <activity android:name=".PrivacyPolicyActivity" />
-        <activity android:name=".HealthDataSettingsActivity">
-
-        </activity>
+        <activity android:name=".HealthDataSettingsActivity" />
         <activity android:name=".FoodSettingActivity" />
         <activity android:name=".SleepSettingActivity" />
         <activity android:name=".ActivityGoalSettings" />
@@ -28,24 +32,16 @@
         <activity android:name=".DailyAgendaACtivity" />
         <activity android:name=".HomeScreenActivity" />
         <activity android:name=".ProfileScreenActivity" />
-        <activity android:name=".SettingsActivity">
-
-        </activity>
+        <activity android:name=".SettingsActivity" />
         <activity
             android:name=".UserProfileActivity"
             android:label="@string/title_activity_user_profile"
-            android:theme="@style/AppTheme.NoActionBar" >
-
-        </activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".StartedActivity" />
         <activity android:name=".PhysiquesDetailsActivity" />
         <activity android:name=".ConfirmDetailsActivity" />
-        <activity android:name=".MainActivity" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+        <activity android:name=".MainActivity">
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
 
         <meta-data
@@ -66,7 +62,8 @@
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
 
-                <data android:scheme="@string/fb_login_protocol_scheme"
+                <data
+                    android:scheme="@string/fb_login_protocol_scheme"
                     tools:ignore="ManifestResource" />
             </intent-filter>
         </activity>

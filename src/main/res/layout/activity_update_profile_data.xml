@@ -34,6 +34,7 @@
         android:layout_below="@+id/ShowImageView"
         android:layout_gravity="center"
         android:layout_marginTop="20dp"
+
         android:background="@drawable/login_btn_background"
         android:text="@string/Label_SelectProfile" />
 

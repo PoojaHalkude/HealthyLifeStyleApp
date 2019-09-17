@@ -17,7 +17,9 @@
     <color name="colorLoseMass">#E9ECED</color>
     <color name="colorFoodlayout">#76767B</color>
 
-
+    <color name="textColorPrimary">#FFFFFF</color>
+    <color name="windowBackground">#FFFFFF</color>
+    <color name="navigationBarColor">#000000</color>
 
 
 
