@@ -6,7 +6,7 @@ public class UserData {
     private String contact;
 
 
-    public UserData(String name, String email, String contact) {
+    public UserData( String name, String email, String contact) {
         this.name=name;
         this.email=email;
         this.contact=contact;

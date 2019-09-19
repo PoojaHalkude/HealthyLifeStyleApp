@@ -109,13 +109,10 @@
     <string name="Label_GetCode">वेरिफिकेशन कोड प्राप्त करें</string>
     <string name="Label_ManageData">मेरा डेटा प्रबंधित करें</string>
     <string name="Label_MyFitnessLevel">मेरा स्वास्थ्य स्तर</string>
-
     <string name="Label_RestartbasicPlan">मूल योजना को पुनरारंभ करें</string>
-
-
-
-
-
+    <string name="title_activity_recipes_tab">RecipesTabActivity</string>
+    <string name="tab_text_1">Tab 1</string>
+    <string name="tab_text_2">Tab 2</string>
     <string name="facebook_app_id">2476754999088180</string>
     <string name="fb_login_protocol_scheme">fb2476754999088180</string>
 </resources>

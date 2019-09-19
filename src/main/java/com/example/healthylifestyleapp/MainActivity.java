@@ -216,6 +216,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.sign_in_button:
                 SignInWithGoogle();
 
+
         default:
                 return;
 
@@ -241,8 +242,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             // a listener.
             Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
             handleSignInResult(task);
-
-
         }
         Intent i1=new Intent(this,UpdateProfileDataActivity.class);
         startActivity(i1);

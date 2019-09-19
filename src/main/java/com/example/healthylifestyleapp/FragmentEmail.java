@@ -43,11 +43,16 @@ public class FragmentEmail extends android.app.Fragment implements View.OnClickL
         progressBar=rootView.findViewById(R.id.progressBar);
         FirebaseApp.initializeApp(getActivity());
         mAuth = FirebaseAuth.getInstance();
-        if(mAuth.getCurrentUser() != null){
+      /*  if(mAuth.getCurrentUser() != null){
+            //close this activity
+            //opening profile activity
+            startActivity(new Intent(getApplicationContext(), ProfileActivity.class));
+        }*/
+
+      /*  if(mAuth.getCurrentUser() != null){
 
             startActivity(new Intent(getActivity(), UserProfileActivity.class));
-        }
-
+        }*/
         FirebaseApp.initializeApp(getActivity());
         AppCompatButtonSignUp.setOnClickListener(this);
         return rootView;
@@ -99,7 +104,7 @@ public class FragmentEmail extends android.app.Fragment implements View.OnClickL
                                 } else {
                                     Toast.makeText(getApplicationContext(), "Registration Successful!", Toast.LENGTH_LONG).show();
                                     progressBar.setVisibility(View.GONE);
-                                    Intent myIntent=new Intent(getActivity(), StartedActivity.class);
+                                    Intent myIntent=new Intent(getActivity(), UserProfileActivity.class);
                                     startActivity(myIntent);
 
                                     // startActivity(new Intent(getActivity(), MainActivity.class));
@@ -108,7 +113,23 @@ public class FragmentEmail extends android.app.Fragment implements View.OnClickL
 
                             }
                         });
+              /*  mAuth.createUserWithEmailAndPassword(email, password)
+                        .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                            @Override
+                            public void onComplete(@NonNull Task<AuthResult> task) {
+                                if (task.isSuccessful()) {
+                                    Toast.makeText(getActivity(), "Registration successful!", Toast.LENGTH_LONG).show();
+                                    progressBar.setVisibility(View.GONE);
 
+                                    Intent intent = new Intent(getActivity(), UpdateProfileDataActivity.class);
+                                    startActivity(intent);
+                                }
+                                else {
+                                    Toast.makeText(getApplicationContext(), "Registration failed! Please try again later", Toast.LENGTH_LONG).show();
+                                    progressBar.setVisibility(View.GONE);
+                                }
+                            }
+                        });*/
         }
 
 

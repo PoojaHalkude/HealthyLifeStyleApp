@@ -13,13 +13,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".RecipesActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+        <activity android:name=".HealthyRecipesActivity">\
+           </activity>
+        <activity android:name=".NextRecipesActivity" />
         <activity android:name=".LanguageSettingActivity" />
         <activity android:name=".PrivacyPolicyActivity" />
         <activity android:name=".HealthDataSettingsActivity" />
@@ -32,17 +28,21 @@
         <activity android:name=".DailyAgendaACtivity" />
         <activity android:name=".HomeScreenActivity" />
         <activity android:name=".ProfileScreenActivity" />
+
         <activity android:name=".SettingsActivity" />
         <activity
             android:name=".UserProfileActivity"
             android:label="@string/title_activity_user_profile"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter></activity>
         <activity android:name=".StartedActivity" />
         <activity android:name=".PhysiquesDetailsActivity" />
         <activity android:name=".ConfirmDetailsActivity" />
-        <activity android:name=".MainActivity">
-
-        </activity>
+        <activity android:name=".MainActivity" />
 
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"

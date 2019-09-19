@@ -52,7 +52,7 @@ Context context=this;
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 String value = dataSnapshot.getValue(String.class);
-               // TextViewUserName.setText(value);
+//               TextViewUserName.setText(value);
                 //TextViewEmail.setText(value);
                // int imgval= (int) dataSnapshot.getValue();
                 //imageView.setImageResource(imgval);
@@ -173,6 +173,8 @@ Context context=this;
             startActivity(homeIntent);
 
         }  else if (id ==R.id.nav_home_recipes) {
+            Intent recipesIntent = new Intent(this, HealthyRecipesActivity.class);
+            startActivity(recipesIntent);
 
         } else if (id == R.id.nav_about_us) {
 

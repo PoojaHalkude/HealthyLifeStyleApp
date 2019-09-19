@@ -60,7 +60,7 @@ public class UpdateProfileDataActivity extends AppCompatActivity {
     // Creating StorageReference and DatabaseReference object.
     StorageReference storageReference;
     DatabaseReference databaseReference;
-
+String name,url,phone,email;
     // Image request code for onActivityResult() .
     int Image_Request_Code = 71;
     ProgressDialog progressDialog;
@@ -84,14 +84,16 @@ public class UpdateProfileDataActivity extends AppCompatActivity {
         // Assign ID's to EditText.
         ImageName = (EditText) findViewById(R.id.EditTextName);
         @SuppressLint("RestrictedApi")
-        UserData userNew = new UserData("Mickey","m@gmail.com","9049651515");
+        UserData userNew = new UserData("Pooja","p@gmail.com","9049651515");
+        @SuppressLint("RestrictedApi")
+        UserUploadInfo userUploadInfo = new UserUploadInfo(name,email,phone,url);
         mDatabaseReference = mDatabase.getReference().child("user");
-        mDatabaseReference.setValue(user);
+        mDatabaseReference.setValue(userUploadInfo);
 
         // Assign ID'S to image view.
         SelectImage = (ImageView) findViewById(R.id.ShowImageView);
-        mDatabaseReference = mDatabase.getReference().child("name");
-        mDatabaseReference.setValue("Donald Duck");
+        /*mDatabaseReference = mDatabase.getReference().child("name");
+        mDatabaseReference.setValue("Pooja Halkude");*/
         // Assigning Id to ProgressDialog.
         progressDialog = new ProgressDialog(this);
        /* if (user != null)
@@ -319,7 +321,8 @@ public class UpdateProfileDataActivity extends AppCompatActivity {
                                 try{
 
                                     String mString = String.valueOf(dataMap.get(key));
-                                    //addTextToView(mString);
+
+                                   // addTextToView(mString);
 
                                 }catch (ClassCastException cce2){
 

@@ -18,7 +18,7 @@
         android:layout_height="wrap_content"
         android:background="@color/colorSettingBack">
         <ImageView
-            android:id="@+id/ImageViewBack"
+            android:id="@+id/ImageViewBackProfile"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_margin="10dp"
@@ -28,7 +28,7 @@
             android:id="@+id/appCompactTextViewProfile"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_toRightOf="@+id/ImageViewBack"
+            android:layout_toRightOf="@+id/ImageViewBackProfile"
             android:text="@string/Label_Profile"
             android:textSize="20dp"
             android:layout_margin="10dp"

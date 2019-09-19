@@ -8,15 +8,15 @@ import android.widget.ImageView;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class ProfileScreenActivity extends AppCompatActivity implements View.OnClickListener {
-    ImageView ImageViewBack;
+    ImageView ImageViewBackProfile;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile_screen);
-        ImageViewBack.findViewById(R.id.ImageViewBack);
-        ImageViewBack.setOnClickListener(this);
+        ImageViewBackProfile=findViewById(R.id.ImageViewBackProfile);
+        ImageViewBackProfile.setOnClickListener(this);
 
     }
 
@@ -24,7 +24,7 @@ public class ProfileScreenActivity extends AppCompatActivity implements View.OnC
     public void onClick(View v) {
         switch (v.getId())
         {
-            case R.id.ImageViewBack:
+            case R.id.ImageViewBackProfile:
                 Intent intentBack= new Intent(this,UserProfileActivity.class);
                 startActivity(intentBack);
                 break;
