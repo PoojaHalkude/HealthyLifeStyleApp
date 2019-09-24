@@ -20,6 +20,9 @@
     <color name="textColorPrimary">#FFFFFF</color>
     <color name="windowBackground">#FFFFFF</color>
     <color name="navigationBarColor">#000000</color>
+    <color name="colorgrayFitness">#C3CBCE</color>
+    <color name="colorYellowConnect">#F5DB71</color>
+
 
 
 

@@ -3,6 +3,7 @@ package com.example.healthylifestyleapp;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -19,6 +20,11 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import com.bumptech.glide.Glide;
+import com.google.android.gms.auth.api.signin.GoogleSignIn;
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
+import com.google.android.gms.auth.api.signin.GoogleSignInClient;
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -29,12 +35,14 @@ import com.google.firebase.database.ValueEventListener;
 
 public class UserProfileActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener, View.OnClickListener {
-   ImageView imageView,ImageViewHome,ImageViewActivity,ImageViewSettings;
-TextView TextViewUserName,TextViewEmail;
+   ImageView imageView,ImageViewHome,ImageViewActivity,ImageViewSettings,imageViewProfilePicture;
+TextView TextViewUserName,TextViewEmail,TextViewUserName1,TextViewEmail1;
 FirebaseUser mfirebaseuser;
     DatabaseReference rootRef, demoRef;
-    LinearLayout LLHeaderDrink,LLHeaderSleep, LLHeaderFood;
-Context context=this;
+    LinearLayout LLHeaderDrink,LLHeaderSleep, LLHeaderFood,llHeaderTips;
+    GoogleSignInClient mGoogleSignInClient;
+
+    Context context=this;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,6 +53,30 @@ Context context=this;
         initListner();
         //database reference pointing to root of database
         rootRef = FirebaseDatabase.getInstance().getReference();
+        ////code for storing gmail profile data/////
+        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                .requestEmail()
+                .build();
+        mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
+        GoogleSignInAccount account = GoogleSignIn.getLastSignedInAccount(this);
+        if (account != null) {
+            String personName = account.getDisplayName();
+            String personGivenName = account.getGivenName();
+            String personFamilyName = account.getFamilyName();
+            String personEmail = account.getEmail();
+            String personId = account.getId();
+            Uri personPhoto = account.getPhotoUrl();
+            TextViewUserName1.setText("Name:"+personName);
+            TextViewEmail1.setText("Email:"+personEmail);
+            Glide.with(this).load(personPhoto).into(imageViewProfilePicture);
+
+            startActivity(new Intent(this, UserProfileActivity.class));
+            /*Uri profilePictureUri = ImageRequest.getProfilePictureUri(Profile.getCurrentProfile().getId(), dimensionPixelSize , dimensionPixelSize );
+            Glide.with(this).load(profilePictureUri)
+                    .diskCacheStrategy(DiskCacheStrategy.SOURCE)
+                    .into(imageViewProfilePicture);*/
+            //  updateUI(account);
+        }
 
         //database reference pointing to demo node
         demoRef = rootRef.child("All_Image_Uploads_Database");
@@ -84,6 +116,7 @@ Context context=this;
         imageView =(ImageView)navHeaderView.findViewById(R.id.imageView);
         TextViewUserName=(TextView)navHeaderView.findViewById(R.id.TextViewUserName);
         TextViewEmail=(TextView)navHeaderView.findViewById(R.id.TextViewEmail);
+
         //Code for setting profile data to navigation drawer
       /*  FirebaseDatabase.getInstance().getReference((Constatnts.USER_KEy)).child(mfirebaseuser.getEmail().replace(".",","))
                 .addListenerForSingleValueEvent(new ValueEventListener() {
@@ -113,6 +146,7 @@ Context context=this;
         LLHeaderDrink.setOnClickListener(this);
         LLHeaderSleep.setOnClickListener(this);
         LLHeaderFood.setOnClickListener(this);
+        llHeaderTips.setOnClickListener(this);
     }
 
     private void InitUi() {
@@ -125,6 +159,11 @@ Context context=this;
         LLHeaderDrink=findViewById(R.id.LLHeaderDrink);
         LLHeaderFood=findViewById(R.id.LLHeaderFood);
         LLHeaderSleep=findViewById(R.id.LLHeaderSleep);
+        imageViewProfilePicture=findViewById(R.id.imageViewProfilePicture);
+        TextViewUserName1=findViewById(R.id.TextViewUserName1);
+        TextViewEmail1=findViewById(R.id.TextViewEmail1);
+
+        llHeaderTips=findViewById(R.id.llHeaderTips);
     }
 
     @Override
@@ -255,7 +294,9 @@ Context context=this;
                 Intent FoodIntent= new Intent(this, FoodSettingActivity.class);
                 startActivity(FoodIntent);
 
-
+            case R.id.llHeaderTips:
+                Intent Intenttips= new Intent(this, HealthTipsActivity.class);
+                startActivity(Intenttips);
 
 
 

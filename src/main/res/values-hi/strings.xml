@@ -115,4 +115,18 @@
     <string name="tab_text_2">Tab 2</string>
     <string name="facebook_app_id">2476754999088180</string>
     <string name="fb_login_protocol_scheme">fb2476754999088180</string>
+    <string name="Label_Connect">डिवाइस से कनेक्ट करें</string>
+    <string name="Label_GoogleFit">Google फ़िट</string>
+    <string name="Label_Connect1">कनेक्ट करे</string>
+    <string name="Label_OtherDevice">अन्य यंत्र</string>
+    <string name="Label_Find">खोज</string>
+    <string name="Label_Instructions">अनुदेश</string>
+    <string name="Label_Ingrediants">सामग्री</string>
+    <string name="Label_HealthTips">स्वास्थ्य सुझाव</string>
+    <string name="Label_Diet">व्यायाम के बिना एक आहार बेकार है</string>
+    <string name="Label_Tips">1) अंतराल प्रशिक्षण व्यायाम का एक रूप है जिसमें आप दो या दो से अधिक विभिन्न व्यायामों के बीच वैकल्पिक रूप से अभ्यास करते हैं। यह एक छोटे से फटने के लिए एक उच्च स्तर की तीव्रता पर एक व्यायाम करने से मिलकर बनता है
+    2) कुछ उच्च तीव्रता अंतराल प्रशिक्षण कैलोरी और ढीले वजन को जलाने का एक शानदार तरीका है।
+    3) एक और बड़ी बात यह है कि पूर्णांक प्रशिक्षण के बारे में यह है कि यह चरम समय पर कुशल है। जब आप उच्च तीव्रता अंतराल प्रशिक्षण का अभ्यास करते हैं, तो इसे आकार में आने में कोई समय नहीं लगता है।
+    4) निष्पादित करें, विशेष रूप से उच्च तीव्रता अंतराल प्रशिक्षण भयानक बीक्यूज़ है जो आपको रखता है</string>
+
 </resources>

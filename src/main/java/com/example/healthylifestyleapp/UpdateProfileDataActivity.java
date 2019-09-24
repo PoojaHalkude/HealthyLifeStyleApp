@@ -71,7 +71,7 @@ String name,url,phone,email;
         setContentView(R.layout.activity_update_profile_data);
         // Assign FirebaseStorage instance to storageReference.
         storageReference = FirebaseStorage.getInstance().getReference();
-     imageViewProfile=findViewById(R.id.imageViewProfile);
+     imageViewProfile=findViewById(R.id.ShowImageView);
         // Assign FirebaseDatabase instance with root database name.
         databaseReference = FirebaseDatabase.getInstance().getReference(Database_Path);
         EditTextName = findViewById(R.id.EditTextName);

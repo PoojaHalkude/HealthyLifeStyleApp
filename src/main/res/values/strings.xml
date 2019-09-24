@@ -114,5 +114,18 @@
     <string name="title_activity_recipes_tab">RecipesTabActivity</string>
     <string name="tab_text_1">Tab 1</string>
     <string name="tab_text_2">Tab 2</string>
+    <string name="Label_Connect">Connect to Device</string>
+    <string name="Label_GoogleFit">Google Fit</string>
+    <string name="Label_Connect1">Connect</string>
+    <string name="Label_OtherDevice">Other Device</string>
+    <string name="Label_Find">Find</string>
+    <string name="Label_Instructions">Instructions</string>
+    <string name="Label_Ingrediants">Ingrediants</string>
+    <string name="Label_HealthTips">Health Tips</string>
+    <string name="Label_Diet">A Diet Without Exercise is Useless</string>
+    <string name="Label_Tips">1)Interval Training is a form of exercise in which you alternate between two or more different exercise . This consist of doing an exercise at a very high level intensity for a short bursts
+    \n2) Some high intensity interval training is a great way to burn calories and loose weight.
+    \n3)Another great thing is about inteval training is that it is extremly time efficient . it does not make any time to get into shape when you practice high intensity interval training.
+    \n4)Execise, especially high intensity interval training is awesome beacuse it keeps you</string>
 
 </resources>
