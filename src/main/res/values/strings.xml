@@ -65,6 +65,14 @@
     <string name="Label_Snack">Snack</string>
     <string name="Label_SleepReminder">Sleep Reminder</string>
     <string name="Label_Activity">Activity</string>
+    <string name="Label_AddActivity">Add Activity</string>
+    <string name="Label_AddNewActivity">Add New Activity</string>
+
+    <string name="Label_Workput">Workput</string>
+    <string name="Label_Dinner">Dinner</string>
+    <string name="Label_Lunch">Lunch</string>
+    <string name="Label_Water">Water</string>
+
     <string name="Label_DailyAgenda">Daily Agenda</string>
     <string name="Label_PrivacyPolicy">Privacy Policy</string>
     <string name="Label_Article1">Article 1</string>

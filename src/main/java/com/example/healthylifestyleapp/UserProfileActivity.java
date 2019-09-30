@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -26,6 +27,7 @@ import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -38,7 +40,9 @@ public class UserProfileActivity extends AppCompatActivity
    ImageView imageView,ImageViewHome,ImageViewActivity,ImageViewSettings,imageViewProfilePicture;
 TextView TextViewUserName,TextViewEmail,TextViewUserName1,TextViewEmail1;
 FirebaseUser mfirebaseuser;
-    DatabaseReference rootRef, demoRef;
+    DatabaseReference rootRef, demoRef, ProfileUserRef;
+    FirebaseAuth mAuth;
+    private String currentUserId;
     LinearLayout LLHeaderDrink,LLHeaderSleep, LLHeaderFood,llHeaderTips;
     GoogleSignInClient mGoogleSignInClient;
 
@@ -53,6 +57,9 @@ FirebaseUser mfirebaseuser;
         initListner();
         //database reference pointing to root of database
         rootRef = FirebaseDatabase.getInstance().getReference();
+        mAuth=FirebaseAuth.getInstance();
+        mAuth.getCurrentUser().getUid();
+
         ////code for storing gmail profile data/////
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestEmail()
@@ -71,11 +78,13 @@ FirebaseUser mfirebaseuser;
             Glide.with(this).load(personPhoto).into(imageViewProfilePicture);
 
             startActivity(new Intent(this, UserProfileActivity.class));
-            /*Uri profilePictureUri = ImageRequest.getProfilePictureUri(Profile.getCurrentProfile().getId(), dimensionPixelSize , dimensionPixelSize );
+         /*   Uri profilePictureUri = ImageRequest.getProfilePictureUri(Profile.getCurrentProfile().getId(), dimensionPixelSize , dimensionPixelSize );
             Glide.with(this).load(profilePictureUri)
                     .diskCacheStrategy(DiskCacheStrategy.SOURCE)
                     .into(imageViewProfilePicture);*/
             //  updateUI(account);
+            Log.e("Pooja","Value of:"+personEmail);
+
         }
 
         //database reference pointing to demo node

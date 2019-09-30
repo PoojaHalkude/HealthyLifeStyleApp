@@ -66,6 +66,13 @@
 
     <string name="Label_SleepReminder">नींद की याद दिलाते हैं</string>
 
+    <string name="Label_Workput">व्यायाम</string>
+    <string name="Label_Dinner">रात का खाना</string>
+    <string name="Label_Lunch">दोपहर का भोजन</string>
+    <string name="Label_Water">पानी</string>
+    <string name="Label_AddActivity">गतिविधि जोड़ें</string>
+    <string name="Label_AddNewActivity">नई गतिविधि जोड़ें</string>
+
     <string name="Label_Activity">गतिविधि</string>
     <string name="Label_DailyAgenda">दैनिक एजेंडा</string>
     <string name="Label_PrivacyPolicy">गोपनीयता नीति</string>

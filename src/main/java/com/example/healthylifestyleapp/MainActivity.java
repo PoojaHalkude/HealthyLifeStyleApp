@@ -128,21 +128,33 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onStart() {
 
         GoogleSignInAccount account = GoogleSignIn.getLastSignedInAccount(this);
-        if (account != null) {
+        super.onStart();
+        updateUI(true);
+       /* if (account != null) {
             startActivity(new Intent(this, UserProfileActivity.class));
             //  updateUI(account);
         }
-        super.onStart();
+        super.onStart();*/
     }
-   /* private void updateUI(GoogleSignInAccount account)
-    {
-        if (account!=null) {
-            sign_in_button.setVisibility(View.VISIBLE);
+  /*  private void updateUI(boolean account) {
+        if (account == true) {
+            //startActivity(new Intent(this, UserProfileActivity.class));
+
+           sign_in_button.setVisibility(View.VISIBLE);
         } else {
             return;
         }
-*//*
-        try {
+    }*/
+    private void updateUI(boolean isLogin)
+    {
+        if (isLogin)
+        {
+            sign_in_button.setVisibility(View.VISIBLE);
+        }
+
+
+    }
+      /*  try {
 
             String strData = "Name : " + account.getDisplayName()
                     + "\r\nEmail : " + account.getEmail() + "\r\nGiven name : " + account.getGivenName()
@@ -154,8 +166,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
             Log.d("Image URL : ", account.getPhotoUrl().toString());
             Log.d("Login Data : ", strData);
-           *//* new DownloadImageTask((ImageView) findViewById(R.id.imgProfilePic))
-                    .execute(account.getPhotoUrl().toString());*//*
+            new DownloadImageTask((ImageView) findViewById(R.id.imgProfilePic))
+                    .execute(account.getPhotoUrl().toString());
 
          //   lblHeader.setText("Sign In with Google Successful");
             //btnLogin.setVisibility(View.GONE);
@@ -170,8 +182,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
             // lblInfo.setText(lblInfo.getText().toString() + "\r\n" + "RuntimeException : " + ex.getMessage().toString());
         } catch (Exception ex) {
-// lblInfo.setText(ex.getMessage().toString());
-        }*/
+// lblInfo.setText(ex.getMessage().toString());*/
+
 
 
 
@@ -254,7 +266,37 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Intent signInIntent = mGoogleSignInClient.getSignInIntent();
         startActivityForResult(signInIntent, RC_SIGN_IN);
     }
-   /* @Override
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        // Result returned from launching the Intent from GoogleSignInClient.getSignInIntent(...);
+        if (requestCode == RC_SIGN_IN) {
+            // The Task returned from this call is always completed, no need to attach
+            // a listener.
+            Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
+            handleSignInResult(task);
+
+            Intent i1=new Intent(this,UserProfileActivity.class);
+            startActivity(i1);
+        }
+    }
+
+    private void handleSignInResult(Task<GoogleSignInAccount> completedTask) {
+        try {
+            GoogleSignInAccount account = completedTask.getResult(ApiException.class);
+
+            // Signed in successfully, show authenticated UI.
+            updateUI(true);
+        } catch (ApiException e) {
+            // The ApiException status code indicates the detailed failure reason.
+            // Please refer to the GoogleSignInStatusCodes class reference for more information.
+            Log.w("Pooja", "signInResult:failed code=" + e.getStatusCode());
+            updateUI(false);
+        }
+    }
+  /*  @Override
+  2.later commented
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         callbackManager.onActivityResult(requestCode, resultCode, data);
@@ -283,8 +325,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
         }
-     //   Intent i1=new Intent(this,UpdateProfileDataActivity.class);
-       // startActivity(i1);
+     *//* Intent i1=new Intent(this,UpdateProfileDataActivity.class);
+       startActivity(i1);*//*
     }
 
     private void handleSignInResult(Task<GoogleSignInAccount> completedTask) {
@@ -302,32 +344,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
 
     }*/
-   @Override
-   public void onActivityResult(int requestCode, int resultCode, Intent data) {
-       super.onActivityResult(requestCode, resultCode, data);
 
-       // Result returned from launching the Intent from GoogleSignInClient.getSignInIntent(...);
-       if (requestCode == RC_SIGN_IN) {
-           // The Task returned from this call is always completed, no need to attach
-           // a listener.
-           Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
-           handleSignInResult(task);
-       }
-   }
-
-    private void handleSignInResult(Task<GoogleSignInAccount> completedTask) {
-        try {
-            GoogleSignInAccount account = completedTask.getResult(ApiException.class);
-            startActivity(new Intent(this, UserProfileActivity.class));
-            // Signed in successfully, show authenticated UI.
-            //updateUI(account);
-        } catch (ApiException e) {
-            // The ApiException status code indicates the detailed failure reason.
-            // Please refer to the GoogleSignInStatusCodes class reference for more information.
-            Log.w("TAG", "signInResult:failed code=" + e.getStatusCode());
-            //updateUI(null);
-        }
-    }
 
     @Override
     protected void onResume() {

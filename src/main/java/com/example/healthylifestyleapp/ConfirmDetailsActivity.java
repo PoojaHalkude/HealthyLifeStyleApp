@@ -194,8 +194,8 @@ public class ConfirmDetailsActivity extends AppCompatActivity implements View.On
                         this, android.R.layout.simple_spinner_item, HeightMeter);
                 SpinnerHeightAdapater1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
-               /* SpinnerHeight1.setAdapter(SpinnerHeightAdapater1);
-                List HeightCM = new ArrayList<Integer>();
+               SpinnerHeight1.setAdapter(SpinnerHeightAdapater1);
+                /*List HeightCM = new ArrayList<Integer>();
                 for (int i = 5; i <= 100; i++) {
                     HeightCM.add(Integer.toString(i));
                 }*/

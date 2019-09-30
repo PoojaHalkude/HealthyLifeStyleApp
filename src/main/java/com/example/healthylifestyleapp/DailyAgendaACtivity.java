@@ -1,6 +1,7 @@
 package com.example.healthylifestyleapp;
 
 import android.app.DatePickerDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.provider.CalendarContract;
@@ -15,6 +16,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 import androidx.viewpager.widget.ViewPager;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.snackbar.Snackbar;
+
 import java.util.Calendar;
 
 public class DailyAgendaACtivity extends AppCompatActivity implements View.OnClickListener {
@@ -23,6 +27,7 @@ public class DailyAgendaACtivity extends AppCompatActivity implements View.OnCli
     private int dotscount;
     private ImageView[] dots;
     RelativeLayout rlHeaderDailyAgenda;
+    FloatingActionButton fab;
     DatePickerDialog datePickerDialog;
     int year;
     int month;
@@ -30,22 +35,24 @@ public class DailyAgendaACtivity extends AppCompatActivity implements View.OnCli
     Calendar calendar;
     TextView Selecteddate;
     Button addEventButton;
+    Context context=this;
     ImageView imageView,ImageViewHome,ImageViewActivity,ImageViewSettings;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_daily_agenda_activity);
-        viewPager=findViewById(R.id.viewPager);
-        sliderDotspanel=findViewById(R.id.SliderDots);
-        SlidingImage_Adapter viewPagerAdapter = new SlidingImage_Adapter(this);
-        rlHeaderDailyAgenda =findViewById(R.id.rlHeaderDailyAgenda);
-        Selecteddate=findViewById(R.id.Selecteddate);
-        addEventButton=findViewById(R.id.addEventButton);
-        viewPager.setAdapter(viewPagerAdapter);
-        dotscount = viewPagerAdapter.getCount();
-        dots = new ImageView[dotscount];
-        ImageViewHome=findViewById(R.id.ImageViewHome);
-        ImageViewActivity=findViewById(R.id.ImageViewActivity);
-        ImageViewSettings=findViewById(R.id.ImageViewSettings);
+        initUi();
+
+      fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();
+                Intent intent = new Intent(DailyAgendaACtivity.this, AddNewActivity.class);
+                startActivity(intent);
+            }
+        });
+
+
 
         ImageViewHome.setOnClickListener(this);
         ImageViewActivity.setOnClickListener(this);
@@ -133,6 +140,25 @@ public class DailyAgendaACtivity extends AppCompatActivity implements View.OnCli
             }
         });
         
+    }
+
+
+
+    private void initUi() {
+        fab = findViewById(R.id.fab);
+
+        viewPager=findViewById(R.id.viewPager);
+        sliderDotspanel=findViewById(R.id.SliderDots);
+        SlidingImage_Adapter viewPagerAdapter = new SlidingImage_Adapter(this);
+        rlHeaderDailyAgenda =findViewById(R.id.rlHeaderDailyAgenda);
+        Selecteddate=findViewById(R.id.Selecteddate);
+        addEventButton=findViewById(R.id.addEventButton);
+        viewPager.setAdapter(viewPagerAdapter);
+        dotscount = viewPagerAdapter.getCount();
+        dots = new ImageView[dotscount];
+        ImageViewHome=findViewById(R.id.ImageViewHome);
+        ImageViewActivity=findViewById(R.id.ImageViewActivity);
+        ImageViewSettings=findViewById(R.id.ImageViewSettings);
     }
 
     @Override

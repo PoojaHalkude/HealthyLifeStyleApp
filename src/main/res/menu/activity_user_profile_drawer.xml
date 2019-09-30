@@ -9,11 +9,13 @@
             android:icon="@drawable/ic_home_black"
             android:iconTint="@color/colorYellow"
             android:title="@string/menu_home" />
+<!--
         <item
             android:id="@+id/nav_plans"
             android:icon="@drawable/ic_plans_black"
             android:iconTint="@color/colorYellow"
             android:title="@string/menu_plans" />
+-->
         <item
             android:id="@+id/nav_home_recipes"
             android:icon="@drawable/ic_recipest_black"
