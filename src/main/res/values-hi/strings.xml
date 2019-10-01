@@ -72,6 +72,7 @@
     <string name="Label_Water">पानी</string>
     <string name="Label_AddActivity">गतिविधि जोड़ें</string>
     <string name="Label_AddNewActivity">नई गतिविधि जोड़ें</string>
+    <string name="Label_forgot">पासवर्ड भूल गए ?</string>
 
     <string name="Label_Activity">गतिविधि</string>
     <string name="Label_DailyAgenda">दैनिक एजेंडा</string>

@@ -5,7 +5,6 @@ import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.Signature;
@@ -50,14 +49,12 @@ import android.support.v7.widget.AppCompatEditText;
 import android.support.v7.widget.AppCompatTextView;*/
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
-    AppCompatTextView AppCompatTextViewSignUp;
-    AppCompatButton appCompatButtonSignUpEmail,appCompatButtonSignUpPhone,AppCompatButtonSignUp;
-    private AppCompatEditText AppCompatEditTextEmail, AppCompatEditTextPassword,AppCompatEditTextUserName;
+    AppCompatTextView AppCompatTextViewSignUp,AppCompatTextViewForgotPassword;
+    AppCompatButton appCompatButtonSignUpEmail,appCompatButtonSignUpPhone;
     GoogleSignInClient mGoogleSignInClient;
+    AppCompatEditText AppCompatEditTextEmail,AppCompatEditTextPassword,AppCompatEditTextUserName;
     private static final int RC_SIGN_IN=9001;
 
-    SharedPreferences sharedpreferences;
-    public static final String MyPREFERENCES = "MyPrefs";
     SignInButton sign_in_button;
     LoginButton loginButton;
  private FirebaseAuth auth;
@@ -89,7 +86,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
         loginButton = (LoginButton) findViewById(R.id.login_button);
         loginButton.setReadPermissions(Arrays.asList(EMAIL));
-        // If you are using in a fragment, call loginButton.setFragment(this);
 
         callbackManager = CallbackManager.Factory.create();
 
@@ -130,21 +126,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         GoogleSignInAccount account = GoogleSignIn.getLastSignedInAccount(this);
         super.onStart();
         updateUI(true);
-       /* if (account != null) {
-            startActivity(new Intent(this, UserProfileActivity.class));
-            //  updateUI(account);
-        }
-        super.onStart();*/
     }
-  /*  private void updateUI(boolean account) {
-        if (account == true) {
-            //startActivity(new Intent(this, UserProfileActivity.class));
-
-           sign_in_button.setVisibility(View.VISIBLE);
-        } else {
-            return;
-        }
-    }*/
     private void updateUI(boolean isLogin)
     {
         if (isLogin)
@@ -190,6 +172,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private void initListner() {
         AppCompatTextViewSignUp.setOnClickListener(this);
+        AppCompatTextViewForgotPassword.setOnClickListener(this);
 
 
     }
@@ -221,6 +204,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         AppCompatEditTextEmail=findViewById(R.id.AppCompatEditTextEmail);
         AppCompatEditTextPassword=findViewById(R.id.AppCompatEditTextPassword);
         AppCompatEditTextUserName=findViewById(R.id.AppCompatEditTextUserName);
+        AppCompatTextViewForgotPassword=findViewById(R.id.AppCompatTextViewForgotPassword);
         sign_in_button=findViewById(R.id.sign_in_button);
         sign_in_button.setSize(SignInButton.SIZE_STANDARD);
      //   loginButton = (LoginButton) findViewById(R.id.login_button);
@@ -232,15 +216,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View v) {
 
-        Fragment fr;
+        Fragment fr = new Fragment() ;
         switch ((v.getId()))
         {
             case R.id.AppCompatTextViewSignUp:
                 fr = new FragmentSignUp();
                 break;
-            case R.id.appCompatButtonSignUpEmail:
-                fr=new FragmentEmail();
-                break;
+
             case R.id.appCompatButtonSignUpPhone:
                 fr=new FragmentPhone();
                 break;
@@ -249,7 +231,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.sign_in_button:
                 SignInWithGoogle();
-
+                break;
+            case R.id.appCompatButtonSignUpEmail:
+                fr=new FragmentEmail();
+                break;
+            case R.id.AppCompatTextViewForgotPassword:
+                Intent passIntent= new Intent(this, ForgetPasswordActivity.class);
+                startActivity(passIntent);
+                break;
 
         default:
                 return;
@@ -295,56 +284,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             updateUI(false);
         }
     }
-  /*  @Override
-  2.later commented
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        callbackManager.onActivityResult(requestCode, resultCode, data);
-        // Result returned from launching the Intent from GoogleSignInClient.getSignInIntent(...);
-        if (requestCode == RC_SIGN_IN) {
-            // The Task returned from this call is always completed, no need to attach
-            // a listener.
-            Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
-            handleSignInResult(task);
-            Log.e("task", "onActivityResult: "+task );
-
-
-            GoogleSignInAccount acct = GoogleSignIn.getLastSignedInAccount(MainActivity.this);
-            if (acct != null) {
-                String personName = acct.getDisplayName();
-                String personGivenName = acct.getGivenName();
-                String personFamilyName = acct.getFamilyName();
-                String personEmail = acct.getEmail();
-                String personId = acct.getId();
-                Uri personPhoto = acct.getPhotoUrl();
-            }
-
-
-
-
-
-
-        }
-     *//* Intent i1=new Intent(this,UpdateProfileDataActivity.class);
-       startActivity(i1);*//*
-    }
-
-    private void handleSignInResult(Task<GoogleSignInAccount> completedTask) {
-        try {
-            GoogleSignInAccount account = completedTask.getResult(ApiException.class);
-
-            // Signed in successfully, show authenticated UI.
-
-            updateUI(true);
-        } catch (ApiException e) {
-            // The ApiException status code indicates the detailed failure reason.
-            // Please refer to the GoogleSignInStatusCodes class reference for more information.
-            Log.w("Pooja", "signInResult:failed code=" + e.getStatusCode());
-            updateUI(false);
-        }
-
-    }*/
-
 
     @Override
     protected void onResume() {

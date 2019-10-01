@@ -36,7 +36,7 @@ public class DailyAgendaACtivity extends AppCompatActivity implements View.OnCli
     TextView Selecteddate;
     Button addEventButton;
     Context context=this;
-    ImageView imageView,ImageViewHome,ImageViewActivity,ImageViewSettings;
+    ImageView ImageViewMenuActivity,ImageViewHome,ImageViewActivity,ImageViewSettings;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_daily_agenda_activity);
@@ -55,6 +55,7 @@ public class DailyAgendaACtivity extends AppCompatActivity implements View.OnCli
 
 
         ImageViewHome.setOnClickListener(this);
+        ImageViewMenuActivity.setOnClickListener(this);
         ImageViewActivity.setOnClickListener(this);
         ImageViewSettings.setOnClickListener(this);
         addEventButton.setOnClickListener(new View.OnClickListener() {
@@ -159,6 +160,8 @@ public class DailyAgendaACtivity extends AppCompatActivity implements View.OnCli
         ImageViewHome=findViewById(R.id.ImageViewHome);
         ImageViewActivity=findViewById(R.id.ImageViewActivity);
         ImageViewSettings=findViewById(R.id.ImageViewSettings);
+        ImageViewMenuActivity=findViewById(R.id.ImageViewMenuActivity);
+
     }
 
     @Override
@@ -178,7 +181,10 @@ public class DailyAgendaACtivity extends AppCompatActivity implements View.OnCli
                     Intent ActivityIntent= new Intent(this, DailyAgendaACtivity.class);
                     startActivity(ActivityIntent);
                     break;
-
+                case R.id.ImageViewMenuActivity:
+                Intent MenuIntent= new Intent (this,UserProfileActivity.class);
+                startActivity(MenuIntent);
+                break;
             }
 
     }

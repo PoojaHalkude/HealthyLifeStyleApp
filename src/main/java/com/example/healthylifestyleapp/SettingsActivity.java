@@ -12,8 +12,8 @@ import android.widget.RelativeLayout;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class SettingsActivity extends AppCompatActivity implements View.OnClickListener {
-     RelativeLayout rlHeaderProfile,rlHeaderLogOut,rlHeaderLanguage,rlHeaderHealthData;
-     ImageView ImageViewHome,ImageViewActivity,ImageViewSettings,ImageViewMenu;
+     RelativeLayout rlHeaderProfile,rlHeaderLogOut,rlHeaderLanguage,rlHeaderHealthData,rlHeaderReferFriend;
+     ImageView ImageViewHome,ImageViewActivity,ImageViewSettings,ImageViewMenuSetting;
      Context context=this;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,9 +29,10 @@ public class SettingsActivity extends AppCompatActivity implements View.OnClickL
         ImageViewHome.setOnClickListener(this);
         ImageViewActivity.setOnClickListener(this);
         rlHeaderLogOut.setOnClickListener(this);
-        ImageViewMenu.setOnClickListener(this);
+        ImageViewMenuSetting.setOnClickListener(this);
         rlHeaderHealthData.setOnClickListener(this);
         rlHeaderLanguage.setOnClickListener(this);
+        rlHeaderReferFriend.setOnClickListener(this);
     }
 
     private void initUI() {
@@ -40,10 +41,10 @@ public class SettingsActivity extends AppCompatActivity implements View.OnClickL
         ImageViewHome=findViewById(R.id.ImageViewHome);
         ImageViewActivity=findViewById(R.id.ImageViewActivity);
         rlHeaderLogOut=findViewById(R.id.rlHeaderLogOut);
-        ImageViewMenu=findViewById(R.id.ImageViewMenu);
+        ImageViewMenuSetting=findViewById(R.id.ImageViewMenuSetting);
         rlHeaderLanguage=findViewById(R.id.rlHeaderLanguage);
         rlHeaderHealthData=findViewById(R.id.rlHeaderHealthData);
-
+        rlHeaderReferFriend=findViewById(R.id.rlHeaderReferFriend);
     }
 
     @Override
@@ -106,6 +107,27 @@ public class SettingsActivity extends AppCompatActivity implements View.OnClickL
                 Intent ProfileIntent= new Intent (this,ProfileScreenActivity.class);
                 startActivity(ProfileIntent);
                 break;
+            case R.id.rlHeaderReferFriend:
+               /* Intent sendIntent = new Intent();
+                sendIntent.setAction(Intent.ACTION_SEND);
+                sendIntent.putExtra(Intent.EXTRA_TEXT, "This is my text to send.");
+                sendIntent.setType("text/plain");
+
+                Intent shareIntent = Intent.createChooser(sendIntent, null);
+                startActivity(shareIntent);*/
+                Intent myIntent = new Intent(Intent.ACTION_SEND);
+                myIntent.setType("text/plain");
+                String shareBody = "This is my text to send.";
+                String shareSub = "Your subject/Link";
+                myIntent.putExtra(Intent.EXTRA_SUBJECT, shareBody);
+                myIntent.putExtra(Intent.EXTRA_TEXT, shareSub);
+                startActivity(Intent.createChooser(myIntent, "Share Link using"));
+                break;
+            case R.id.ImageViewMenuSetting:
+                Intent MenuIntent= new Intent (this,UserProfileActivity.class);
+                startActivity(MenuIntent);
+                break;
         }
+
     }
 }

@@ -118,7 +118,6 @@ public class FragmentLogin extends android.app.Fragment implements View.OnClickL
                                 Toast.makeText(getActivity(),"createUserWithEmail:onComplete:" + task.isSuccessful(), Toast.LENGTH_SHORT).show();
 
                                 progressBar.setVisibility(View.GONE);
-
                                 if (!task.isSuccessful()) {
                                     Toast.makeText(getActivity(), "Enter Correct Username and Password" + task.getException(),
                                             Toast.LENGTH_SHORT).show();

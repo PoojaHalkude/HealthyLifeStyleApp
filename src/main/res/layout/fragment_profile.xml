@@ -17,7 +17,7 @@
         <ImageView
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:id="@+id/ShowImageView"
+            android:id="@+id/ShowImageView1"
             android:layout_below="@+id/textview"
             android:layout_gravity="center"
             android:src="@drawable/ic_account_circle"

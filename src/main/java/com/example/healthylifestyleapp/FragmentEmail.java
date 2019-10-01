@@ -43,16 +43,7 @@ public class FragmentEmail extends android.app.Fragment implements View.OnClickL
         progressBar=rootView.findViewById(R.id.progressBar);
         FirebaseApp.initializeApp(getActivity());
         mAuth = FirebaseAuth.getInstance();
-      /*  if(mAuth.getCurrentUser() != null){
-            //close this activity
-            //opening profile activity
-            startActivity(new Intent(getApplicationContext(), ProfileActivity.class));
-        }*/
 
-      /*  if(mAuth.getCurrentUser() != null){
-
-            startActivity(new Intent(getActivity(), UserProfileActivity.class));
-        }*/
         FirebaseApp.initializeApp(getActivity());
         AppCompatButtonSignUp.setOnClickListener(this);
         return rootView;
@@ -61,11 +52,10 @@ public class FragmentEmail extends android.app.Fragment implements View.OnClickL
     @SuppressLint("RestrictedApi")
     @Override
     public void onClick(View v) {
-        switch (v.getId())
-        {
+        switch (v.getId()) {
             case R.id.AppCompatButtonSignUp:
                 String email = AppCompatEditTextEmail.getText().toString().trim();
-                String username=AppCompatEditTextUserName.getText().toString().trim();
+                String username = AppCompatEditTextUserName.getText().toString().trim();
                 String password = AppCompatEditTextPassword.getText().toString().trim();
                 if (TextUtils.isEmpty(email)) {
                     Toast.makeText(getApplicationContext(), "Enter email address!", Toast.LENGTH_SHORT).show();
@@ -94,7 +84,7 @@ public class FragmentEmail extends android.app.Fragment implements View.OnClickL
                         .addOnCompleteListener(getActivity(), new OnCompleteListener<AuthResult>() {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
-                                Toast.makeText(getActivity(),"createUserWithEmail:onComplete:" + task.isSuccessful(), Toast.LENGTH_SHORT).show();
+                                Toast.makeText(getActivity(), "createUserWithEmail:onComplete:" + task.isSuccessful(), Toast.LENGTH_SHORT).show();
 
                                 progressBar.setVisibility(View.GONE);
 
@@ -102,38 +92,19 @@ public class FragmentEmail extends android.app.Fragment implements View.OnClickL
                                     Toast.makeText(getActivity(), "Authentication failed." + task.getException(),
                                             Toast.LENGTH_SHORT).show();
                                 } else {
-                                    Toast.makeText(getApplicationContext(), "Registration Successful!", Toast.LENGTH_LONG).show();
-                                    progressBar.setVisibility(View.GONE);
-                                    Intent myIntent=new Intent(getActivity(), UserProfileActivity.class);
-                                    startActivity(myIntent);
-
-                                    // startActivity(new Intent(getActivity(), MainActivity.class));
+                                    startActivity(new Intent(getActivity(), MainActivity.class));
                                 }
 
 
                             }
                         });
-              /*  mAuth.createUserWithEmailAndPassword(email, password)
-                        .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                            @Override
-                            public void onComplete(@NonNull Task<AuthResult> task) {
-                                if (task.isSuccessful()) {
-                                    Toast.makeText(getActivity(), "Registration successful!", Toast.LENGTH_LONG).show();
-                                    progressBar.setVisibility(View.GONE);
-
-                                    Intent intent = new Intent(getActivity(), UpdateProfileDataActivity.class);
-                                    startActivity(intent);
-                                }
-                                else {
-                                    Toast.makeText(getApplicationContext(), "Registration failed! Please try again later", Toast.LENGTH_LONG).show();
-                                    progressBar.setVisibility(View.GONE);
-                                }
-                            }
-                        });*/
+                Intent myIntent = new Intent(getActivity(), StartedActivity.class);
+                startActivity(myIntent);
+                break;
         }
-
-
     }
+
+
 
     @Override
     public void onResume() {
@@ -144,16 +115,20 @@ public class FragmentEmail extends android.app.Fragment implements View.OnClickL
 
     public void onStart() {
         super.onStart();
-        if (mAuth.getCurrentUser()!=null)
+        /*if (mAuth.getCurrentUser()!=null)
         {
             getActivity().finish();
             startActivity(new Intent(getActivity(),ProfileScreenActivity.class ));
 
-        }
+        }*/
     }
 
 
 }
+
+
+
+
 
 
 

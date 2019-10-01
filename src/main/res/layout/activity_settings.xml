@@ -13,7 +13,7 @@
         android:background="@color/colorSettingBack">
 
         <ImageView
-            android:id="@+id/ImageViewMenu"
+            android:id="@+id/ImageViewMenuSetting"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_margin="20dp"
@@ -25,7 +25,7 @@
             android:layout_width="176dp"
             android:layout_height="wrap_content"
             android:layout_margin="20dp"
-            android:layout_toRightOf="@+id/ImageViewMenu"
+            android:layout_toRightOf="@+id/ImageViewMenuSetting"
             android:gravity="center_vertical"
             android:text="@string/Label_Settings"
             android:textColor="@android:color/white"

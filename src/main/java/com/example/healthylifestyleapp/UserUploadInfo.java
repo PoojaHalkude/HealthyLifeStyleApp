@@ -11,12 +11,12 @@ public class UserUploadInfo {
         this.imageURL = imageURL;
     }
 
-    public String getEmail() {
-        return Email;
+    public String getMyemail() {
+        return Myemail;
     }
 
-    public void setEmail(String email) {
-        Email = email;
+    public void setMyemail(String email) {
+        Myemail = email;
     }
 
     public String getMobile() {
@@ -28,7 +28,7 @@ public class UserUploadInfo {
     }
 
     public String imageURL;
-    public String Email;
+    public String Myemail;
     public String Mobile;
 
 
@@ -36,11 +36,11 @@ public class UserUploadInfo {
 
     }
 
-    public UserUploadInfo(String name, String email, String mobile, String url) {
+    public UserUploadInfo(String name, String Myemail, String mobile, String url) {
 
         this.UserName = name;
         this.imageURL= url;
-        this.Email=email;
+        this.Myemail=Myemail;
         this.Mobile=mobile;
     }
 

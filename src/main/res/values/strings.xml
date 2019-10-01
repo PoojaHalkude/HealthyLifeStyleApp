@@ -67,6 +67,8 @@
     <string name="Label_Activity">Activity</string>
     <string name="Label_AddActivity">Add Activity</string>
     <string name="Label_AddNewActivity">Add New Activity</string>
+    <string name="Label_forgot">Forget password ?</string>
+
 
     <string name="Label_Workput">Workput</string>
     <string name="Label_Dinner">Dinner</string>

@@ -64,7 +64,7 @@ public class VerificationActivity extends AppCompatActivity {
 
                 //verifying the code entered manually
                 verifyVerificationCode(code);
-                Intent intent=new Intent(VerificationActivity.this,UpdateProfileDataActivity.class);
+                Intent intent=new Intent(VerificationActivity.this,StartedActivity.class);
                 startActivity(intent);
 
             }
@@ -72,7 +72,7 @@ public class VerificationActivity extends AppCompatActivity {
     }
 
     private void goToMainActivity() {
-        Intent i = new Intent(this,ProfileScreenActivity.class);
+        Intent i = new Intent(this,MainActivity.class);
         startActivity(i);
     }
 

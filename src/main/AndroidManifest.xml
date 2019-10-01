@@ -13,7 +13,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".AddNewActivity"></activity>
+        <activity android:name=".ForgetPasswordActivity"></activity>
+        <activity android:name=".AddNewActivity" />
         <activity android:name=".HealthTipsActivity" />
         <activity android:name=".FitnessDevice" />
         <activity android:name=".HealthyRecipesActivity" />
@@ -25,16 +26,16 @@
         <activity android:name=".SleepSettingActivity" />
         <activity android:name=".ActivityGoalSettings" />
         <activity android:name=".DrinkSettingActivity" />
-        <activity android:name=".UpdateProfileDataActivity" />
+        <activity android:name=".UpdateProfileDataActivity"></activity>
         <activity android:name=".VerificationActivity" />
         <activity android:name=".DailyAgendaACtivity" />
         <activity android:name=".HomeScreenActivity" />
         <activity android:name=".ProfileScreenActivity" />
-        <activity android:name=".SettingsActivity" />
+        <activity android:name=".SettingsActivity"></activity>
         <activity
             android:name=".UserProfileActivity"
             android:label="@string/title_activity_user_profile"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity android:name=".StartedActivity" />
         <activity android:name=".PhysiquesDetailsActivity" />
         <activity android:name=".ConfirmDetailsActivity" />
