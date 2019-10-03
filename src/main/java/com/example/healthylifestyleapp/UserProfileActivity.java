@@ -37,16 +37,18 @@ import com.google.firebase.database.ValueEventListener;
 
 public class UserProfileActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener, View.OnClickListener {
-   ImageView imageView,ImageViewHome,ImageViewActivity,ImageViewSettings,imageViewProfilePicture;
-TextView TextViewUserName,TextViewEmail,TextViewUserName1,TextViewEmail1;
-FirebaseUser mfirebaseuser;
+    ImageView imageView, ImageViewHome, ImageViewActivity, ImageViewSettings, imageViewProfilePicture;
+    TextView TextViewUserName, TextViewEmail, TextViewUserName1, TextViewEmail1;
+    FirebaseUser mfirebaseuser;
     DatabaseReference rootRef, demoRef, ProfileUserRef;
     FirebaseAuth mAuth;
+    FirebaseUser currentUser;
     private String currentUserId;
-    LinearLayout LLHeaderDrink,LLHeaderSleep, LLHeaderFood,llHeaderTips;
+    LinearLayout LLHeaderDrink, LLHeaderSleep, LLHeaderFood, llHeaderTips;
     GoogleSignInClient mGoogleSignInClient;
 
-    Context context=this;
+    Context context = this;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,9 +59,9 @@ FirebaseUser mfirebaseuser;
         initListner();
         //database reference pointing to root of database
         rootRef = FirebaseDatabase.getInstance().getReference();
-        mAuth=FirebaseAuth.getInstance();
+        mAuth = FirebaseAuth.getInstance();
         mAuth.getCurrentUser().getUid();
-
+        currentUser= mAuth.getCurrentUser();
         ////code for storing gmail profile data/////
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestEmail()
@@ -73,17 +75,17 @@ FirebaseUser mfirebaseuser;
             String personEmail = account.getEmail();
             String personId = account.getId();
             Uri personPhoto = account.getPhotoUrl();
-            TextViewUserName1.setText("Name:"+personName);
-            TextViewEmail1.setText("Email:"+personEmail);
-            Glide.with(this).load(personPhoto).into(imageViewProfilePicture);
+         //   TextViewUserName1.setText("Name:" + personName);
+           // TextViewEmail1.setText("Email:" + personEmail);
+           /* Glide.with(this).load(personPhoto).into(imageViewProfilePicture);
 
-            startActivity(new Intent(this, UserProfileActivity.class));
+            startActivity(new Intent(this, UserProfileActivity.class));*/
          /*   Uri profilePictureUri = ImageRequest.getProfilePictureUri(Profile.getCurrentProfile().getId(), dimensionPixelSize , dimensionPixelSize );
             Glide.with(this).load(profilePictureUri)
                     .diskCacheStrategy(DiskCacheStrategy.SOURCE)
                     .into(imageViewProfilePicture);*/
             //  updateUI(account);
-            Log.e("Pooja","Value of:"+personEmail);
+            Log.e("Pooja", "Value of:" + personEmail);
 
         }
 
@@ -95,7 +97,7 @@ FirebaseUser mfirebaseuser;
                 String value = dataSnapshot.getValue(String.class);
 //               TextViewUserName.setText(value);
                 //TextViewEmail.setText(value);
-               // int imgval= (int) dataSnapshot.getValue();
+                // int imgval= (int) dataSnapshot.getValue();
                 //imageView.setImageResource(imgval);
 
 
@@ -121,10 +123,14 @@ FirebaseUser mfirebaseuser;
         drawer.addDrawerListener(toggle);
         toggle.syncState();
         navigationView.setNavigationItemSelectedListener(this);
-        View navHeaderView= navigationView.getHeaderView(0);
-        imageView =(ImageView)navHeaderView.findViewById(R.id.imageView);
-        TextViewUserName=(TextView)navHeaderView.findViewById(R.id.TextViewUserName);
-        TextViewEmail=(TextView)navHeaderView.findViewById(R.id.TextViewEmail);
+        View navHeaderView = navigationView.getHeaderView(0);
+//        updateNavProfile();
+
+
+
+        imageView = (ImageView) findViewById(R.id.imageView);
+        TextViewUserName = (TextView) findViewById(R.id.TextViewUserName);
+        TextViewEmail = (TextView)findViewById(R.id.TextViewEmail);
 
         //Code for setting profile data to navigation drawer
       /*  FirebaseDatabase.getInstance().getReference((Constatnts.USER_KEy)).child(mfirebaseuser.getEmail().replace(".",","))
@@ -159,20 +165,20 @@ FirebaseUser mfirebaseuser;
     }
 
     private void InitUi() {
-        imageView=findViewById(R.id.imageView);
-        TextViewUserName=findViewById(R.id.TextViewUserName);
-        TextViewEmail=findViewById(R.id.TextViewEmail);
-        ImageViewHome=findViewById(R.id.ImageViewHome);
-        ImageViewActivity=findViewById(R.id.ImageViewActivity);
-        ImageViewSettings=findViewById(R.id.ImageViewSettings);
-        LLHeaderDrink=findViewById(R.id.LLHeaderDrink);
-        LLHeaderFood=findViewById(R.id.LLHeaderFood);
-        LLHeaderSleep=findViewById(R.id.LLHeaderSleep);
-        imageViewProfilePicture=findViewById(R.id.imageViewProfilePicture);
-        TextViewUserName1=findViewById(R.id.TextViewUserName1);
-        TextViewEmail1=findViewById(R.id.TextViewEmail1);
+        imageView = findViewById(R.id.imageView);
+        TextViewUserName = findViewById(R.id.TextViewUserName);
+        TextViewEmail = findViewById(R.id.TextViewEmail);
+        ImageViewHome = findViewById(R.id.ImageViewHome);
+        ImageViewActivity = findViewById(R.id.ImageViewActivity);
+        ImageViewSettings = findViewById(R.id.ImageViewSettings);
+        LLHeaderDrink = findViewById(R.id.LLHeaderDrink);
+        LLHeaderFood = findViewById(R.id.LLHeaderFood);
+        LLHeaderSleep = findViewById(R.id.LLHeaderSleep);
+     /*   imageViewProfilePicture = findViewById(R.id.imageViewProfilePicture);
+        TextViewUserName1 = findViewById(R.id.TextViewUserName1);
+        TextViewEmail1 = findViewById(R.id.TextViewEmail1);*/
 
-        llHeaderTips=findViewById(R.id.llHeaderTips);
+        llHeaderTips = findViewById(R.id.llHeaderTips);
     }
 
     @Override
@@ -184,7 +190,6 @@ FirebaseUser mfirebaseuser;
             super.onBackPressed();
         }
     }
-
 
 
     @Override
@@ -217,10 +222,10 @@ FirebaseUser mfirebaseuser;
         int id = item.getItemId();
 
         if (id == R.id.nav_home) {
-            Intent homeIntent= new Intent(this, ProfileScreenActivity.class);
+            Intent homeIntent = new Intent(this, ProfileScreenActivity.class);
             startActivity(homeIntent);
 
-        }  else if (id ==R.id.nav_home_recipes) {
+        } else if (id == R.id.nav_home_recipes) {
             Intent recipesIntent = new Intent(this, HealthyRecipesActivity.class);
             startActivity(recipesIntent);
 
@@ -228,7 +233,7 @@ FirebaseUser mfirebaseuser;
 
         } else if (id == R.id.nav_privacy) {
 
-            Intent privacyIntent= new Intent(this, PrivacyPolicyActivity.class);
+            Intent privacyIntent = new Intent(this, PrivacyPolicyActivity.class);
             startActivity(privacyIntent);
         } else if (id == R.id.nav_logout) {
             final Dialog dialog = new Dialog(context);
@@ -238,8 +243,8 @@ FirebaseUser mfirebaseuser;
             // set the custom dialog components - text, image and button
             //TextView text = (TextView) dialog.findViewById(R.id.text);
             //text.setText("Android custom dialog example!");
-            Button ButtonNo=(Button) dialog.findViewById(R.id.ButtonNo);
-            Button ButtonYes= (Button) dialog.findViewById(R.id.ButtonYes);
+            Button ButtonNo = (Button) dialog.findViewById(R.id.ButtonNo);
+            Button ButtonYes = (Button) dialog.findViewById(R.id.ButtonYes);
             // if button is clicked, close the custom dialog
             ButtonNo.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -277,39 +282,52 @@ FirebaseUser mfirebaseuser;
 
     @Override
     public void onClick(View v) {
-        switch (v.getId())
-        {
+        switch (v.getId()) {
             case R.id.ImageViewSettings:
-                Intent settingIntent= new Intent(this, SettingsActivity.class);
+                Intent settingIntent = new Intent(this, SettingsActivity.class);
                 startActivity(settingIntent);
                 break;
             case R.id.ImageViewHome:
-                Intent HomeIntent= new Intent(this, UserProfileActivity.class);
+                Intent HomeIntent = new Intent(this, UserProfileActivity.class);
                 startActivity(HomeIntent);
                 break;
-                case R.id.ImageViewActivity:
-            Intent ActivityIntent= new Intent(this, DailyAgendaACtivity.class);
-            startActivity(ActivityIntent);
-            break;
+            case R.id.ImageViewActivity:
+                Intent ActivityIntent = new Intent(this, DailyAgendaACtivity.class);
+                startActivity(ActivityIntent);
+                break;
             case R.id.LLHeaderDrink:
-                Intent DrinkIntent= new Intent(this, DrinkSettingActivity.class);
+                Intent DrinkIntent = new Intent(this, DrinkSettingActivity.class);
                 startActivity(DrinkIntent);
                 break;
             case R.id.LLHeaderSleep:
-                Intent SleepIntent=new Intent(this,SleepSettingActivity.class);
+                Intent SleepIntent = new Intent(this, SleepSettingActivity.class);
                 startActivity(SleepIntent);
                 break;
             case R.id.LLHeaderFood:
-                Intent FoodIntent= new Intent(this, FoodSettingActivity.class);
+                Intent FoodIntent = new Intent(this, FoodSettingActivity.class);
                 startActivity(FoodIntent);
 
             case R.id.llHeaderTips:
-                Intent Intenttips= new Intent(this, HealthTipsActivity.class);
+                Intent Intenttips = new Intent(this, HealthTipsActivity.class);
                 startActivity(Intenttips);
 
 
-
         }
+
+    }
+    /// tries for nav header
+    public void updateNavProfile()
+    {
+        NavigationView navigationView = findViewById(R.id.nav_view);
+        View headerView= navigationView.getHeaderView(0);
+        TextView nav_userName=headerView.findViewById(R.id.nav_userName);
+        TextView nav_userEmail=headerView.findViewById(R.id.nv_userEmail);
+        ImageView nav_userPhoto=headerView.findViewById(R.id.nav_userPhoto);
+        nav_userEmail.setText(currentUser.getEmail());
+        nav_userName.setText(currentUser.getDisplayName());
+        Glide.with(this).load(currentUser.getPhotoUrl()).into(nav_userPhoto);
+
+        startActivity(new Intent(this, UserProfileActivity.class));
 
     }
 }

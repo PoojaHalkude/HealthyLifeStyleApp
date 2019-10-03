@@ -27,8 +27,8 @@ public class FragmentLogin extends android.app.Fragment implements View.OnClickL
     private FirebaseAuth firebaseAuth;
 
     //progress dialog
-   // private ProgressDialog progressDialog;
-   ProgressBar progressBar;
+    // private ProgressDialog progressDialog;
+    ProgressBar progressBar;
 
     public View onCreateView(LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -115,12 +115,13 @@ public class FragmentLogin extends android.app.Fragment implements View.OnClickL
                         .addOnCompleteListener(getActivity(), new OnCompleteListener<AuthResult>() {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
-                                Toast.makeText(getActivity(),"createUserWithEmail:onComplete:" + task.isSuccessful(), Toast.LENGTH_SHORT).show();
+                                Toast.makeText(getActivity(),"createUserWithEmail:onComplete:" + task.isSuccessful(), Toast.LENGTH_LONG).show();
 
                                 progressBar.setVisibility(View.GONE);
+
                                 if (!task.isSuccessful()) {
-                                    Toast.makeText(getActivity(), "Enter Correct Username and Password" + task.getException(),
-                                            Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(getActivity(), "Please Enter Correct Username and Password " + task.getException(),
+                                            Toast.LENGTH_LONG).show();
                                 } else {
                                     Toast.makeText(getActivity(), "Login Successful!", Toast.LENGTH_LONG).show();
                                     progressBar.setVisibility(View.GONE);

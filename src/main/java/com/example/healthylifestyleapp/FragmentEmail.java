@@ -79,8 +79,30 @@ public class FragmentEmail extends android.app.Fragment implements View.OnClickL
 
                 progressBar.setVisibility(View.VISIBLE);
 
-
+//2nd  code
                 mAuth.createUserWithEmailAndPassword(email, password)
+                        .addOnCompleteListener(getActivity(), new OnCompleteListener<AuthResult>() {
+                            @Override
+                            public void onComplete(@NonNull Task<AuthResult> task) {
+                                Toast.makeText(getActivity(),"createUserWithEmail:onComplete:" + task.isSuccessful(), Toast.LENGTH_SHORT).show();
+                               /* FragmentTransaction ft = getFragmentManager().beginTransaction();
+                                Fragment mFrag = new NextFragment();
+                                ft.replace(R.id.fra, mFrag);
+                                ft.commit();*/
+                                progressBar.setVisibility(View.GONE);
+
+                                if (!task.isSuccessful()) {
+                                    Toast.makeText(getActivity(), "Authentication failed." + task.getException(),
+                                            Toast.LENGTH_SHORT).show();
+                                } else {
+                                    startActivity(new Intent(getActivity(), MainActivity.class));
+                                }
+                                Intent myIntent=new Intent(getActivity(), StartedActivity.class);
+                                startActivity(myIntent);
+
+                            }
+                        });
+               /* mAuth.createUserWithEmailAndPassword(email, password)
                         .addOnCompleteListener(getActivity(), new OnCompleteListener<AuthResult>() {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
@@ -97,9 +119,9 @@ public class FragmentEmail extends android.app.Fragment implements View.OnClickL
 
 
                             }
-                        });
-                Intent myIntent = new Intent(getActivity(), StartedActivity.class);
-                startActivity(myIntent);
+                        });*/
+              /*  Intent myIntent = new Intent(getActivity(), StartedActivity.class);
+                startActivity(myIntent);*/
                 break;
         }
     }

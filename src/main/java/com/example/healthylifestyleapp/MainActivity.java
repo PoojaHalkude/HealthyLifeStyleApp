@@ -57,9 +57,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     SignInButton sign_in_button;
     LoginButton loginButton;
- private FirebaseAuth auth;
- Context context=this;
- CallbackManager callbackManager;
+    private FirebaseAuth auth;
+    Context context=this;
+    CallbackManager callbackManager;
 
 
 
@@ -74,8 +74,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         iniUI();
         initListner();
         //Get Firebase auth instance
-     auth = FirebaseAuth.getInstance();
-     FirebaseApp.initializeApp(context);
+        auth = FirebaseAuth.getInstance();
+        FirebaseApp.initializeApp(context);
 
         sign_in_button = findViewById(R.id.sign_in_button);
         sign_in_button.setSize(SignInButton.SIZE_STANDARD);
@@ -89,32 +89,32 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         callbackManager = CallbackManager.Factory.create();
 
-            LoginManager.getInstance().registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
-                @Override
-                public void onSuccess(LoginResult loginResult) {
-                    Toast.makeText(getApplicationContext(), "login success", Toast.LENGTH_SHORT).show();
-                    Intent a = new Intent(MainActivity.this,UserProfileActivity.class);
-                    startActivity(a);
+        LoginManager.getInstance().registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
+            @Override
+            public void onSuccess(LoginResult loginResult) {
+                Toast.makeText(getApplicationContext(), "login success", Toast.LENGTH_SHORT).show();
+                Intent a = new Intent(MainActivity.this,UserProfileActivity.class);
+                startActivity(a);
 
-                }
+            }
 
-                @Override
-                public void onCancel() {
-                    Toast.makeText(getApplicationContext(), "Cancel", Toast.LENGTH_SHORT).show();
+            @Override
+            public void onCancel() {
+                Toast.makeText(getApplicationContext(), "Cancel", Toast.LENGTH_SHORT).show();
 
-                }
+            }
 
-                @Override
-                public void onError(FacebookException error) {
-                   Toast.makeText(getApplicationContext(),"Login Error: +error.getMessage()",Toast.LENGTH_SHORT );
+            @Override
+            public void onError(FacebookException error) {
+                Toast.makeText(getApplicationContext(),"Login Error: +error.getMessage()",Toast.LENGTH_SHORT );
 
-                }
-            });
+            }
+        });
 
 
 
-            AccessToken accessToken = AccessToken.getCurrentAccessToken();
-            boolean isLoggedIn = accessToken != null && !accessToken.isExpired();
+        AccessToken accessToken = AccessToken.getCurrentAccessToken();
+        boolean isLoggedIn = accessToken != null && !accessToken.isExpired();
 
 
 
@@ -207,7 +207,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         AppCompatTextViewForgotPassword=findViewById(R.id.AppCompatTextViewForgotPassword);
         sign_in_button=findViewById(R.id.sign_in_button);
         sign_in_button.setSize(SignInButton.SIZE_STANDARD);
-     //   loginButton = (LoginButton) findViewById(R.id.login_button);
+        //   loginButton = (LoginButton) findViewById(R.id.login_button);
 
 
     }
@@ -240,7 +240,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 startActivity(passIntent);
                 break;
 
-        default:
+            default:
                 return;
 
         }
