@@ -25,9 +25,6 @@ public class FragmentLogin extends android.app.Fragment implements View.OnClickL
     AppCompatButton AppCompatButtonLogIn;
     //firebase auth object
     private FirebaseAuth firebaseAuth;
-
-    //progress dialog
-    // private ProgressDialog progressDialog;
     ProgressBar progressBar;
 
     public View onCreateView(LayoutInflater inflater,
@@ -48,17 +45,6 @@ public class FragmentLogin extends android.app.Fragment implements View.OnClickL
         firebaseAuth = FirebaseAuth.getInstance();
         FirebaseApp.initializeApp(getActivity());
 
-        //if the objects getcurrentuser method is not null
-        //means user is already logged in
-        /*if (firebaseAuth.getCurrentUser() != null) {
-            //close this activity
-            getActivity().finish();
-            //opening profile activity
-            //startActivity(new Intent(getActivity(), StartedActivity.class));
-
-
-        }*/
-
         return rootView;
     }
     @Override
@@ -73,44 +59,12 @@ public class FragmentLogin extends android.app.Fragment implements View.OnClickL
                     Toast.makeText(getActivity(), "Enter password!", Toast.LENGTH_SHORT).show();
                     return;
                 }
-
-               /* if (password.length() < 6) {
-                    Toast.makeText(getActivity(), "Password too short, enter minimum 6 characters!", Toast.LENGTH_SHORT).show();
-                    return;
-                }
-*/
                 if (TextUtils.isEmpty(username)) {
                     Toast.makeText(getActivity(), "Enter Username!", Toast.LENGTH_SHORT).show();
                     return;
                 }
 
                 progressBar.setVisibility(View.VISIBLE);
-               /* firebaseAuth.signInWithEmailAndPassword(username, password)
-                        .addOnCompleteListener(getActivity(), new OnCompleteListener<AuthResult>() {
-                            @Override
-                            public void onComplete(@NonNull Task<AuthResult> task) {
-                                Toast.makeText(getActivity(),"createUserWithEmail:onComplete:" + task.isSuccessful(), Toast.LENGTH_SHORT).show();
-
-                                progressBar.setVisibility(View.GONE);
-
-                                if (!task.isSuccessful()) {
-                                    Toast.makeText(getActivity(), "Enter Correct Username and Password" + task.getException(),
-                                            Toast.LENGTH_SHORT).show();
-                                } else {
-                                    Toast.makeText(getActivity(), "Login Successful!", Toast.LENGTH_LONG).show();
-                                    progressBar.setVisibility(View.GONE);
-                                    Intent myIntent=new Intent(getActivity(), ProfileScreenActivity.class);
-                                    startActivity(myIntent);
-
-                                   *//* return inflater.inflate(
-                                            R.layout.fragment_login, container, false);*//*
-                                    // startActivity(new Intent(getActivity(), MainActivity.class));
-                                }
-
-
-                            }
-                        });*/
-
                 firebaseAuth.signInWithEmailAndPassword(username, password)
                         .addOnCompleteListener(getActivity(), new OnCompleteListener<AuthResult>() {
                             @Override

@@ -79,14 +79,14 @@ public class UpdateProfileDataActivity extends AppCompatActivity {
         // Assign ID's to EditText.
         ImageName = (EditText) findViewById(R.id.EditTextName);
         @SuppressLint("RestrictedApi")
-        UserData userNew = new UserData("Mickey","m@gmail.com","9049651515");
+        UserData userNew = new UserData("Pooja","pooja@gmail.com","9049651515");
         mDatabaseReference = mDatabase.getReference().child("user");
         mDatabaseReference.setValue(user);
 
         // Assign ID'S to image view.
         SelectImage = (ImageView) findViewById(R.id.ShowImageView);
         mDatabaseReference = mDatabase.getReference().child("name");
-        mDatabaseReference.setValue("Donald Duck");
+        mDatabaseReference.setValue("Pooja Halkude");
         // Assigning Id to ProgressDialog.
         progressDialog = new ProgressDialog(this);
         if (user != null)

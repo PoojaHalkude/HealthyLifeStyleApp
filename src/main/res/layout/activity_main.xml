@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorBlack"
+    android:id="@+id/MainHeader"
   >
 
     <RelativeLayout
@@ -72,6 +73,15 @@
             android:orientation="horizontal"
             android:weightSum="10">
             <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/AppCompatTextViewLogin"
+                style="@style/TextViewClick"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="5"
+                android:gravity="center"
+                android:onClick="onClick"
+                android:text="@string/Label_Login" />
+            <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/AppCompatTextViewSignUp"
                 style="@style/TextViewClick"
                 android:layout_width="0dp"
@@ -81,15 +91,7 @@
                 android:gravity="center"
                 android:text="@string/Label_Sign_up" />
 
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/AppCompatTextViewLogin"
-                style="@style/TextViewClick"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="5"
-                android:gravity="center"
-                android:onClick="onClick"
-                android:text="@string/Label_Login" />
+
         </LinearLayout>
 
 
@@ -99,38 +101,44 @@
             android:name="com.example.healthylifestyleapp.FragmentSignUp"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_margin="20dp"
-            android:gravity="center">
-        <com.google.android.gms.common.SignInButton
-            android:id="@+id/sign_in_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-        <com.facebook.login.widget.LoginButton
-            android:id="@+id/login_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="20dp"
-           />
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="20dp"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <com.google.android.gms.common.SignInButton
+                android:id="@+id/sign_in_button"
+                android:layout_width="193dp"
+                android:layout_height="42dp" />
+
+            <com.facebook.login.widget.LoginButton
+                android:id="@+id/login_button"
+                style="@style/FacebookLoginButton"
+                android:layout_width="185dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="10dp" />
 
 
         </LinearLayout>
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/AppCompatTextViewForgotPassword"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="bottom"
             android:layout_gravity="center"
             android:padding="5dp"
-            android:layout_margin="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="10dp"
             android:text="@string/Label_forgot"
             android:textColor="@android:color/white"
-
             android:textSize="18dp" />
     </LinearLayout>
 

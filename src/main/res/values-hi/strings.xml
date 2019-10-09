@@ -136,5 +136,10 @@
     2) कुछ उच्च तीव्रता अंतराल प्रशिक्षण कैलोरी और ढीले वजन को जलाने का एक शानदार तरीका है।
     3) एक और बड़ी बात यह है कि पूर्णांक प्रशिक्षण के बारे में यह है कि यह चरम समय पर कुशल है। जब आप उच्च तीव्रता अंतराल प्रशिक्षण का अभ्यास करते हैं, तो इसे आकार में आने में कोई समय नहीं लगता है।
     4) निष्पादित करें, विशेष रूप से उच्च तीव्रता अंतराल प्रशिक्षण भयानक बीक्यूज़ है जो आपको रखता है</string>
+    <string name="Label_send_feedback">Send feedback</string>
+
+    <string name="Label_feedback_email">YourEmailAdress</string>
+    <string name="Label_feedback_subject">Feedback on your app</string>
+    <string name="Label_feedback_message">Your Feedback message</string>
 
 </resources>

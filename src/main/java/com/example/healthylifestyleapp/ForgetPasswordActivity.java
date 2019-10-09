@@ -2,6 +2,7 @@ package com.example.healthylifestyleapp;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Toast;
 
@@ -20,7 +21,7 @@ import java.util.regex.Pattern;
 
 public class ForgetPasswordActivity extends AppCompatActivity {
     AppCompatEditText EditTextForegtEmail,EditTextNewPass;
-    AppCompatButton AppCompatButtonSendEmail;
+    AppCompatButton AppCompatButtonUpdate;
     private FirebaseAuth mAuth;
 
 
@@ -28,21 +29,21 @@ public class ForgetPasswordActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_forget_password);
-        AppCompatButtonSendEmail = findViewById(R.id.AppCompatButtonSendEmail);
+        AppCompatButtonUpdate = findViewById(R.id.AppCompatButtonUpdate);
         EditTextForegtEmail = findViewById(R.id.EditTextForegtEmail);
-        EditTextNewPass=findViewById(R.id.EditTextNewPass);
+       // EditTextNewPass=findViewById(R.id.EditTextNewPass);
 
         mAuth = FirebaseAuth.getInstance();
-        //  EditTextForegtEmail.setOnClickListener(this);
-        AppCompatButtonSendEmail.setOnClickListener(new View.OnClickListener() {
+
+        AppCompatButtonUpdate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String userEmail = AppCompatButtonSendEmail.getText().toString();
-                String pass=EditTextNewPass.getText().toString();
-                FirebaseUser user=FirebaseAuth.getInstance().getCurrentUser();
-                if(user!=null)
-                {
-                    user.updatePassword(pass).addOnCompleteListener(new OnCompleteListener<Void>() {
+                String userEmail = EditTextForegtEmail.getText().toString();
+              //  String pass = EditTextNewPass.getText().toString();
+                FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+                if (user != null) {
+                    //Code for normal Password
+                    /*user.updatePassword(pass).addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {
                             if (task.isSuccessful())
@@ -58,41 +59,37 @@ public class ForgetPasswordActivity extends AppCompatActivity {
                             }
 
                         }
-                    });
+                    });*/
+
+
+                    // Pattern for email id validation
+                    Pattern p = Pattern.compile(Constatnts.regEx);
+
+                    // Match the pattern
+                    Matcher m = p.matcher(userEmail);
+
+                    if (TextUtils.isEmpty(userEmail)) {
+                        Toast.makeText(ForgetPasswordActivity.this, "Please Enter your valid email...", Toast.LENGTH_SHORT).show();
+                    } else {
+                        mAuth.sendPasswordResetEmail(userEmail)
+                                .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                    @Override
+                                    public void onComplete(@NonNull Task<Void> task) {
+                                        if (task.isSuccessful()) {
+                                            Toast.makeText(ForgetPasswordActivity.this, "Please Check your email account if you want to reset your password", Toast.LENGTH_SHORT).show();
+                                            startActivity(new Intent(ForgetPasswordActivity.this, MainActivity.class));
+                                        } else {
+                                            String errorMsg = task.getException().getMessage();
+                                            Toast.makeText(ForgetPasswordActivity.this, "Error Occured: " + errorMsg, Toast.LENGTH_LONG).show();
+
+                                        }
+                                    }
+                                });
+                    }
                 }
-
-                       // Pattern for email id validation
-        Pattern p = Pattern.compile(Constatnts.regEx);
-
-        // Match the pattern
-        Matcher m = p.matcher(userEmail);
-
-        /*if (TextUtils.isEmpty(userEmail)) {
-            Toast.makeText(ForgetPasswordActivity.this, "Please Enter your valid email...", Toast.LENGTH_SHORT).show();
-        }
-               *//* else if (!m.find())
-                {
-                    Toast.makeText(ForgetPasswordActivity.this, " Invalid email...", Toast.LENGTH_SHORT).show();
-                }*//*
-        else
-        {
-            mAuth.sendPasswordResetEmail(userEmail)
-                    .addOnCompleteListener(new OnCompleteListener<Void>() {
-                        @Override
-                        public void onComplete(@NonNull Task<Void> task) {
-                            if (task.isSuccessful()) {
-                                Toast.makeText(ForgetPasswordActivity.this, "Please Check your email account if you want to reset your password", Toast.LENGTH_SHORT).show();
-                                startActivity(new Intent(ForgetPasswordActivity.this,MainActivity.class));
-                            } else {
-                                String errorMsg=task.getException().getMessage();
-                                Toast.makeText(ForgetPasswordActivity.this, "Error Occured: "+errorMsg, Toast.LENGTH_LONG).show();
-
-                            }
-                        }
-                    });
-        }*/
-    }
+            }
 });
+
     }
 }
 

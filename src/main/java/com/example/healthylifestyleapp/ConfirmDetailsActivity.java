@@ -245,6 +245,7 @@ public class ConfirmDetailsActivity extends AppCompatActivity implements View.On
                 if(validate())
             {
                 AppCompatButtonConfirmDetails.setText("FINISH");
+                finish();
                 Intent myIntent = new Intent(this, UserProfileActivity.class );
                 startActivity(myIntent);
             }

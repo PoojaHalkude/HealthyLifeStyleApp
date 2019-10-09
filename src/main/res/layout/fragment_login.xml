@@ -73,13 +73,16 @@
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/AppCompatButtonLogIn"
-                android:layout_width="140dp"
-                android:layout_height="50dp"
-                android:layout_marginStart="200dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
                 android:layout_marginTop="8dp"
+                android:layout_marginRight="20dp"
+                android:fontFamily="monospace"
                 android:background="@drawable/login_btn_background"
                 android:text="@string/Label_Login"
-                android:textColor="@android:color/white" />
+                android:textStyle="bold"
+             android:textColor="@android:color/white" />
         </LinearLayout>
     </LinearLayout>
 

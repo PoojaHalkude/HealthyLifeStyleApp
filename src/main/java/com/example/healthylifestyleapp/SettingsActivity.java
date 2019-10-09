@@ -12,7 +12,7 @@ import android.widget.RelativeLayout;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class SettingsActivity extends AppCompatActivity implements View.OnClickListener {
-     RelativeLayout rlHeaderProfile,rlHeaderLogOut,rlHeaderLanguage,rlHeaderHealthData,rlHeaderReferFriend;
+     RelativeLayout rlHeaderProfile,rlHeaderLogOut,rlHeaderLanguage,rlHeaderHealthData,rlHeaderReferFriend,rlHeaderFeedback;
      ImageView ImageViewHome,ImageViewActivity,ImageViewSettings,ImageViewMenuSetting;
      Context context=this;
     @Override
@@ -33,6 +33,7 @@ public class SettingsActivity extends AppCompatActivity implements View.OnClickL
         rlHeaderHealthData.setOnClickListener(this);
         rlHeaderLanguage.setOnClickListener(this);
         rlHeaderReferFriend.setOnClickListener(this);
+        rlHeaderFeedback.setOnClickListener(this);
     }
 
     private void initUI() {
@@ -45,6 +46,7 @@ public class SettingsActivity extends AppCompatActivity implements View.OnClickL
         rlHeaderLanguage=findViewById(R.id.rlHeaderLanguage);
         rlHeaderHealthData=findViewById(R.id.rlHeaderHealthData);
         rlHeaderReferFriend=findViewById(R.id.rlHeaderReferFriend);
+        rlHeaderFeedback=findViewById(R.id.rlHeaderFeedback);
     }
 
     @Override
@@ -127,6 +129,9 @@ public class SettingsActivity extends AppCompatActivity implements View.OnClickL
                 Intent MenuIntent= new Intent (this,UserProfileActivity.class);
                 startActivity(MenuIntent);
                 break;
+            case R.id.rlHeaderFeedback:
+                Intent feedbackIntent= new Intent(this, FeedbackFormActivity.class);
+                startActivity(feedbackIntent);
         }
 
     }

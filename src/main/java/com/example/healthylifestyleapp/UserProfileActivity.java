@@ -48,6 +48,7 @@ public class UserProfileActivity extends AppCompatActivity
     GoogleSignInClient mGoogleSignInClient;
 
     Context context = this;
+    String TAG = "UserProfileActivity";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,6 +69,7 @@ public class UserProfileActivity extends AppCompatActivity
                 .build();
         mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
         GoogleSignInAccount account = GoogleSignIn.getLastSignedInAccount(this);
+
         if (account != null) {
             String personName = account.getDisplayName();
             String personGivenName = account.getGivenName();
@@ -88,6 +90,7 @@ public class UserProfileActivity extends AppCompatActivity
             Log.e("Pooja", "Value of:" + personEmail);
 
         }
+
 
         //database reference pointing to demo node
         demoRef = rootRef.child("All_Image_Uploads_Database");
@@ -124,7 +127,7 @@ public class UserProfileActivity extends AppCompatActivity
         toggle.syncState();
         navigationView.setNavigationItemSelectedListener(this);
         View navHeaderView = navigationView.getHeaderView(0);
-//        updateNavProfile();
+        updateNavProfile();
 
 
 
@@ -321,13 +324,15 @@ public class UserProfileActivity extends AppCompatActivity
         NavigationView navigationView = findViewById(R.id.nav_view);
         View headerView= navigationView.getHeaderView(0);
         TextView nav_userName=headerView.findViewById(R.id.nav_userName);
-        TextView nav_userEmail=headerView.findViewById(R.id.nv_userEmail);
+        TextView nav_userEmail=headerView.findViewById(R.id.nav_userEmail);
         ImageView nav_userPhoto=headerView.findViewById(R.id.nav_userPhoto);
+
+        Log.d(TAG, "updateNavProfile: Email " +mAuth.getUid());
         nav_userEmail.setText(currentUser.getEmail());
         nav_userName.setText(currentUser.getDisplayName());
         Glide.with(this).load(currentUser.getPhotoUrl()).into(nav_userPhoto);
 
-        startActivity(new Intent(this, UserProfileActivity.class));
+//        startActivity(new Intent(this, UserProfileActivity.class));
 
     }
 }
