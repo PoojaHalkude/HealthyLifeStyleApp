@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.activities.UpdateProfileDataActivity"
+    android:orientation="vertical"
+    android:layout_margin="20dp">
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/Label_fillDetails"
+        android:id="@+id/textview"
+        android:textStyle="bold"
+        android:textSize="20dp"
+        android:gravity="center"
+        android:layout_marginTop="20dp"/>
+
+    <ImageView
+
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:id="@+id/ShowImageView"
+        android:layout_below="@+id/textview"
+        android:layout_gravity="center"
+        android:src="@drawable/ic_account_circle"
+        android:layout_marginTop="20dp"/>
+
+
+    <Button
+        android:id="@+id/ButtonChooseImage"
+        android:layout_width="206dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ShowImageView"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+
+        android:background="@drawable/login_btn_background"
+        android:text="@string/Label_SelectProfile" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/EditTextName"
+        android:layout_marginTop="20dp"
+        android:hint="@string/Label_EnterName"
+        android:gravity="center"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/EditTextEmail"
+
+        android:layout_marginTop="20dp"
+        android:hint="@string/Label_EnterEmail"
+        android:gravity="center"/>
+    <EditText
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/EditTextMobileNo"
+
+        android:layout_marginTop="20dp"
+        android:hint="@string/Label_EnterPhone"
+        android:gravity="center"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="86dp"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/ButtonUploadImage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/login_btn_background"
+            android:text="@string/Label_Save" />
+
+        <Button
+            android:id="@+id/ButtonSkip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/login_btn_background"
+            android:text="@string/Label_Skip" />
+    </LinearLayout>
+</LinearLayout>
