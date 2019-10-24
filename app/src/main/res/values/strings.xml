@@ -2,13 +2,13 @@
     <string name="app_name">HealthyLifeStyleApp</string>
     @string/Label_Account
     <string name="Label_Heading">Healthy Lifestyle</string>
-    <string name="Label_Account">Create a \nNew Account</string>
-    <string name="Label_BestExperince">For the best experience \nwith App</string>
+    <string name="Label_Account">Create a new account</string>
+    <string name="Label_BestExperince">For the best experience with app</string>
     <string name="Label_Sign_up">Sign up</string>
     <string name="Label_Login">Log In</string>
-    <string name="Label_SignupEmail">Signup with Email </string>
-    <string name="Label_SignupPhone">Signup with Phone Number </string>
-    <string name="Label_Username">User Name</string>
+    <string name="Label_SignupEmail">Sign up with Email </string>
+    <string name="Label_SignupPhone">Sign up with Phone Number </string>
+    <string name="Label_Username">Username</string>
     <string name="Label_Password">Password</string>
     <string name="Label_Email">Email</string>
     <string name="Label_Phone">Mobile Number</string>
@@ -70,7 +70,7 @@
     <string name="Label_forgot">Forget password ?</string>
 
 
-    <string name="Label_Workput">Workput</string>
+    <string name="Label_Workput">Workout</string>
     <string name="Label_Dinner">Dinner</string>
     <string name="Label_Lunch">Lunch</string>
     <string name="Label_Water">Water</string>
@@ -78,14 +78,14 @@
     <string name="Label_DailyAgenda">Daily Agenda</string>
     <string name="Label_PrivacyPolicy">Privacy Policy</string>
     <string name="Label_Article1">Article 1</string>
-    <string name="Label_whoMayUse">Who May Use The Serivce</string>
+    <string name="Label_whoMayUse">Who May Use The Service</string>
     <string name="Label_Privacy">Privacy</string>
     <string name="Label_SureLogout">Are you sure want to logout?</string>
     <string name="Label_No">No</string>
     <string name="Label_Yes">Yes</string>
     <string name="Label_Close">Close</string>
     <string name="Label_PrivacyData">When one door of happiness closes, another opens, but often we look so long at the closed door that we do not see the one taht has been opened for us.
-    \n\t Step 1:You may use the Srvices only if you agree to form a binding contract with us and are not a person barred from receiving services under the laws of the applicable jurisdiction. \n\t Step 2:Our privacy Policy describes hoe we handle the infromation you provide to us when you use our services. </string>
+    \n\t Step 1:You may use the Services only if you agree to form a binding contract with us and are not a person barred from receiving services under the laws of the applicable jurisdiction. \n\t Step 2:Our privacy Policy describes hoe we handle the infromation you provide to us when you use our services. </string>
     <string name="Label_PrivacyData1">When one door of happiness closes, another opens, but often we look so long at the closed door that we do not see the one taht has been opened for us.
     </string>
     <string name="title_activity_user_profile">UserProfileActivity</string>
@@ -135,13 +135,20 @@
     <string name="Label_Diet">A Diet Without Exercise is Useless</string>
     <string name="Label_Tips">1)Interval Training is a form of exercise in which you alternate between two or more different exercise . This consist of doing an exercise at a very high level intensity for a short bursts
     \n2) Some high intensity interval training is a great way to burn calories and loose weight.
-    \n3)Another great thing is about inteval training is that it is extremly time efficient . it does not make any time to get into shape when you practice high intensity interval training.
-    \n4)Execise, especially high intensity interval training is awesome beacuse it keeps you</string>
+    \n3)Another great thing is about inteval training is that it is extremely time efficient . it does not make any time to get into shape when you practice high intensity interval training.
+    \n4)Execise, especially high intensity interval training is awesome beacause it keeps you</string>
     <string name="Label_send_feedback">Send feedback</string>
 
     <string name="Label_feedback_email">YourEmailAdress</string>
     <string name="Label_feedback_subject">Feedback on your app</string>
     <string name="Label_feedback_message">Your Feedback message</string>
+    <string name="_8213_8213_or_sign_up_with_social_profiles_8213_8213">―― or Sign up with social profiles ――</string>
+
+    <string name="title_activity_splash">@string/app_name</string>
+
+    <string name="to_reset_your_password_enter_your_email_press_button_and_check_your_mail_to_follow_intsructions">To reset your password, enter your email, press button and check your mail to follow instructions.</string>
+    <string name="update">Update</string>
+    <string name="enter_your_email_here">Enter your email here…</string>
 
 
 </resources>

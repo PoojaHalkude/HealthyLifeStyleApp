@@ -1,41 +1,82 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorBlack">
+    android:background="@color/colorBlack"
+    android:orientation="vertical"
+    android:padding="@dimen/_8sdp">
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnSignUpEmail"
+        style="@style/Widget.MaterialComponents.Button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:drawableStart="@drawable/ic_email_black"
+        android:drawableTint="@android:color/darker_gray"
+        android:onClick="onClick"
+        android:padding="10dp"
+        android:text="@string/Label_SignupEmail"
+        android:textColor="@android:color/black"
+        app:backgroundTint="@color/colorWhite1"
+        app:cornerRadius="@dimen/_16sdp"
+        app:icon="@drawable/ic_email_black"
+        app:iconGravity="textStart"
+        app:iconPadding="@dimen/_16sdp" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnSignUpPhoneNumber"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:drawableTint="@android:color/darker_gray"
+        android:onClick="onClick"
+        android:padding="10dp"
+        android:text="@string/Label_SignupPhone"
+        android:textColor="@android:color/white"
+        app:cornerRadius="@dimen/_16sdp"
+        app:icon="@drawable/ic_phone_black"
+        app:iconGravity="textStart"
+        app:iconPadding="@dimen/_16sdp"
+        app:strokeColor="#87bcbf" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="20dp"
+        android:layout_marginTop="@dimen/_4sdp"
+        android:animateLayoutChanges="true"
+        android:gravity="center"
         android:orientation="vertical">
 
-        <androidx.appcompat.widget.AppCompatButton
-            android:onClick="onClick"
-            android:id="@+id/appCompatButtonSignUpEmail"
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_16sdp"
+            android:padding="@dimen/_8sdp"
+            android:text="@string/_8213_8213_or_sign_up_with_social_profiles_8213_8213"
+            android:textColor="@color/colorWhite1" />
+
+        <com.google.android.gms.common.SignInButton
+            android:id="@+id/btnSignInGoogle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:background="@drawable/button_background"
-            android:drawableLeft="@drawable/ic_email_black"
-            android:drawableTint="@android:color/darker_gray"
-            android:padding="10dp"
-            android:fontFamily="monospace"
-            android:text="@string/Label_SignupEmail"
-            android:textColor="@android:color/black" />
+            android:layout_gravity="center"
+            android:textAlignment="center" />
 
-        <androidx.appcompat.widget.AppCompatButton
-            android:onClick="onClick"
-            android:id="@+id/appCompatButtonSignUpPhone"
+        <com.facebook.login.widget.LoginButton
+            android:id="@+id/btnSignInFacebook"
+            style="@style/FacebookLoginButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:fontFamily="monospace"
-            android:background="@drawable/button_background"
-            android:drawableLeft="@drawable/ic_phone_black"
-            android:drawableTint="@android:color/darker_gray"
-            android:padding="10dp"
-            android:text="@string/Label_SignupPhone"
-            android:textColor="@android:color/black" />
-    </LinearLayout>-->
+            android:layout_gravity="center_horizontal"
+            android:layout_marginStart="@dimen/_2sdp"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:layout_marginEnd="@dimen/_2sdp"
+            android:paddingTop="@dimen/_12sdp"
+            android:paddingBottom="@dimen/_12sdp" />
 
-</RelativeLayout>
+
+    </LinearLayout>
+</LinearLayout>

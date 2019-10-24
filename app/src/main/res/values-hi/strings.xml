@@ -141,5 +141,9 @@
     <string name="Label_feedback_email">YourEmailAdress</string>
     <string name="Label_feedback_subject">Feedback on your app</string>
     <string name="Label_feedback_message">Your Feedback message</string>
-
+    <string name="_8213_8213_or_sign_up_with_social_profiles_8213_8213">―― अथवा अपनी सोशल प्रोफाइल से साइन इन करें ――</string>
+    <string name="title_activity_splash">@string/app_name</string>
+    <string name="to_reset_your_password_enter_your_email_press_button_and_check_your_mail_to_follow_intsructions">To reset your password, enter your email, press button and check your mail to follow instructions.</string>
+    <string name="update">Update</string>
+    <string name="enter_your_email_here">Enter your email here…</string>
 </resources>

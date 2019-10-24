@@ -2,12 +2,13 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-android'
 apply plugin: 'com.google.gms.google-services'
+apply plugin: "io.fabric"
 
 android {
     compileSdkVersion 29
     defaultConfig {
         applicationId "com.example.healthylifestyleapp"
-        minSdkVersion 18
+        minSdkVersion 23
         targetSdkVersion 29
         versionCode 1
         multiDexEnabled true
@@ -25,6 +26,7 @@ android {
 
 
 dependencies {
+    def androidDimen = "1.0.6"
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
 
@@ -41,13 +43,14 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+    implementation('com.crashlytics.sdk.android:crashlytics:2.9.9@aar') {
+        transitive = true
+    }
 
     implementation 'com.applandeo:material-calendar-view:1.4.0'
     implementation 'com.google.firebase:firebase-storage:19.1.0'
     implementation 'com.firebase:firebase-client-android:2.4.0'
     implementation 'com.google.firebase:firebase-database:19.2.0'
-    implementation 'com.google.firebase:firebase-analytics:17.2.0'
-    implementation 'com.firebaseui:firebase-ui-auth:4.3.1'
     implementation 'com.google.firebase:firebase-auth:19.1.0'
     implementation 'com.google.firebase:firebase-firestore:21.2.0'
     implementation 'com.facebook.android:facebook-login:5.8.0'
@@ -63,9 +66,5 @@ dependencies {
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.1.0"
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation 'org.jetbrains.anko:anko-appcompat-v7:0.10.8'
-
-}
-apply plugin: 'com.google.gms.google-services'
-repositories {
-    mavenCentral()
+    implementation "com.intuit.sdp:sdp-android:$androidDimen"
 }

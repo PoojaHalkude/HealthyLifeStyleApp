@@ -6,23 +6,23 @@ import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
 import com.example.healthylifestyleapp.R
+import com.example.healthylifestyleapp.model.User
+import com.example.healthylifestyleapp.ui.activities.base.activity.BaseActivity
 import com.google.android.gms.tasks.TaskExecutors
-import com.google.firebase.FirebaseApp
 import com.google.firebase.FirebaseException
-import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException
 import com.google.firebase.auth.PhoneAuthCredential
 import com.google.firebase.auth.PhoneAuthProvider
+import com.google.firebase.database.FirebaseDatabase
 import kotlinx.android.synthetic.main.activity_verification.*
+import org.jetbrains.anko.toast
 import java.util.concurrent.TimeUnit
 
-class VerificationActivity : AppCompatActivity() {
+class VerificationActivity : BaseActivity() {
 
-    private var mAuth: FirebaseAuth? = null
+    private var username: String? = null
     private var mVerificationId: String? = null
-    internal var context: Context = this
     private lateinit var sp: SharedPreferences
 
     private val mCallbacks = object : PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
@@ -59,18 +59,16 @@ class VerificationActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_verification)
-        FirebaseApp.initializeApp(context)
         sp = getSharedPreferences("login", Context.MODE_PRIVATE)
 
-        mAuth = FirebaseAuth.getInstance()
 
         val no = intent.getStringExtra("mobile")
+        username = intent.getStringExtra("username")
 
         sendVerificationCode(no!!)
 
 
         buttonSignUpPhone.setOnClickListener(View.OnClickListener {
-            goToMainActivity()
             sp.edit().putBoolean("logged", true).apply()
             val code = AppCompatEditTextVerficationCode.text!!.toString().trim { it <= ' ' }
             if (code.isEmpty() || code.length < 6) {
@@ -86,11 +84,6 @@ class VerificationActivity : AppCompatActivity() {
         })
     }
 
-    private fun goToMainActivity() {
-        val i = Intent(this, MainActivity::class.java)
-        startActivity(i)
-    }
-
     private fun sendVerificationCode(no: String) {
         PhoneAuthProvider.getInstance().verifyPhoneNumber(
             "+91$no",
@@ -104,31 +97,37 @@ class VerificationActivity : AppCompatActivity() {
     private fun verifyVerificationCode(code: String?) {
         //creating the credential
         val credential = PhoneAuthProvider.getCredential(mVerificationId!!, code!!)
-
-        //signing the user
         signInWithPhoneAuthCredential(credential)
     }
 
     private fun signInWithPhoneAuthCredential(credential: PhoneAuthCredential) {
-        mAuth!!.signInWithCredential(credential)
+        firebaseAuth.signInWithCredential(credential)
             .addOnCompleteListener(this@VerificationActivity) { task ->
                 if (task.isSuccessful) {
-                    //verification successful we will start the profile activity
-                    val intent = Intent(this@VerificationActivity, StartedActivity::class.java)
-                    intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-                    startActivity(intent)
-
+                    val currentUser = firebaseAuth.currentUser
+                    val reference = FirebaseDatabase.getInstance().getReference("users")
+                    val user = User(
+                        email = currentUser?.email,
+                        uid = currentUser!!.uid,
+                        phoneNumber = currentUser.phoneNumber,
+                        username = username
+                    )
+                    reference.child(firebaseAuth.currentUser!!.uid).setValue(user)
+                        .addOnCompleteListener {
+                            //verification successful we will start the profile activity
+                            val intent =
+                                Intent(this@VerificationActivity, StartedActivity::class.java)
+                            intent.flags =
+                                Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                            startActivity(intent)
+                            finish()
+                        }
                 } else {
-
-                    //verification unsuccessful.. display an error message
-
-                    var message = "Somthing is wrong, we will fix it soon..."
-
                     if (task.exception is FirebaseAuthInvalidCredentialsException) {
-                        message = "Invalid code entered..."
+                        toast("Please enter a valid verification code")
+                    } else {
+                        toast("Error occurred while verifying your mobile number")
                     }
-
-
                 }
             }
     }

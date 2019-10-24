@@ -9,10 +9,12 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.example.healthylifestyleapp.R
+import com.example.healthylifestyleapp.ui.activities.ForgotPasswordActivity
 import com.example.healthylifestyleapp.ui.activities.StartedActivity
 import com.google.firebase.FirebaseApp
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.fragment_login.*
+import org.jetbrains.anko.support.v4.startActivity
 
 class FragmentLogin : Fragment(), View.OnClickListener {
 
@@ -40,6 +42,10 @@ class FragmentLogin : Fragment(), View.OnClickListener {
         //getting firebase auth object
         firebaseAuth = FirebaseAuth.getInstance()
         FirebaseApp.initializeApp(context!!.applicationContext)
+        AppCompatTextViewForgotPassword.setOnClickListener {
+            activity?.finish()
+            startActivity<ForgotPasswordActivity>()
+        }
     }
 
     override fun onClick(v: View) {

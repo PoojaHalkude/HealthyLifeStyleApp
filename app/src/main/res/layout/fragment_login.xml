@@ -1,89 +1,98 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBlack"
+    android:padding="@dimen/_8sdp">
+
     <LinearLayout
         android:id="@+id/llHeader1"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="false"
+        android:background="@drawable/edit_text_background"
         android:orientation="vertical">
-        <LinearLayout
+
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/AppCompatEditTextUserName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="20dp"
-            android:orientation="vertical">
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="@dimen/_16sdp"
+            android:layout_marginEnd="10dp"
+            android:background="@drawable/button_background"
+            android:gravity="center"
+            android:hint="@string/Label_Username"
+            android:padding="@dimen/_8sdp"
+            android:textColor="@color/colorTextColor" />
 
-            <androidx.appcompat.widget.AppCompatEditText
-                android:id="@+id/AppCompatEditTextUserName"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                android:gravity="center"
-                android:background="@drawable/button_background"
-                android:padding="10dp"
-                android:fontFamily="monospace"
-                android:hint="@string/Label_Username"
-                android:textColor="@color/colorTextColor" />
-
-            <androidx.appcompat.widget.AppCompatEditText
-                android:id="@+id/AppCompatEditTextPassword"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                android:fontFamily="monospace"
-                android:gravity="center"
-                android:background="@drawable/button_background"
-                android:padding="10dp"
-                android:hint="@string/Label_Password"
-                android:textColor="@color/colorTextColor"/>
-
-
-            <!-- <android.support.v7.widget.AppCompatEditText
-                 android:id="@+id/AppCompatEditTextUserName"
-                 style="@style/EditText"
-                 android:layout_width="match_parent"
-                 android:layout_height="wrap_content"
-                 android:layout_marginTop="15dp"
-                 android:background="@drawable/edit_text_background"
-                 android:hint="@string/Label_Username" />
-     -->
-            <!--<android.support.v7.widget.AppCompatEditText
-                android:id="@+id/AppCompatEditTextPassword"
-                style="@style/EditText"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                android:background="@drawable/edit_text_background"
-                android:hint="@string/Label_Password"
-
-                />-->
-            <ProgressBar
-                android:id="@+id/progressBar"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_gravity="center|bottom"
-                android:layout_marginBottom="20dp"
-                android:visibility="gone" />
-        </LinearLayout>
-
-        <LinearLayout
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/AppCompatEditTextPassword"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            >
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="@dimen/_16sdp"
+            android:layout_marginEnd="10dp"
+            android:background="@drawable/button_background"
+            android:gravity="center"
+            android:hint="@string/Label_Password"
+            android:padding="@dimen/_8sdp"
+            android:textColor="@color/colorTextColor" />
 
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/AppCompatButtonLogIn"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginRight="20dp"
-                android:fontFamily="monospace"
-                android:background="@drawable/login_btn_background"
-                android:text="@string/Label_Login"
-                android:textStyle="bold"
-             android:textColor="@android:color/white" />
-        </LinearLayout>
+
+        <!-- <android.support.v7.widget.AppCompatEditText
+             android:id="@+id/AppCompatEditTextUserName"
+             style="@style/EditText"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:layout_marginTop="15dp"
+             android:background="@drawable/edit_text_background"
+             android:hint="@string/Label_Username" />
+    -->
+        <!--<android.support.v7.widget.AppCompatEditText
+            android:id="@+id/AppCompatEditTextPassword"
+            style="@style/EditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/edit_text_background"
+            android:hint="@string/Label_Password"
+
+            />-->
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center|bottom"
+            android:layout_marginBottom="20dp"
+            android:visibility="gone" />
+
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/AppCompatButtonLogIn"
+            android:layout_width="match_parent"
+            android:layout_height="?actionBarSize"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:layout_marginEnd="10dp"
+            android:backgroundTint="@color/colorYellow"
+            android:text="@string/Label_Login"
+            android:textStyle="bold"
+            app:cornerRadius="@dimen/_8sdp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/AppCompatTextViewForgotPassword"
+            style="@style/Widget.MaterialComponents.Button.TextButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:padding="@dimen/_4sdp"
+            android:text="@string/Label_forgot"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textColor="@color/colorBlack" />
+
     </LinearLayout>
-
 </RelativeLayout>

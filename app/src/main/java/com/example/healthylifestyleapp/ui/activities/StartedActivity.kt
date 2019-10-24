@@ -8,25 +8,28 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
-import androidx.appcompat.app.AppCompatActivity
 import com.example.healthylifestyleapp.R
+import com.example.healthylifestyleapp.ui.activities.base.activity.BaseActivity
+import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_started.*
 
-class StartedActivity : AppCompatActivity(), View.OnClickListener {
+class StartedActivity : BaseActivity(), View.OnClickListener {
     internal var context: Context = this
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_started)
-        initListner()
+        initListener()
     }
 
-    private fun initListner() {
+    private fun initListener() {
         appCompatButtonAge.setOnClickListener(this)
         appCompatButtonHeight.setOnClickListener(this)
         appCompatButtonWeight.setOnClickListener(this)
         appCompatButtonLevel.setOnClickListener(this)
-
+        logout.setOnClickListener {
+            FirebaseAuth.getInstance().signOut()
+        }
     }
 
     override fun onClick(v: View) {

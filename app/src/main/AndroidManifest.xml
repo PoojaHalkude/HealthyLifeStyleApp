@@ -7,14 +7,25 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
+        android:name=".application.MainApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.activities.FeedbackFormActivity"></activity>
-        <activity android:name=".ui.activities.ForgetPasswordActivity" />
+        <activity
+            android:name=".ui.activities.SplashActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/title_activity_splash"
+            android:theme="@style/FullscreenTheme"></activity>
+        <activity
+            android:name=".ui.activities.ManualLoginActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme"
+            android:windowSoftInputMode="stateHidden" />
+        <activity android:name=".ui.activities.FeedbackFormActivity" />
+        <activity android:name=".ui.activities.ForgotPasswordActivity" />
         <activity android:name=".ui.activities.AddNewActivity" />
         <activity android:name=".ui.activities.HealthTipsActivity" />
         <activity android:name=".ui.activities.FitnessDevice" />
@@ -40,7 +51,10 @@
         <activity android:name=".ui.activities.StartedActivity" />
         <activity android:name=".ui.activities.PhysiquesDetailsActivity" />
         <activity android:name=".ui.activities.ConfirmDetailsActivity" />
-        <activity android:name=".ui.activities.MainActivity">
+        <activity
+            android:name=".ui.activities.MainActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -71,6 +85,10 @@
                     tools:ignore="ManifestResource" />
             </intent-filter>
         </activity>
+
+        <meta-data
+            android:name="io.fabric.ApiKey"
+            android:value="d1592910dc394df9ce055498f1e28b2625f24bfd" />
     </application>
 
 </manifest>
