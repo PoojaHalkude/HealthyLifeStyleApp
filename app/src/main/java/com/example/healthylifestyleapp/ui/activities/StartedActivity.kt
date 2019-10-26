@@ -14,6 +14,10 @@ import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_started.*
 
 class StartedActivity : BaseActivity(), View.OnClickListener {
+    override fun getRoot(): View {
+        return rootView
+    }
+
     internal var context: Context = this
 
     override fun onCreate(savedInstanceState: Bundle?) {

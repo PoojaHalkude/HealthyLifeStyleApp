@@ -10,12 +10,14 @@ data class User(
 )
 
 data class Physique(
-    val height: Height,
-    val weight: Weight,
+    val height: Int,
+    val weight: Int,
     val age: Int,
     val level: String,
     val gender: String
-)
+) {
+    constructor() : this(0, 0, 0, "Beginner", "Male")
+}
 
 data class Height(var foot: Int, var inches: Int)
 data class Weight(var unit: String? = "kg", var weight: Int)

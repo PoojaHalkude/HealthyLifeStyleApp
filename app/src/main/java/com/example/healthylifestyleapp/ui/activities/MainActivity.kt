@@ -1,20 +1,29 @@
 package com.example.healthylifestyleapp.ui.activities
 
 import android.os.Bundle
+import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
 import com.example.healthylifestyleapp.R
+import com.example.healthylifestyleapp.model.Physique
 import com.example.healthylifestyleapp.ui.activities.base.activity.BaseActivity
 import com.example.healthylifestyleapp.ui.fragments.FragmentLogin
 import com.example.healthylifestyleapp.ui.fragments.FragmentSignUp
 import com.example.healthylifestyleapp.utils.hideSoftKeyboard
+import com.firebase.client.FirebaseError
+import com.firebase.client.ValueEventListener
 import com.google.android.material.tabs.TabLayout
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
 import kotlinx.android.synthetic.main.activity_main.*
 import org.jetbrains.anko.startActivity
 
 
 class MainActivity : BaseActivity() {
+    override fun getRoot(): View {
+        return MainHeader
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,7 +38,32 @@ class MainActivity : BaseActivity() {
     override fun onStart() {
         super.onStart()
         if (firebaseAuth.currentUser != null) {
-            startActivity<StartedActivity>()
+            firebaseDatabase.getReference("physiques/${firebaseAuth.currentUser!!.uid}")
+                .addListenerForSingleValueEvent(object : ValueEventListener,
+                    com.google.firebase.database.ValueEventListener {
+                    override fun onCancelled(p0: FirebaseError?) {
+
+                    }
+
+                    override fun onDataChange(p0: com.firebase.client.DataSnapshot?) {
+
+                    }
+
+                    override fun onCancelled(p0: DatabaseError) {
+
+                    }
+
+                    override fun onDataChange(p0: DataSnapshot) {
+                        if (p0.getValue(Physique::class.java) != null) {
+                            startActivity<UserProfileActivity>()
+                            finish()
+                        } else {
+                            startActivity<ConfirmDetailsActivity>()
+                            finish()
+                        }
+                    }
+                })
+            startActivity<ConfirmDetailsActivity>()
             finish()
         }
     }

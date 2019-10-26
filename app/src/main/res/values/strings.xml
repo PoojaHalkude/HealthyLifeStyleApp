@@ -84,9 +84,9 @@
     <string name="Label_No">No</string>
     <string name="Label_Yes">Yes</string>
     <string name="Label_Close">Close</string>
-    <string name="Label_PrivacyData">When one door of happiness closes, another opens, but often we look so long at the closed door that we do not see the one taht has been opened for us.
+    <string name="Label_PrivacyData">When one door of happiness closes, another opens, but often we look so long at the closed door that we do not see the one that has been opened for us.
     \n\t Step 1:You may use the Services only if you agree to form a binding contract with us and are not a person barred from receiving services under the laws of the applicable jurisdiction. \n\t Step 2:Our privacy Policy describes hoe we handle the infromation you provide to us when you use our services. </string>
-    <string name="Label_PrivacyData1">When one door of happiness closes, another opens, but often we look so long at the closed door that we do not see the one taht has been opened for us.
+    <string name="Label_PrivacyData1">When one door of happiness closes, another opens, but often we look so long at the closed door that we do not see the one that has been opened for us.
     </string>
     <string name="title_activity_user_profile">UserProfileActivity</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
@@ -149,6 +149,10 @@
     <string name="to_reset_your_password_enter_your_email_press_button_and_check_your_mail_to_follow_intsructions">To reset your password, enter your email, press button and check your mail to follow instructions.</string>
     <string name="update">Update</string>
     <string name="enter_your_email_here">Enter your email here…</string>
+    <string name="female">Female</string>
+    <string name="male">Male</string>
+    <string name="gender">Gender</string>
+    <string name="no_internet_connection">No internet connection</string>
 
 
 </resources>

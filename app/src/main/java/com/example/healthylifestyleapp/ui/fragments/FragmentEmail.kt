@@ -9,16 +9,18 @@ import android.view.ViewGroup
 import com.crashlytics.android.Crashlytics
 import com.example.healthylifestyleapp.R
 import com.example.healthylifestyleapp.model.User
-import com.example.healthylifestyleapp.ui.activities.StartedActivity
+import com.example.healthylifestyleapp.ui.activities.ConfirmDetailsActivity
 import com.example.healthylifestyleapp.ui.activities.base.fragment.BaseFragment
 import com.example.healthylifestyleapp.utils.hide
-import com.example.healthylifestyleapp.utils.show
 import com.google.firebase.database.FirebaseDatabase
 import kotlinx.android.synthetic.main.fragment_email.*
 import org.jetbrains.anko.support.v4.startActivity
 import org.jetbrains.anko.support.v4.toast
 
 class FragmentEmail : BaseFragment(), View.OnClickListener {
+    override fun getRoot(): View {
+        return rootView
+    }
 
 
     override fun onCreateView(
@@ -60,10 +62,10 @@ class FragmentEmail : BaseFragment(), View.OnClickListener {
                     return
                 }
 
-                progressBar.show()
+                showProgressDialog()
                 firebaseAuth.createUserWithEmailAndPassword(email, password)
                     .addOnCompleteListener(activity!!) { task ->
-                        progressBar.hide()
+
                         if (!task.isSuccessful) {
                             toast("Error occurred while signing you in!")
                             Crashlytics.logException(task.exception)
@@ -78,7 +80,8 @@ class FragmentEmail : BaseFragment(), View.OnClickListener {
                             )
                             reference.child(firebaseAuth.currentUser!!.uid).setValue(user)
                                 .addOnCompleteListener {
-                                    startActivity<StartedActivity>()
+                                    dismissProgressDialog()
+                                    startActivity<ConfirmDetailsActivity>()
                                     activity?.finish()
                                 }
 

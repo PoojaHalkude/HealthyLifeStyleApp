@@ -7,31 +7,23 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.fragment.app.Fragment
 import com.example.healthylifestyleapp.R
+import com.example.healthylifestyleapp.ui.activities.ConfirmDetailsActivity
 import com.example.healthylifestyleapp.ui.activities.ForgotPasswordActivity
-import com.example.healthylifestyleapp.ui.activities.StartedActivity
-import com.google.firebase.FirebaseApp
-import com.google.firebase.auth.FirebaseAuth
+import com.example.healthylifestyleapp.ui.activities.base.fragment.BaseFragment
 import kotlinx.android.synthetic.main.fragment_login.*
 import org.jetbrains.anko.support.v4.startActivity
 
-class FragmentLogin : Fragment(), View.OnClickListener {
-
-
-    //firebase auth object
-    private var firebaseAuth: FirebaseAuth? = null
+class FragmentLogin : BaseFragment(), View.OnClickListener {
+    override fun getRoot(): View {
+        return rootView
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?, savedInstanceState: Bundle?
     ): View? {
-        //Inflate the layout for this fragment
-        val rootView = inflater.inflate(R.layout.fragment_login, container, false)
-
-
-
-        return rootView
+        return inflater.inflate(R.layout.fragment_login, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -39,9 +31,6 @@ class FragmentLogin : Fragment(), View.OnClickListener {
         //attaching click listener
         AppCompatButtonLogIn.setOnClickListener(this)
 
-        //getting firebase auth object
-        firebaseAuth = FirebaseAuth.getInstance()
-        FirebaseApp.initializeApp(context!!.applicationContext)
         AppCompatTextViewForgotPassword.setOnClickListener {
             activity?.finish()
             startActivity<ForgotPasswordActivity>()
@@ -63,8 +52,9 @@ class FragmentLogin : Fragment(), View.OnClickListener {
                     return
                 }
 
-                progressBar.visibility = View.VISIBLE
-                firebaseAuth!!.signInWithEmailAndPassword(username, password)
+
+                showProgressDialog()
+                firebaseAuth.signInWithEmailAndPassword(username, password)
                     .addOnCompleteListener(activity!!) { task ->
                         Toast.makeText(
                             activity,
@@ -72,18 +62,17 @@ class FragmentLogin : Fragment(), View.OnClickListener {
                             Toast.LENGTH_LONG
                         ).show()
 
-                        progressBar.visibility = View.GONE
-
+                        dismissProgressDialog()
                         if (!task.isSuccessful) {
                             Toast.makeText(
                                 activity,
-                                "Please Enter Correct Username and Password " + task.exception!!,
+                                task.exception!!.localizedMessage,
                                 Toast.LENGTH_LONG
                             ).show()
                         } else {
                             Toast.makeText(activity, "Login Successful!", Toast.LENGTH_LONG).show()
                             progressBar.visibility = View.GONE
-                            val myIntent = Intent(activity, StartedActivity::class.java)
+                            val myIntent = Intent(activity, ConfirmDetailsActivity::class.java)
                             startActivity(myIntent)
 
                             // startActivity(new Intent(getActivity(), MainActivity.class));

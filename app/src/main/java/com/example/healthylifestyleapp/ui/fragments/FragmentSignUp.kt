@@ -9,8 +9,8 @@ import android.view.ViewGroup
 import com.crashlytics.android.Crashlytics
 import com.example.healthylifestyleapp.R
 import com.example.healthylifestyleapp.model.User
+import com.example.healthylifestyleapp.ui.activities.ConfirmDetailsActivity
 import com.example.healthylifestyleapp.ui.activities.ManualLoginActivity
-import com.example.healthylifestyleapp.ui.activities.StartedActivity
 import com.example.healthylifestyleapp.ui.activities.base.fragment.BaseFragment
 import com.facebook.CallbackManager
 import com.facebook.FacebookCallback
@@ -34,6 +34,10 @@ import org.jetbrains.anko.support.v4.startActivity
 import org.jetbrains.anko.support.v4.toast
 
 class FragmentSignUp : BaseFragment() {
+    override fun getRoot(): View {
+        return rootView
+    }
+
     private var mGoogleSignInClient: GoogleSignInClient? = null
     private lateinit var callbackManager: CallbackManager
     override fun onCreateView(
@@ -86,13 +90,19 @@ class FragmentSignUp : BaseFragment() {
                                     email = currentUser?.email,
                                     uid = currentUser!!.uid
                                 )
+                                showProgressDialog()
                                 reference.child(firebaseAuth.currentUser!!.uid).setValue(user)
                                     .addOnCompleteListener {
-                                        startActivity<StartedActivity>()
-                                        activity!!.finish()
+                                        dismissProgressDialog()
+                                        if (it.isSuccessful) {
+                                            startActivity<ConfirmDetailsActivity>()
+                                            activity!!.finish()
+                                        } else {
+                                            toast("Error occurred while signing with Facebook. Please try again")
+                                        }
                                     }
                                 toast("Sign in successful")
-                                startActivity<StartedActivity>()
+                                startActivity<ConfirmDetailsActivity>()
                                 activity?.finish()
                             } else {
                                 onError(FacebookException())
@@ -102,10 +112,12 @@ class FragmentSignUp : BaseFragment() {
                 }
 
                 override fun onCancel() {
+                    dismissProgressDialog()
                     toast("Cancelled")
                 }
 
                 override fun onError(error: FacebookException) {
+                    dismissProgressDialog()
                     Crashlytics.logException(error)
                     toast("Error occurred while signing with Facebook. Please try again")
                 }
@@ -136,6 +148,7 @@ class FragmentSignUp : BaseFragment() {
 
     private fun handleSignInResult(completedTask: Task<GoogleSignInAccount>) {
         try {
+            showProgressDialog()
             val googleSignInAccount =
                 completedTask.getResult<ApiException>(ApiException::class.java)
             FirebaseAuth.getInstance().signInWithCredential(
@@ -144,6 +157,7 @@ class FragmentSignUp : BaseFragment() {
                     null
                 )
             ).addOnCompleteListener {
+                dismissProgressDialog()
                 if (it.isSuccessful) {
                     val currentUser = firebaseAuth.currentUser
                     toast("Welcome back ${currentUser?.displayName}")
@@ -154,7 +168,7 @@ class FragmentSignUp : BaseFragment() {
                     )
                     reference.child(firebaseAuth.currentUser!!.uid).setValue(user)
                         .addOnCompleteListener {
-                            startActivity<StartedActivity>()
+                            startActivity<ConfirmDetailsActivity>()
                             activity!!.finish()
                         }
 
@@ -164,6 +178,7 @@ class FragmentSignUp : BaseFragment() {
 
             }
         } catch (e: ApiException) {
+            dismissProgressDialog()
             e.printStackTrace()
             Crashlytics.logException(e)
             toast("Error occurred while signing in with Google. Please try again.")

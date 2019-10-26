@@ -13,6 +13,9 @@ import org.jetbrains.anko.support.v4.toast
 
 
 class FragmentPhone : BaseFragment(), View.OnClickListener {
+    override fun getRoot(): View {
+        return rootView
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,

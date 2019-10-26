@@ -15,11 +15,15 @@ import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException
 import com.google.firebase.auth.PhoneAuthCredential
 import com.google.firebase.auth.PhoneAuthProvider
 import com.google.firebase.database.FirebaseDatabase
+import kotlinx.android.synthetic.main.activity_forget_password.*
 import kotlinx.android.synthetic.main.activity_verification.*
 import org.jetbrains.anko.toast
 import java.util.concurrent.TimeUnit
 
 class VerificationActivity : BaseActivity() {
+    override fun getRoot(): View {
+        return rootView
+    }
 
     private var username: String? = null
     private var mVerificationId: String? = null
@@ -79,7 +83,7 @@ class VerificationActivity : BaseActivity() {
 
             //verifying the code entered manually
             verifyVerificationCode(code)
-            val intent = Intent(this@VerificationActivity, StartedActivity::class.java)
+            val intent = Intent(this@VerificationActivity, ConfirmDetailsActivity::class.java)
             startActivity(intent)
         })
     }
@@ -101,8 +105,10 @@ class VerificationActivity : BaseActivity() {
     }
 
     private fun signInWithPhoneAuthCredential(credential: PhoneAuthCredential) {
+        showProgressDialog()
         firebaseAuth.signInWithCredential(credential)
             .addOnCompleteListener(this@VerificationActivity) { task ->
+
                 if (task.isSuccessful) {
                     val currentUser = firebaseAuth.currentUser
                     val reference = FirebaseDatabase.getInstance().getReference("users")
@@ -115,8 +121,12 @@ class VerificationActivity : BaseActivity() {
                     reference.child(firebaseAuth.currentUser!!.uid).setValue(user)
                         .addOnCompleteListener {
                             //verification successful we will start the profile activity
+                            dismissProgressDialog()
                             val intent =
-                                Intent(this@VerificationActivity, StartedActivity::class.java)
+                                Intent(
+                                    this@VerificationActivity,
+                                    ConfirmDetailsActivity::class.java
+                                )
                             intent.flags =
                                 Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
                             startActivity(intent)

@@ -12,27 +12,27 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.ActionBarDrawerToggle
-import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
-
 import com.bumptech.glide.Glide
 import com.example.healthylifestyleapp.R
+import com.example.healthylifestyleapp.ui.activities.base.activity.BaseActivity
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.material.navigation.NavigationView
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
-import com.google.firebase.database.DataSnapshot
-import com.google.firebase.database.DatabaseError
-import com.google.firebase.database.DatabaseReference
-import com.google.firebase.database.FirebaseDatabase
-import com.google.firebase.database.ValueEventListener
+import com.google.firebase.database.*
+import kotlinx.android.synthetic.main.activity_user_profile.*
 import kotlinx.android.synthetic.main.content_user_profile.*
 
-class UserProfileActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener, View.OnClickListener {
+class UserProfileActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedListener,
+    View.OnClickListener {
+    override fun getRoot(): View {
+        return drawer_layout
+    }
 
     private lateinit var demoRef: DatabaseReference
     private lateinit var rootRef: DatabaseReference
@@ -65,8 +65,8 @@ class UserProfileActivity : AppCompatActivity(), NavigationView.OnNavigationItem
         currentUser = mAuth.currentUser
         ////code for storing gmail profile data/////
         val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-                .requestEmail()
-                .build()
+            .requestEmail()
+            .build()
         mGoogleSignInClient = GoogleSignIn.getClient(this, gso)
         val account = GoogleSignIn.getLastSignedInAccount(this)
 
@@ -120,7 +120,7 @@ class UserProfileActivity : AppCompatActivity(), NavigationView.OnNavigationItem
         val drawer = findViewById<DrawerLayout>(R.id.drawer_layout)
         val navigationView = findViewById<NavigationView>(R.id.nav_view)
         val toggle = ActionBarDrawerToggle(
-                this, drawer, toolbar,
+            this, drawer, toolbar,
             R.string.navigation_drawer_open,
             R.string.navigation_drawer_close
         )
@@ -129,9 +129,6 @@ class UserProfileActivity : AppCompatActivity(), NavigationView.OnNavigationItem
         navigationView.setNavigationItemSelectedListener(this)
         val navHeaderView = navigationView.getHeaderView(0)
         updateNavProfile()
-
-
-
 
 
         //Code for setting profile data to navigation drawer
@@ -227,11 +224,11 @@ class UserProfileActivity : AppCompatActivity(), NavigationView.OnNavigationItem
             val ButtonYes = dialog.findViewById<View>(R.id.ButtonYes) as Button
             // if button is clicked, close the custom dialog
             ButtonNo.setOnClickListener {
-                val logoutIntent = Intent(this@UserProfileActivity, MainActivity::class.java)
 
                 dialog.dismiss()
             }
             ButtonYes.setOnClickListener {
+                FirebaseAuth.getInstance().signOut()
                 val logoutIntent = Intent(this@UserProfileActivity, MainActivity::class.java)
                 logoutIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK)
                 startActivity(logoutIntent)

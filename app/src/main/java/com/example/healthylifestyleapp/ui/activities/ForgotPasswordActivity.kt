@@ -3,6 +3,7 @@ package com.example.healthylifestyleapp.ui.activities
 import android.content.Intent
 import android.os.Bundle
 import android.text.TextUtils
+import android.view.View
 import android.widget.Toast
 import androidx.appcompat.widget.AppCompatEditText
 import com.crashlytics.android.Crashlytics
@@ -14,6 +15,10 @@ import org.jetbrains.anko.toast
 import java.util.regex.Pattern
 
 class ForgotPasswordActivity : BaseActivity() {
+    override fun getRoot(): View {
+        return rootView
+    }
+
     internal var EditTextNewPass: AppCompatEditText? = null
 
 

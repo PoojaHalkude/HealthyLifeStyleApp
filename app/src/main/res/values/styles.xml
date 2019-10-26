@@ -64,6 +64,7 @@
         <item name="android:paddingBottom">8dp</item>
         <item name="android:layout_gravity">center</item>
     </style>
+
     <style name="AppTheme.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
@@ -97,4 +98,9 @@
     <style name="FullscreenActionBarStyle" parent="Widget.AppCompat.ActionBar">
         <item name="android:background">@color/black_overlay</item>
     </style>
+
+    <style name="Loader" parent="AppTheme">
+        <item name="android:background">#80FFFFFF</item>
+    </style>
+
 </resources>

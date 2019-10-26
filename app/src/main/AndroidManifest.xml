@@ -18,7 +18,7 @@
             android:name=".ui.activities.SplashActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/title_activity_splash"
-            android:theme="@style/FullscreenTheme"></activity>
+            android:theme="@style/FullscreenTheme" />
         <activity
             android:name=".ui.activities.ManualLoginActivity"
             android:screenOrientation="portrait"
@@ -50,7 +50,10 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".ui.activities.StartedActivity" />
         <activity android:name=".ui.activities.PhysiquesDetailsActivity" />
-        <activity android:name=".ui.activities.ConfirmDetailsActivity" />
+        <activity
+            android:name=".ui.activities.ConfirmDetailsActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme" />
         <activity
             android:name=".ui.activities.MainActivity"
             android:screenOrientation="portrait"
