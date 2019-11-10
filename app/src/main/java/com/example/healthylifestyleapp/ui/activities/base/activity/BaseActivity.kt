@@ -11,12 +11,12 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
 
 public abstract class BaseActivity : AppCompatActivity() {
-    protected val firebaseAuth = FirebaseAuth.getInstance()
-    protected val firebaseDatabase = FirebaseDatabase.getInstance()
-    private lateinit var rootView: View
+    val firebaseAuth = FirebaseAuth.getInstance()
+    val firebaseDatabase = FirebaseDatabase.getInstance()
+    private var rootView: View? = null
     private var dialog: UniversalLoader? = null
 
-    abstract fun getRoot(): View
+    abstract fun getRoot(): View?
 
     fun showProgressDialog() {
 

@@ -15,10 +15,10 @@ import com.google.firebase.database.FirebaseDatabase
  * A simple [Fragment] subclass.
  */
 abstract class BaseFragment : Fragment() {
-    private lateinit var rootView: View
+    private var rootView: View? = null
     private var dialog: UniversalLoader? = null
     protected val firebaseAuth = FirebaseAuth.getInstance()
-    abstract fun getRoot(): View
+    abstract fun getRoot(): View?
     protected val firebaseDatabase = FirebaseDatabase.getInstance()
     fun showProgressDialog() {
 

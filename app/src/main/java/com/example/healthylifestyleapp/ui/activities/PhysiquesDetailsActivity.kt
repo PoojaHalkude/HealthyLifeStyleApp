@@ -25,7 +25,7 @@ class PhysiquesDetailsActivity : AppCompatActivity(), View.OnClickListener {
         when (v.id) {
             R.id.AppCompatButtonFinish -> {
                 //Luanching the new activity
-                val newIntent = Intent(this, ConfirmDetailsActivity::class.java)
+                val newIntent = Intent(this, AddVitalsDetailsActivity::class.java)
                 startActivity(newIntent)
             }
         }

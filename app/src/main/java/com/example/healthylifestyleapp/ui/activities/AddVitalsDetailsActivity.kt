@@ -17,12 +17,12 @@ import com.example.healthylifestyleapp.utils.InputRangeFilter
 import com.example.healthylifestyleapp.utils.isEmpty
 import com.example.healthylifestyleapp.utils.isNetworkAccessible
 import com.google.android.material.snackbar.Snackbar
-import kotlinx.android.synthetic.main.activity_confirm_details.*
+import kotlinx.android.synthetic.main.activity_add_vitals_details.*
 import org.jetbrains.anko.startActivity
 import org.jetbrains.anko.toast
 
-class ConfirmDetailsActivity : BaseActivity() {
-    override fun getRoot(): View {
+class AddVitalsDetailsActivity : BaseActivity() {
+    override fun getRoot(): View? {
         return rootView
     }
 
@@ -31,7 +31,7 @@ class ConfirmDetailsActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_confirm_details)
+        setContentView(R.layout.activity_add_vitals_details)
         initListener()
     }
 

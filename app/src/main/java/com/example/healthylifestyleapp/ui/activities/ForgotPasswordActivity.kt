@@ -15,7 +15,7 @@ import org.jetbrains.anko.toast
 import java.util.regex.Pattern
 
 class ForgotPasswordActivity : BaseActivity() {
-    override fun getRoot(): View {
+    override fun getRoot(): View? {
         return rootView
     }
 
@@ -73,7 +73,7 @@ class ForgotPasswordActivity : BaseActivity() {
                                 startActivity(
                                     Intent(
                                         this@ForgotPasswordActivity,
-                                        MainActivity::class.java
+                                        OnBoardingOptionsActivity::class.java
                                     )
                                 )
                             } else {

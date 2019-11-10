@@ -8,14 +8,14 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import com.example.healthylifestyleapp.R
-import com.example.healthylifestyleapp.ui.activities.ConfirmDetailsActivity
+import com.example.healthylifestyleapp.ui.activities.AddVitalsDetailsActivity
 import com.example.healthylifestyleapp.ui.activities.ForgotPasswordActivity
 import com.example.healthylifestyleapp.ui.activities.base.fragment.BaseFragment
 import kotlinx.android.synthetic.main.fragment_login.*
 import org.jetbrains.anko.support.v4.startActivity
 
 class FragmentLogin : BaseFragment(), View.OnClickListener {
-    override fun getRoot(): View {
+    override fun getRoot(): View? {
         return rootView
     }
 
@@ -72,10 +72,10 @@ class FragmentLogin : BaseFragment(), View.OnClickListener {
                         } else {
                             Toast.makeText(activity, "Login Successful!", Toast.LENGTH_LONG).show()
                             progressBar.visibility = View.GONE
-                            val myIntent = Intent(activity, ConfirmDetailsActivity::class.java)
+                            val myIntent = Intent(activity, AddVitalsDetailsActivity::class.java)
                             startActivity(myIntent)
 
-                            // startActivity(new Intent(getActivity(), MainActivity.class));
+                            // startActivity(new Intent(getActivity(), OnBoardingOptionsActivity.class));
                         }
                     }
             }

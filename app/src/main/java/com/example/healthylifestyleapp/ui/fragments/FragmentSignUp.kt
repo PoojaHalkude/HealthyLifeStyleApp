@@ -9,7 +9,7 @@ import android.view.ViewGroup
 import com.crashlytics.android.Crashlytics
 import com.example.healthylifestyleapp.R
 import com.example.healthylifestyleapp.model.User
-import com.example.healthylifestyleapp.ui.activities.ConfirmDetailsActivity
+import com.example.healthylifestyleapp.ui.activities.AddVitalsDetailsActivity
 import com.example.healthylifestyleapp.ui.activities.ManualLoginActivity
 import com.example.healthylifestyleapp.ui.activities.base.fragment.BaseFragment
 import com.facebook.CallbackManager
@@ -34,7 +34,7 @@ import org.jetbrains.anko.support.v4.startActivity
 import org.jetbrains.anko.support.v4.toast
 
 class FragmentSignUp : BaseFragment() {
-    override fun getRoot(): View {
+    override fun getRoot(): View? {
         return rootView
     }
 
@@ -95,14 +95,14 @@ class FragmentSignUp : BaseFragment() {
                                     .addOnCompleteListener {
                                         dismissProgressDialog()
                                         if (it.isSuccessful) {
-                                            startActivity<ConfirmDetailsActivity>()
+                                            startActivity<AddVitalsDetailsActivity>()
                                             activity!!.finish()
                                         } else {
                                             toast("Error occurred while signing with Facebook. Please try again")
                                         }
                                     }
                                 toast("Sign in successful")
-                                startActivity<ConfirmDetailsActivity>()
+                                startActivity<AddVitalsDetailsActivity>()
                                 activity?.finish()
                             } else {
                                 onError(FacebookException())
@@ -168,7 +168,7 @@ class FragmentSignUp : BaseFragment() {
                     )
                     reference.child(firebaseAuth.currentUser!!.uid).setValue(user)
                         .addOnCompleteListener {
-                            startActivity<ConfirmDetailsActivity>()
+                            startActivity<AddVitalsDetailsActivity>()
                             activity!!.finish()
                         }
 

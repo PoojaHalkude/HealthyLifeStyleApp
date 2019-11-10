@@ -9,7 +9,7 @@ import android.view.ViewGroup
 import com.crashlytics.android.Crashlytics
 import com.example.healthylifestyleapp.R
 import com.example.healthylifestyleapp.model.User
-import com.example.healthylifestyleapp.ui.activities.ConfirmDetailsActivity
+import com.example.healthylifestyleapp.ui.activities.AddVitalsDetailsActivity
 import com.example.healthylifestyleapp.ui.activities.base.fragment.BaseFragment
 import com.example.healthylifestyleapp.utils.hide
 import com.google.firebase.database.FirebaseDatabase
@@ -18,7 +18,7 @@ import org.jetbrains.anko.support.v4.startActivity
 import org.jetbrains.anko.support.v4.toast
 
 class FragmentEmail : BaseFragment(), View.OnClickListener {
-    override fun getRoot(): View {
+    override fun getRoot(): View? {
         return rootView
     }
 
@@ -81,7 +81,7 @@ class FragmentEmail : BaseFragment(), View.OnClickListener {
                             reference.child(firebaseAuth.currentUser!!.uid).setValue(user)
                                 .addOnCompleteListener {
                                     dismissProgressDialog()
-                                    startActivity<ConfirmDetailsActivity>()
+                                    startActivity<AddVitalsDetailsActivity>()
                                     activity?.finish()
                                 }
 

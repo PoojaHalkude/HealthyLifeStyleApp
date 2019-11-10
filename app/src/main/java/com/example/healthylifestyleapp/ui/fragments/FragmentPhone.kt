@@ -13,7 +13,7 @@ import org.jetbrains.anko.support.v4.toast
 
 
 class FragmentPhone : BaseFragment(), View.OnClickListener {
-    override fun getRoot(): View {
+    override fun getRoot(): View? {
         return rootView
     }
 

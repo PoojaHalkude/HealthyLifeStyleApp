@@ -30,7 +30,7 @@ import kotlinx.android.synthetic.main.content_user_profile.*
 
 class UserProfileActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedListener,
     View.OnClickListener {
-    override fun getRoot(): View {
+    override fun getRoot(): View? {
         return drawer_layout
     }
 
@@ -229,7 +229,8 @@ class UserProfileActivity : BaseActivity(), NavigationView.OnNavigationItemSelec
             }
             ButtonYes.setOnClickListener {
                 FirebaseAuth.getInstance().signOut()
-                val logoutIntent = Intent(this@UserProfileActivity, MainActivity::class.java)
+                val logoutIntent =
+                    Intent(this@UserProfileActivity, OnBoardingOptionsActivity::class.java)
                 logoutIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK)
                 startActivity(logoutIntent)
             }
@@ -244,7 +245,7 @@ class UserProfileActivity : BaseActivity(), NavigationView.OnNavigationItemSelec
     }
 
     /* private void logOut() {
-        Intent logoutIntent = new Intent(this, MainActivity.class);
+        Intent logoutIntent = new Intent(this, OnBoardingOptionsActivity.class);
         logoutIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
     startActivity(logoutIntent);
     }*/

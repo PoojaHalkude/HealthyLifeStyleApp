@@ -22,13 +22,15 @@ interface SnackBarActionListener {
 }
 
 fun showSnackBar(
-    view: View,
+    view: View?,
     message: String,
     action: Int? = null,
     duration: Int = Snackbar.LENGTH_LONG,
     listener: SnackBarActionListener? = null
 ) {
-
+    if (view == null) {
+        return
+    }
     val snackBar = Snackbar.make(view, message, duration)
     snackBar.setActionTextColor(ContextCompat.getColor(view.context, R.color.colorPrimaryDark))
 

@@ -7,12 +7,10 @@ import android.content.SharedPreferences
 import android.content.res.Configuration
 import android.os.Bundle
 import android.view.View
-
 import androidx.appcompat.app.AppCompatActivity
 import com.example.healthylifestyleapp.R
 import kotlinx.android.synthetic.main.activity_language_setting.*
-
-import java.util.Locale
+import java.util.*
 
 class LanguageSettingActivity : AppCompatActivity(), View.OnClickListener {
 
@@ -125,7 +123,7 @@ class LanguageSettingActivity : AppCompatActivity(), View.OnClickListener {
 
                 //It is required to recreate the activity to reflect the change in UI.
                 recreate();
-                Intent intent=new Intent(LanguageSettingActivity.this,MainActivity.class );
+                Intent intent=new Intent(LanguageSettingActivity.this,OnBoardingOptionsActivity.class );
                 startActivity(intent);*//*
             }
         });
@@ -136,7 +134,7 @@ class LanguageSettingActivity : AppCompatActivity(), View.OnClickListener {
     /* private void UpdateView(String langCode) {
         Context context=LocaleHelper.setLocale(this,langCode);
         Resources resources=context.getResources();
-        Intent intent=new Intent(LanguageSettingActivity.this,MainActivity.class );
+        Intent intent=new Intent(LanguageSettingActivity.this,OnBoardingOptionsActivity.class );
         startActivity(intent);
 //        resources.getString(Integer.parseInt(langCode));
        // txtEnglish.setText("English");

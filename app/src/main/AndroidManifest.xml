@@ -18,7 +18,13 @@
             android:name=".ui.activities.SplashActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/title_activity_splash"
-            android:theme="@style/FullscreenTheme" />
+            android:theme="@style/FullscreenTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".ui.activities.ManualLoginActivity"
             android:screenOrientation="portrait"
@@ -51,19 +57,13 @@
         <activity android:name=".ui.activities.StartedActivity" />
         <activity android:name=".ui.activities.PhysiquesDetailsActivity" />
         <activity
-            android:name=".ui.activities.ConfirmDetailsActivity"
+            android:name=".ui.activities.AddVitalsDetailsActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme" />
         <activity
-            android:name=".ui.activities.MainActivity"
+            android:name=".ui.activities.OnBoardingOptionsActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:theme="@style/AppTheme" />
 
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"

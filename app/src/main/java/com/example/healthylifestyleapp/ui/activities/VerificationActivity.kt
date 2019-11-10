@@ -21,7 +21,7 @@ import org.jetbrains.anko.toast
 import java.util.concurrent.TimeUnit
 
 class VerificationActivity : BaseActivity() {
-    override fun getRoot(): View {
+    override fun getRoot(): View? {
         return rootView
     }
 
@@ -83,7 +83,7 @@ class VerificationActivity : BaseActivity() {
 
             //verifying the code entered manually
             verifyVerificationCode(code)
-            val intent = Intent(this@VerificationActivity, ConfirmDetailsActivity::class.java)
+            val intent = Intent(this@VerificationActivity, AddVitalsDetailsActivity::class.java)
             startActivity(intent)
         })
     }
@@ -125,7 +125,7 @@ class VerificationActivity : BaseActivity() {
                             val intent =
                                 Intent(
                                     this@VerificationActivity,
-                                    ConfirmDetailsActivity::class.java
+                                    AddVitalsDetailsActivity::class.java
                                 )
                             intent.flags =
                                 Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK

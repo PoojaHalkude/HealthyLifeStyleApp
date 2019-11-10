@@ -14,7 +14,7 @@ import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_started.*
 
 class StartedActivity : BaseActivity(), View.OnClickListener {
-    override fun getRoot(): View {
+    override fun getRoot(): View? {
         return rootView
     }
 
@@ -39,19 +39,19 @@ class StartedActivity : BaseActivity(), View.OnClickListener {
     override fun onClick(v: View) {
         when (v.id) {
             R.id.appCompatButtonAge -> {
-                val intentAge = Intent(this, ConfirmDetailsActivity::class.java)
+                val intentAge = Intent(this, AddVitalsDetailsActivity::class.java)
                 startActivity(intentAge)
             }
             R.id.appCompatButtonHeight -> {
-                val intentHeight = Intent(this, ConfirmDetailsActivity::class.java)
+                val intentHeight = Intent(this, AddVitalsDetailsActivity::class.java)
                 startActivity(intentHeight)
             }
             R.id.appCompatButtonWeight -> {
-                val intentWeight = Intent(this, ConfirmDetailsActivity::class.java)
+                val intentWeight = Intent(this, AddVitalsDetailsActivity::class.java)
                 startActivity(intentWeight)
             }
             R.id.appCompatButtonLevel -> {
-                val intentLevel = Intent(this, ConfirmDetailsActivity::class.java)
+                val intentLevel = Intent(this, AddVitalsDetailsActivity::class.java)
                 startActivity(intentLevel)
             }
         }

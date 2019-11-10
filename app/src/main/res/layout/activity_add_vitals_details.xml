@@ -15,7 +15,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:context=".ui.activities.ConfirmDetailsActivity">
+        tools:context=".ui.activities.AddVitalsDetailsActivity">
 
         <androidx.appcompat.widget.AppCompatTextView
             android:layout_width="match_parent"
@@ -116,7 +116,6 @@
                 android:gravity="center"
                 android:hint="@string/Label_Age"
                 android:inputType="number"
-                android:maxLength="3"
                 android:padding="@dimen/_8sdp"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                 android:textColor="@color/colorBlack" />
@@ -157,7 +156,6 @@
                 android:gravity="center"
                 android:hint="@string/Label_Height"
                 android:inputType="number"
-                android:maxLength="3"
                 android:paddingStart="@dimen/_8sdp"
                 android:paddingEnd="@dimen/_8sdp"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
@@ -196,7 +194,6 @@
                 android:gravity="center"
                 android:hint="@string/Label_Weight"
                 android:inputType="number"
-                android:maxLength="3"
                 android:paddingStart="@dimen/_8sdp"
                 android:paddingEnd="@dimen/_8sdp"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"

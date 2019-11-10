@@ -47,12 +47,14 @@ class SettingsActivity : AppCompatActivity(), View.OnClickListener {
                 val ButtonYes = dialog.findViewById<View>(R.id.ButtonYes) as Button
                 // if button is clicked, close the custom dialog
                 ButtonNo.setOnClickListener {
-                    val logoutIntent = Intent(this@SettingsActivity, MainActivity::class.java)
+                    val logoutIntent =
+                        Intent(this@SettingsActivity, OnBoardingOptionsActivity::class.java)
 
                     dialog.dismiss()
                 }
                 ButtonYes.setOnClickListener {
-                    val logoutIntent = Intent(this@SettingsActivity, MainActivity::class.java)
+                    val logoutIntent =
+                        Intent(this@SettingsActivity, OnBoardingOptionsActivity::class.java)
                     logoutIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK)
                     startActivity(logoutIntent)
                 }
