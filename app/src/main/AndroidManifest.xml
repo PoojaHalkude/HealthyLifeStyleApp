@@ -88,6 +88,9 @@
                     tools:ignore="ManifestResource" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".ui.activities.GoalsActivity"
+            android:screenOrientation="portrait" />
 
         <meta-data
             android:name="io.fabric.ApiKey"

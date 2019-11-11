@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.View
 import com.example.healthylifestyleapp.R
 import com.example.healthylifestyleapp.ui.activities.base.activity.BaseActivity
-import com.example.healthylifestyleapp.utils.hide
 import com.example.healthylifestyleapp.utils.next
 import com.example.healthylifestyleapp.utils.show
 import kotlinx.android.synthetic.main.activity_splash.*
@@ -28,7 +27,6 @@ class SplashActivity : BaseActivity() {
     }
 
     private fun navigate() {
-        loaderImage.hide()
         next()
     }
 

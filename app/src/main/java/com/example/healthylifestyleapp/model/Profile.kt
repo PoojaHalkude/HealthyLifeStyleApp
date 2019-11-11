@@ -22,6 +22,10 @@ data class Physique(
 data class Height(var foot: Int, var inches: Int)
 data class Weight(var unit: String? = "kg", var weight: Int)
 
-data class Goals(val water: Water?, val food: Int, val sleep: Int)
+data class Goals(val water: Water?, val food: Int, val sleep: Int) {
+    constructor() : this(Water("litres", 0), 0, 0)
+}
 
-data class Water(val unit: String? = "litres", val count: Int)
+data class Water(val unit: String? = "litres", val count: Int) {
+    constructor() : this("liters", 0)
+}

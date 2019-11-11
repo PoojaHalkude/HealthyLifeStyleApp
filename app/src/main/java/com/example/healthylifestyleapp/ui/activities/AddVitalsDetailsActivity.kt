@@ -100,7 +100,7 @@ class AddVitalsDetailsActivity : BaseActivity() {
             ).addOnCompleteListener {
                 dismissProgressDialog()
                 if (it.isSuccessful) {
-                    startActivity<UserProfileActivity>()
+                    startActivity<GoalsActivity>()
                     finish()
                 } else {
                     toast("Failed to save your data. Please try again!")

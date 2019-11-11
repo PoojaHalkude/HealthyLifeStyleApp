@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rootView"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginBottom="-8dp"
+    tools:context=".ui.activities.GoalsActivity">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="60dp"
+            android:fontFamily="@font/muli_bold"
+            android:gravity="center"
+            android:text="@string/label_goals"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textColor="@color/colorBlack1" />
+
+
+        <LinearLayout
+            android:id="@+id/LLHeaderAge"
+            android:layout_width="match_parent"
+            android:layout_height="?listPreferredItemHeight"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginRight="20dp"
+            android:orientation="horizontal"
+            android:weightSum="10">
+
+            <androidx.appcompat.widget.AppCompatTextView
+
+                android:id="@+id/tvLabelAge"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="3"
+                android:gravity="start|center_vertical"
+                android:text="@string/Label_Water"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textColor="@color/colorBlack" />
+
+            <EditText
+                android:id="@+id/etWater"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginStart="@dimen/_8sdp"
+                android:layout_weight="7"
+                android:background="@drawable/background_layout"
+                android:gravity="center"
+                android:hint="e.g. 7 litres"
+                android:inputType="number"
+                android:padding="@dimen/_8sdp"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textColor="@color/colorBlack" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/LLHeaderHeight"
+            android:layout_width="match_parent"
+            android:layout_height="?listPreferredItemHeight"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginRight="20dp"
+            android:orientation="horizontal"
+            android:weightSum="10">
+
+            <androidx.appcompat.widget.AppCompatTextView
+
+                android:id="@+id/AppCompatTextViewHeight"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="3"
+                android:gravity="start|center_vertical"
+
+                android:text="@string/Label_Sleep"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textColor="@color/colorBlack" />
+
+            <EditText
+                android:id="@+id/etSleep"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="@dimen/_8sdp"
+                android:layout_weight="7"
+                android:background="@drawable/background_layout"
+                android:gravity="center"
+                android:hint="e.g. 8 hours"
+                android:inputType="number"
+                android:paddingStart="@dimen/_8sdp"
+                android:paddingEnd="@dimen/_8sdp"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textColor="@color/colorBlack" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/LLHeaderWeight"
+            android:layout_width="match_parent"
+            android:layout_height="?listPreferredItemHeight"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginRight="20dp"
+            android:orientation="horizontal"
+            android:weightSum="10">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/AppCompatTextViewWeight"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="3"
+                android:gravity="center_vertical|start"
+                android:text="@string/Label_Food"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textColor="@color/colorBlack" />
+
+            <EditText
+                android:id="@+id/etFood"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginStart="@dimen/_8sdp"
+                android:layout_weight="7"
+                android:background="@drawable/background_layout"
+                android:gravity="center"
+                android:hint="e.g. 3 times"
+                android:inputType="number"
+                android:paddingStart="@dimen/_8sdp"
+                android:paddingEnd="@dimen/_8sdp"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textColor="@color/colorBlack" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnFinish"
+        style="@style/Widget.MaterialComponents.Button"
+        android:layout_width="match_parent"
+        android:layout_height="?listPreferredItemHeight"
+        android:backgroundTint="@color/colorYellow"
+        android:text="@string/Label_Finish"
+        android:textAllCaps="false"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textColor="@color/colorWhite1"
+        app:cornerRadius="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
