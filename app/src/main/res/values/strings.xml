@@ -153,6 +153,7 @@
     <string name="male">Male</string>
     <string name="gender">Gender</string>
     <string name="no_internet_connection">No internet connection</string>
+    <string name="choose_a_level">Choose a level</string>
 
 
 </resources>

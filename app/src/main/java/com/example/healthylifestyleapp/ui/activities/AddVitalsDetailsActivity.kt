@@ -106,12 +106,16 @@ class AddVitalsDetailsActivity : BaseActivity() {
                     toast("Failed to save your data. Please try again!")
                 }
             }
+            .addOnFailureListener {
+                dismissProgressDialog()
+                toast(it.message!!)
+            }
     }
 
     private fun setInputRangeListeners() {
         etHeight.filters = arrayOf(InputRangeFilter(1, 300))
-        etWeight.filters = arrayOf(InputRangeFilter(5, 100))
-        etAge.filters = arrayOf(InputRangeFilter(5, 80))
+        etWeight.filters = arrayOf(InputRangeFilter(1, 100))
+        etAge.filters = arrayOf(InputRangeFilter(1, 80))
     }
 
     private fun isFormValid(): Boolean {

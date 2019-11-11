@@ -67,8 +67,7 @@ class FragmentEmail : BaseFragment(), View.OnClickListener {
                     .addOnCompleteListener(activity!!) { task ->
 
                         if (!task.isSuccessful) {
-                            toast("Error occurred while signing you in!")
-                            Crashlytics.logException(task.exception)
+                            dismissProgressDialog()
                         } else {
                             toast("Sign in successful!")
                             val currentUser = firebaseAuth.currentUser
@@ -86,6 +85,12 @@ class FragmentEmail : BaseFragment(), View.OnClickListener {
                                 }
 
                         }
+                    }
+                    .addOnFailureListener {
+                        dismissProgressDialog()
+                        toast(it.message!!)
+                        it.printStackTrace()
+                        Crashlytics.logException(it)
                     }
             }
         }
