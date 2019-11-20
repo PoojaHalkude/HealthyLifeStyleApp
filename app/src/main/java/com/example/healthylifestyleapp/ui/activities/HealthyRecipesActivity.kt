@@ -1,17 +1,12 @@
 package com.example.healthylifestyleapp.ui.activities
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.View
-
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import com.example.healthylifestyleapp.R
-import com.example.healthylifestyleapp.ui.adapters.ViewPagerAdapter
 
-import kotlinx.android.synthetic.main.activity_healthy_recipes.*
-
-class HealthyRecipesActivity : AppCompatActivity(), View.OnClickListener {
+class HealthyRecipesActivity : AppCompatActivity() {
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -28,21 +23,5 @@ class HealthyRecipesActivity : AppCompatActivity(), View.OnClickListener {
                         .setAction("Action", null).show();
             }
         });*/
-
-        val viewPagerAdapter =
-            ViewPagerAdapter(supportFragmentManager)
-        viewPager.adapter = viewPagerAdapter
-        tabs.setupWithViewPager(viewPager)
-        imgBackSpaceRecipes.setOnClickListener(this)
-    }
-
-    override fun onClick(v: View) {
-        when (v.id) {
-            R.id.imgBackSpaceRecipes -> {
-                val recipesIntent = Intent(this, UserProfileActivity::class.java)
-                startActivity(recipesIntent)
-            }
-        }
-
     }
 }

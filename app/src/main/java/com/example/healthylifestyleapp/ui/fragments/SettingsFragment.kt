@@ -1,31 +1,54 @@
-package com.example.healthylifestyleapp.ui.activities
+package com.example.healthylifestyleapp.ui.fragments
+
 
 import android.app.Dialog
-import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewGroup
 import android.widget.Button
-import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
+import com.bumptech.glide.Glide
 import com.example.healthylifestyleapp.R
-import kotlinx.android.synthetic.main.activity_settings.*
+import com.example.healthylifestyleapp.ui.activities.FeedbackFormActivity
+import com.example.healthylifestyleapp.ui.activities.HealthDataSettingsActivity
+import com.example.healthylifestyleapp.ui.activities.LanguageSettingActivity
+import com.example.healthylifestyleapp.ui.activities.ProfileScreenActivity
+import com.example.healthylifestyleapp.ui.activities.base.fragment.BaseFragment
+import kotlinx.android.synthetic.main.fragment_settings.*
+import kotlinx.android.synthetic.main.nav_header_user_profile.*
+import org.jetbrains.anko.support.v4.startActivity
 
-class SettingsActivity : AppCompatActivity(), View.OnClickListener {
-
-    internal var context: Context = this
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_settings)
-        initListner()
+/**
+ * A simple [Fragment] subclass.
+ */
+class SettingsFragment : BaseFragment(), View.OnClickListener {
+    override fun getRoot(): View? {
+        return rootView
     }
 
-    private fun initListner() {
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        return inflater.inflate(R.layout.fragment_settings, container, false)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        initLisetner()
+        showProfile()
+    }
+
+    private fun showProfile() {
+        nav_userEmail.text = firebaseAuth.currentUser!!.email
+        nav_userName.text = firebaseAuth.currentUser!!.displayName
+        Glide.with(context).load(firebaseAuth.currentUser!!.photoUrl).into(nav_userPhoto)
+    }
+
+    private fun initLisetner() {
         rlHeaderProfile.setOnClickListener(this)
-        ImageViewSettings.setOnClickListener(this)
-        ImageViewHome.setOnClickListener(this)
-        ImageViewActivity.setOnClickListener(this)
         rlHeaderLogOut.setOnClickListener(this)
-        ImageViewMenuSetting.setOnClickListener(this)
         rlHeaderHealthData.setOnClickListener(this)
         rlHeaderLanguage.setOnClickListener(this)
         rlHeaderReferFriend.setOnClickListener(this)
@@ -36,7 +59,7 @@ class SettingsActivity : AppCompatActivity(), View.OnClickListener {
         when (v.id) {
             R.id.rlHeaderLogOut -> {
                 // custom dialog
-                val dialog = Dialog(context)
+                val dialog = Dialog(context!!)
                 dialog.setContentView(R.layout.custom_daiolg_logout)
                 dialog.setTitle("Title...")
 
@@ -47,44 +70,22 @@ class SettingsActivity : AppCompatActivity(), View.OnClickListener {
                 val ButtonYes = dialog.findViewById<View>(R.id.ButtonYes) as Button
                 // if button is clicked, close the custom dialog
                 ButtonNo.setOnClickListener {
-                    val logoutIntent =
-                        Intent(this@SettingsActivity, OnBoardingOptionsActivity::class.java)
-
-                    dialog.dismiss()
+                    //TODO         logout option
                 }
                 ButtonYes.setOnClickListener {
-                    val logoutIntent =
-                        Intent(this@SettingsActivity, OnBoardingOptionsActivity::class.java)
-                    logoutIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK)
-                    startActivity(logoutIntent)
+                    //TODO         logout option
                 }
                 dialog.show()
             }
-            R.id.ImageViewSettings -> {
-                val settingIntent = Intent(this, UserProfileActivity::class.java)
-                startActivity(settingIntent)
-            }
-            R.id.ImageViewHome -> {
-                val HomeIntent = Intent(this, UserProfileActivity::class.java)
-                startActivity(HomeIntent)
-            }
-            R.id.ImageViewActivity -> {
-                val ActivityIntent = Intent(this, DailyAgendaACtivity::class.java)
-                startActivity(ActivityIntent)
-            }
 
             R.id.rlHeaderLanguage -> {
-                val langIntent = Intent(this, LanguageSettingActivity::class.java)
-                startActivity(langIntent)
+                startActivity<LanguageSettingActivity>()
             }
-
             R.id.rlHeaderHealthData -> {
-                val HealthDataIntent = Intent(this, HealthDataSettingsActivity::class.java)
-                startActivity(HealthDataIntent)
+                startActivity<HealthDataSettingsActivity>()
             }
             R.id.rlHeaderProfile -> {
-                val ProfileIntent = Intent(this, ProfileScreenActivity::class.java)
-                startActivity(ProfileIntent)
+                startActivity<ProfileScreenActivity>()
             }
             R.id.rlHeaderReferFriend -> {
                 /* Intent sendIntent = new Intent();
@@ -102,15 +103,12 @@ class SettingsActivity : AppCompatActivity(), View.OnClickListener {
                 myIntent.putExtra(Intent.EXTRA_TEXT, shareSub)
                 startActivity(Intent.createChooser(myIntent, "Share Link using"))
             }
-            R.id.ImageViewMenuSetting -> {
-                val MenuIntent = Intent(this, UserProfileActivity::class.java)
-                startActivity(MenuIntent)
-            }
             R.id.rlHeaderFeedback -> {
-                val feedbackIntent = Intent(this, FeedbackFormActivity::class.java)
-                startActivity(feedbackIntent)
+                startActivity<FeedbackFormActivity>()
             }
         }
 
     }
+
+
 }

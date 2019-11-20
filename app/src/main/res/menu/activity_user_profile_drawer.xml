@@ -1,13 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    tools:showIn="navigation_view">
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_home"
             android:icon="@drawable/ic_home_black"
-            android:iconTint="@color/colorYellow"
             android:title="@string/menu_home" />
 <!--
         <item
@@ -18,25 +15,22 @@
 -->
         <item
             android:id="@+id/nav_home_recipes"
-            android:icon="@drawable/ic_recipest_black"
-            android:iconTint="@color/colorYellow"
+            android:icon="@drawable/ic_recipes_black"
             android:title="@string/menu_recipes" />
         <item
             android:id="@+id/nav_privacy"
             android:icon="@drawable/ic_privacy_policy"
-            android:iconTint="@color/colorYellow"
             android:title="@string/menu_privacy" />
 
         <item
             android:id="@+id/nav_about_us"
             android:icon="@drawable/ic_aboutusr_outline_black"
-            android:iconTint="@color/colorYellow"
             android:title="@string/menu_aboutus" />
         <item
             android:id="@+id/nav_logout"
-            android:icon="@drawable/log_out"
+            android:icon="@drawable/ic_logout"
             android:iconTint="@color/colorYellow"
-            android:title="@string/menu_logout" />
+            android:title="@string/Label_LogOut" />
     </group>
     <!--
 

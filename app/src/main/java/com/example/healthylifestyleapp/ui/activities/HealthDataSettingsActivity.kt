@@ -1,6 +1,5 @@
 package com.example.healthylifestyleapp.ui.activities
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
@@ -19,8 +18,7 @@ class HealthDataSettingsActivity : AppCompatActivity(), View.OnClickListener {
     override fun onClick(v: View) {
         when (v.id) {
             R.id.imgBackSpace -> {
-                val intentBack = Intent(this, SettingsActivity::class.java)
-                startActivity(intentBack)
+
             }
         }
     }

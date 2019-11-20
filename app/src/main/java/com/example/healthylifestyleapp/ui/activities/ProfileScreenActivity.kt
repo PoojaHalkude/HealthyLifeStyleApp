@@ -21,8 +21,6 @@ class ProfileScreenActivity : AppCompatActivity(), View.OnClickListener {
     override fun onClick(v: View) {
         when (v.id) {
             R.id.ImageViewBackProfile -> {
-                val intentBack = Intent(this, SettingsActivity::class.java)
-                startActivity(intentBack)
             }
             R.id.rlHeaderFitnessDevice -> {
                 val fitnessIntent = Intent(this, FitnessDevice::class.java)

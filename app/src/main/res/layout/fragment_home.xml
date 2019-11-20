@@ -1,34 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rootView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context=".ui.activities.UserProfileActivity"
-    tools:showIn="@layout/app_bar_user_profile">
+    tools:context=".ui.fragments.HomeFragment">
+
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/rlHeader"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginRight="20dp"
-        android:layout_marginBottom="10dp"
+        android:layout_height="match_parent"
         android:gravity="center"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:visibility="visible">
+
         <LinearLayout
             android:id="@+id/LLHeaderDrink"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_8sdp"
             android:layout_weight="10"
             android:background="@drawable/background_progrees1"
             android:gravity="center"
             android:orientation="horizontal">
+
             <RelativeLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="5">
+
                 <ProgressBar
                     android:id="@+id/progressBarDrink"
                     style="?android:attr/progressBarStyleHorizontal"
@@ -83,6 +82,7 @@
             android:id="@+id/LLHeaderFood"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_8sdp"
             android:layout_marginTop="10dp"
             android:layout_weight="10"
             android:background="@drawable/background_progrees1"
@@ -92,7 +92,7 @@
             <RelativeLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="5" >
+                android:layout_weight="5">
 
                 <ProgressBar
                     android:id="@+id/progressBarFood"
@@ -147,6 +147,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_8sdp"
             android:layout_marginTop="10dp"
             android:layout_weight="10"
             android:background="@drawable/background_progrees1"
@@ -156,7 +157,7 @@
             <RelativeLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="5" >
+                android:layout_weight="5">
 
                 <ProgressBar
                     android:id="@+id/progressBarSleep"
@@ -194,9 +195,9 @@
                     android:layout_marginLeft="20dp"
                     android:layout_marginBottom="5dp"
                     android:text="@string/Label_Sleep"
+                    android:textAllCaps="true"
                     android:textColor="@android:color/black"
                     android:textSize="18dp"
-                    android:textAllCaps="true"
                     android:textStyle="bold" />
 
                 <TextView
@@ -214,6 +215,7 @@
             android:id="@+id/llHeaderTips"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_8sdp"
             android:layout_marginTop="20dp"
             android:layout_marginBottom="10dp"
             android:layout_weight="10"
@@ -268,46 +270,6 @@
         </LinearLayout>
 
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_marginTop="10dp"
-
-            android:layout_marginBottom="20dp"
-            android:orientation="horizontal"
-
-
-            android:weightSum="15">
-
-            <ImageView
-                android:id="@+id/ImageViewActivity"
-                android:layout_width="0dp"
-                android:layout_height="30dp"
-                android:layout_weight="5"
-
-                android:src="@drawable/activity_image"
-                android:tint="@color/colorYellow" />
-
-            <ImageView
-                android:id="@+id/ImageViewHome"
-                android:layout_width="0dp"
-                android:layout_height="30dp"
-                android:layout_toRightOf="@+id/ImageViewActivity"
-                android:layout_weight="5"
-                android:src="@drawable/ic_home_black"
-                android:tint="@color/colorYellow" />
-
-            <ImageView
-                android:id="@+id/ImageViewSettings"
-                android:layout_width="0dp"
-                android:layout_height="30dp"
-                android:layout_toRightOf="@+id/ImageViewHome"
-
-                android:layout_weight="5"
-                android:src="@drawable/ic_settings_black"
-                android:tint="@color/colorYellow" />
-        </LinearLayout>
-
     </LinearLayout>
-</RelativeLayout>
+
+</FrameLayout>

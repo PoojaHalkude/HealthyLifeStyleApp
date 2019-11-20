@@ -1,54 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rootView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.activities.HealthyRecipesActivity"
     android:orientation="vertical">
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/colorSettingBack">
-
-        <ImageView
-            android:id="@+id/imgBackSpaceRecipes"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_margin="20dp"
-            android:src="@drawable/ic_keyboard_backspace"
-            android:tint="@android:color/white" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:layout_toRightOf="@id/imgBackSpaceRecipes"
-            android:text="@string/menu_recipes"
-            android:textAllCaps="true"
-            android:textColor="@android:color/white"
-            android:textSize="20dp"
-            android:textStyle="bold"/>
-    </RelativeLayout>
-
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:background="?attr/colorPrimary"
-        app:layout_scrollFlags="scroll|enterAlways"
-        android:visibility="gone"
-        app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
     <com.google.android.material.tabs.TabLayout
-        android:id="@+id/tabs"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        />
-    <androidx.viewpager.widget.ViewPager
+        app:tabBackground="@color/colorPrimary"
+        app:tabGravity="fill"
+        app:tabIndicatorColor="@color/text_color_selector_light_background"
+        app:tabTextColor="@color/text_color_selector_light_background">
+
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="All" />
+
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Trending" />
+
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="New" />
+    </com.google.android.material.tabs.TabLayout>
+
+    <!--<androidx.viewpager.widget.ViewPager
         android:id="@+id/viewPager"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+        app:layout_behavior="@string/appbar_scrolling_view_behavior" />-->
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:padding="@dimen/_16sdp"
+        android:text="Healthy recipes will appear here"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+
 
 </LinearLayout>

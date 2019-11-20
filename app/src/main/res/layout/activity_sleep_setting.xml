@@ -1,36 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.activities.SleepSettingActivity"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:context=".ui.activities.SleepSettingActivity">
 
-    <RelativeLayout
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/colorSettingBack">
+        android:layout_height="?actionBarSize" />
 
-        <ImageView
-            android:id="@+id/imgBackSpace"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_margin="20dp"
-            android:src="@drawable/ic_keyboard_backspace"
-            android:tint="@android:color/white" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:layout_toRightOf="@id/imgBackSpace"
-            android:text="@string/Label_Sleep"
-            android:textAllCaps="true"
-            android:textColor="@android:color/white"
-            android:textSize="20dp"
-            android:textStyle="bold"/>
-    </RelativeLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -84,7 +64,6 @@
     </LinearLayout>
 
 
-
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -118,9 +97,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
         android:layout_marginRight="20dp"
         android:layout_marginBottom="15dp"
-        android:layout_marginTop="20dp"
         android:orientation="vertical">
 
         <TextView
@@ -153,8 +132,8 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginRight="20dp"
-        android:layout_marginLeft="20dp">
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp">
 
         <TextView
             android:layout_width="wrap_content"
@@ -175,13 +154,14 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="@android:color/darker_gray"
-        android:layout_margin="20dp"/>
+        android:layout_margin="20dp"
+        android:background="@android:color/darker_gray" />
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginRight="20dp"
-        android:layout_marginLeft="20dp">
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp">
 
         <TextView
             android:layout_width="wrap_content"
@@ -198,18 +178,18 @@
             android:text="9 A.M."
             android:textSize="18dp" />
     </RelativeLayout>
+
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="@android:color/darker_gray"
         android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"/>
+        android:layout_marginRight="20dp"
+        android:background="@android:color/darker_gray" />
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="20dp"
-        >
+        android:layout_margin="20dp">
 
         <TextView
             android:layout_width="wrap_content"

@@ -1,6 +1,5 @@
 package com.example.healthylifestyleapp.ui.activities
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
@@ -12,17 +11,30 @@ class FoodSettingActivity : AppCompatActivity(), View.OnClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_food_setting)
-        imgBackSpace.setOnClickListener(this)
+        initialize()
 
+    }
+
+    private fun initialize() {
+        setToolbar()
+    }
+
+    private fun setToolbar() {
+        setSupportActionBar(toolbar)
+        supportActionBar?.title = getString(R.string.food)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
     }
 
     override fun onClick(v: View) {
         when (v.id) {
-            R.id.imgBackSpace -> {
-                val intentBack = Intent(this, UserProfileActivity::class.java)
-                startActivity(intentBack)
+            android.R.id.home -> {
+                onBackPressed()
             }
         }
+    }
 
+    override fun onBackPressed() {
+        super.onBackPressed()
+        finish()
     }
 }

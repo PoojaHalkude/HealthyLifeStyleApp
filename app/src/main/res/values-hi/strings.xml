@@ -98,7 +98,6 @@
     <string name="menu_recipes">व्यंजनों</string>
     <string name="menu_aboutus">हमारे बारे में</string>
     <string name="menu_privacy">गोपनीयता नीति</string>
-    <string name="menu_logout">लॉग आउट</string>
     <string name="menu_gallery">गेलरी</string>
     <string name="menu_slideshow">स्लाइड शो</string>
     <string name="menu_tools">उपकरण</string>
@@ -152,5 +151,10 @@
     <string name="no_internet_connection">No internet connection</string>
     <string name="choose_a_level">Choose a level</string>
     <string name="label_goals">Enter Your Goals</string>
+    <string name="sleep">Sleep</string>
+    <string name="drinks">Drink</string>
+    <string name="food">Food</string>
+    <string name="activity">Activities</string>
+
 
 </resources>

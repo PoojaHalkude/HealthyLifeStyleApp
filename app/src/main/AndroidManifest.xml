@@ -49,11 +49,11 @@
         <activity android:name=".ui.activities.DailyAgendaACtivity" />
         <activity android:name=".ui.activities.HomeScreenActivity" />
         <activity android:name=".ui.activities.ProfileScreenActivity" />
-        <activity android:name=".ui.activities.SettingsActivity" />
+
         <activity
             android:name=".ui.activities.UserProfileActivity"
             android:label="@string/title_activity_user_profile"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/ActivityTheme" />
         <activity android:name=".ui.activities.StartedActivity" />
         <activity android:name=".ui.activities.PhysiquesDetailsActivity" />
         <activity

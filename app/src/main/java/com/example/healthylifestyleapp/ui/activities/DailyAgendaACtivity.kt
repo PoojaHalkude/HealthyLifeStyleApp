@@ -2,25 +2,18 @@ package com.example.healthylifestyleapp.ui.activities
 
 import android.app.DatePickerDialog
 import android.content.Context
-import android.content.Intent
 import android.os.Bundle
-import android.provider.CalendarContract
-import android.view.View
 import android.widget.ImageView
 import android.widget.LinearLayout
-
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.viewpager.widget.ViewPager
 import com.example.healthylifestyleapp.R
 import com.example.healthylifestyleapp.ui.adapters.SlidingImage_Adapter
-
-import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.activity_daily_agenda_activity.*
+import java.util.*
 
-import java.util.Calendar
-
-class DailyAgendaACtivity : AppCompatActivity(), View.OnClickListener {
+class DailyAgendaACtivity : AppCompatActivity() {
     private var dotscount: Int = 0
     private var dots: Array<ImageView>? = null
     internal var datePickerDialog: DatePickerDialog? = null
@@ -35,20 +28,8 @@ class DailyAgendaACtivity : AppCompatActivity(), View.OnClickListener {
         setContentView(R.layout.activity_daily_agenda_activity)
         initUi()
 
-        fab.setOnClickListener { view ->
-            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                    .setAction("Action", null).show()
-            val intent = Intent(this@DailyAgendaACtivity, AddNewActivity::class.java)
-            startActivity(intent)
-        }
 
-
-
-        ImageViewHome.setOnClickListener(this)
-        ImageViewMenuActivity.setOnClickListener(this)
-        ImageViewActivity.setOnClickListener(this)
-        ImageViewSettings.setOnClickListener(this)
-        addEventButton.setOnClickListener {
+        /*addEventButton.setOnClickListener {
             val intent = Intent(Intent.ACTION_INSERT)
             intent.type = "vnd.android.cursor.item/event"
 
@@ -66,7 +47,7 @@ class DailyAgendaACtivity : AppCompatActivity(), View.OnClickListener {
             intent.putExtra(CalendarContract.Events.RRULE, "FREQ=YEARLY")
 
             startActivity(intent)
-        }
+        }*/
 
         /* rlHeaderDailyAgenda.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -87,7 +68,6 @@ class DailyAgendaACtivity : AppCompatActivity(), View.OnClickListener {
                 //updateLabel();
             }
         });*/
-        Selecteddate.setOnClickListener(this)
 
         for (i in 0 until dotscount) {
 
@@ -142,29 +122,6 @@ class DailyAgendaACtivity : AppCompatActivity(), View.OnClickListener {
         viewPager.adapter = viewPagerAdapter
         dotscount = viewPagerAdapter.count
         dots = emptyArray()
-
-    }
-
-    override fun onClick(v: View) {
-
-        when (v.id) {
-            R.id.ImageViewSettings -> {
-                val settingIntent = Intent(this, SettingsActivity::class.java)
-                startActivity(settingIntent)
-            }
-            R.id.ImageViewHome -> {
-                val HomeIntent = Intent(this, UserProfileActivity::class.java)
-                startActivity(HomeIntent)
-            }
-            R.id.ImageViewActivity -> {
-                val ActivityIntent = Intent(this, DailyAgendaACtivity::class.java)
-                startActivity(ActivityIntent)
-            }
-            R.id.ImageViewMenuActivity -> {
-                val MenuIntent = Intent(this, UserProfileActivity::class.java)
-                startActivity(MenuIntent)
-            }
-        }
 
     }
 

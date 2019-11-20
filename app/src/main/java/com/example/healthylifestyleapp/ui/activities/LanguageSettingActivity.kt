@@ -60,8 +60,7 @@ class LanguageSettingActivity : AppCompatActivity(), View.OnClickListener {
                 startActivity(intent2)
             }
             R.id.imgBackSpace -> {
-                val intent = Intent(this@LanguageSettingActivity, SettingsActivity::class.java)
-                startActivity(intent)
+
             }
         }
         changeLocale(lang)//Change Locale on selection basis
