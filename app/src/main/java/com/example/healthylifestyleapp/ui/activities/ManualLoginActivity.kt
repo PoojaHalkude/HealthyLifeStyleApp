@@ -2,14 +2,18 @@ package com.example.healthylifestyleapp.ui.activities
 
 import android.os.Bundle
 import android.view.MenuItem
-import androidx.appcompat.app.AppCompatActivity
+import android.view.View
 import androidx.fragment.app.Fragment
 import com.example.healthylifestyleapp.R
+import com.example.healthylifestyleapp.ui.activities.base.activity.BaseActivity
 import com.example.healthylifestyleapp.ui.fragments.FragmentEmail
 import com.example.healthylifestyleapp.ui.fragments.FragmentPhone
 import kotlinx.android.synthetic.main.activity_manual_login.*
 
-class ManualLoginActivity : AppCompatActivity() {
+class ManualLoginActivity : BaseActivity() {
+    override fun getRoot(): View? {
+        return rootView
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

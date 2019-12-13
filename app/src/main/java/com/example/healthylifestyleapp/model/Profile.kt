@@ -29,3 +29,23 @@ data class Goals(val water: Water?, val food: Int, val sleep: Int) {
 data class Water(val unit: String? = "litres", val count: Int) {
     constructor() : this("liters", 0)
 }
+
+enum class Type {
+    WATER, FOOD, SLEEP
+}
+
+data class Activity(
+    var name: String = "",
+    var quantity: Int = 0,
+    var type: String,
+    var lastModifiedTimestamp: String
+) {
+    constructor() : this("", 0, "Water", "")
+}
+
+data class Preferences(
+    var waterReminder: Boolean = false,
+    var sleepReminder: Boolean = false,
+    var foodReminder: Boolean = false
+) {
+}

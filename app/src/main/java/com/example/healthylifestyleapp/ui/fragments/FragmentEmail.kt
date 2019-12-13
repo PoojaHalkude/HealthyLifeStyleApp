@@ -9,12 +9,12 @@ import android.view.ViewGroup
 import com.crashlytics.android.Crashlytics
 import com.example.healthylifestyleapp.R
 import com.example.healthylifestyleapp.model.User
-import com.example.healthylifestyleapp.ui.activities.AddVitalsDetailsActivity
+import com.example.healthylifestyleapp.ui.activities.base.activity.BaseActivity
 import com.example.healthylifestyleapp.ui.activities.base.fragment.BaseFragment
 import com.example.healthylifestyleapp.utils.hide
+import com.example.healthylifestyleapp.utils.next
 import com.google.firebase.database.FirebaseDatabase
 import kotlinx.android.synthetic.main.fragment_email.*
-import org.jetbrains.anko.support.v4.startActivity
 import org.jetbrains.anko.support.v4.toast
 
 class FragmentEmail : BaseFragment(), View.OnClickListener {
@@ -80,8 +80,7 @@ class FragmentEmail : BaseFragment(), View.OnClickListener {
                             reference.child(firebaseAuth.currentUser!!.uid).setValue(user)
                                 .addOnCompleteListener {
                                     dismissProgressDialog()
-                                    startActivity<AddVitalsDetailsActivity>()
-                                    activity?.finish()
+                                    (activity as BaseActivity).next()
                                 }
 
                         }

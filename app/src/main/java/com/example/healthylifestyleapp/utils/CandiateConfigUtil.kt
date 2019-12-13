@@ -51,23 +51,23 @@ fun BaseActivity.next() {
                                     override fun onDataChange(p0: DataSnapshot) {
                                         if (p0.getValue(Goals::class.java) != null) {
                                             startActivity<UserProfileActivity>()
-                                            finish()
+                                            finishAffinity()
                                         } else {
                                             startActivity<GoalsActivity>()
-                                            finish()
+                                            finishAffinity()
                                         }
                                     }
                                 })
                         } else {
                             startActivity<AddVitalsDetailsActivity>()
-                            finish()
+                            finishAffinity()
                         }
                     }
                 })
         }
         else -> {
             startActivity<OnBoardingOptionsActivity>()
-            finish()
+            finishAffinity()
         }
     }
 }

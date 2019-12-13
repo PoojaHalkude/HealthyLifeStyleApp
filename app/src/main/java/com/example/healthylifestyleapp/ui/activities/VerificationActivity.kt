@@ -9,6 +9,7 @@ import android.widget.Toast
 import com.example.healthylifestyleapp.R
 import com.example.healthylifestyleapp.model.User
 import com.example.healthylifestyleapp.ui.activities.base.activity.BaseActivity
+import com.example.healthylifestyleapp.utils.next
 import com.google.android.gms.tasks.TaskExecutors
 import com.google.firebase.FirebaseException
 import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException
@@ -122,15 +123,7 @@ class VerificationActivity : BaseActivity() {
                         .addOnCompleteListener {
                             //verification successful we will start the profile activity
                             dismissProgressDialog()
-                            val intent =
-                                Intent(
-                                    this@VerificationActivity,
-                                    AddVitalsDetailsActivity::class.java
-                                )
-                            intent.flags =
-                                Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-                            startActivity(intent)
-                            finish()
+                            next()
                         }
                 } else {
                     if (task.exception is FirebaseAuthInvalidCredentialsException) {

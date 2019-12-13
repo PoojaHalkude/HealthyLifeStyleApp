@@ -6,6 +6,9 @@ import android.view.WindowManager
 import androidx.browser.customtabs.CustomTabsIntent
 import androidx.core.content.ContextCompat
 import com.example.healthylifestyleapp.R
+import com.example.healthylifestyleapp.ui.activities.SplashActivity
+import com.example.healthylifestyleapp.ui.activities.base.activity.BaseActivity
+import org.jetbrains.anko.startActivity
 
 fun Activity.disableWindowClicks() {
     window.setFlags(
@@ -16,6 +19,13 @@ fun Activity.disableWindowClicks() {
 
 fun Activity.enableWindowClicks() {
     window.clearFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE)
+}
+
+
+fun BaseActivity.logout() {
+    firebaseAuth.signOut()
+    startActivity<SplashActivity>()
+    finishAffinity()
 }
 
 fun Activity.loadChromeCustomTabFromUrl(url: String) {

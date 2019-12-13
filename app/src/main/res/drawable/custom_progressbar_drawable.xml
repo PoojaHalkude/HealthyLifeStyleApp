@@ -10,7 +10,7 @@
         android:useLevel="false" >
         <gradient
             android:centerY="0.5"
-            android:endColor="@color/colorYellow"
+            android:endColor="@android:color/transparent"
             android:startColor="@color/colorForProgress"
             android:type="sweep"
             android:useLevel="false" />

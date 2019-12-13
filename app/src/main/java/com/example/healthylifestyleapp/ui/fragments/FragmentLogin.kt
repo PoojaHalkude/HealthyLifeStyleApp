@@ -1,6 +1,5 @@
 package com.example.healthylifestyleapp.ui.fragments
 
-import android.content.Intent
 import android.os.Bundle
 import android.text.TextUtils
 import android.view.LayoutInflater
@@ -9,9 +8,10 @@ import android.view.ViewGroup
 import android.widget.Toast
 import com.crashlytics.android.Crashlytics
 import com.example.healthylifestyleapp.R
-import com.example.healthylifestyleapp.ui.activities.AddVitalsDetailsActivity
 import com.example.healthylifestyleapp.ui.activities.ForgotPasswordActivity
+import com.example.healthylifestyleapp.ui.activities.base.activity.BaseActivity
 import com.example.healthylifestyleapp.ui.activities.base.fragment.BaseFragment
+import com.example.healthylifestyleapp.utils.next
 import kotlinx.android.synthetic.main.fragment_login.*
 import org.jetbrains.anko.support.v4.startActivity
 import org.jetbrains.anko.support.v4.toast
@@ -68,10 +68,7 @@ class FragmentLogin : BaseFragment(), View.OnClickListener {
                         if (task.isSuccessful) {
                             Toast.makeText(activity, "Login Successful!", Toast.LENGTH_LONG).show()
                             progressBar.visibility = View.GONE
-                            val myIntent = Intent(activity, AddVitalsDetailsActivity::class.java)
-                            startActivity(myIntent)
-
-                            // startActivity(new Intent(getActivity(), OnBoardingOptionsActivity.class));
+                            (activity as BaseActivity).next()
                         }
                     }
                     .addOnFailureListener {

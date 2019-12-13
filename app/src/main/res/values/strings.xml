@@ -52,7 +52,7 @@
     <string name="Label_Sleep">Sleep</string>
     <string name="Label_DailyGoal">Daily Goal</string>
     <string name="Label_CupSize">Cup Size</string>
-    <string name="Label_Reminder">Water Reminder</string>
+    <string name="Label_Reminder">Hourly water reminder</string>
     <string name="Label_Time">Time Interval</string>
     <string name="Label_Start">Start</string>
     <string name="Label_End">End</string>
@@ -159,6 +159,13 @@
     <string name="drinks">Drink</string>
     <string name="food">Food</string>
     <string name="activity">Activities</string>
+    <string name="health_tips_and_exercise_plans_will_be_available_soon">Health tips and exercise plans will be available soon...</string>
+
+    <string-array name="activities">
+        <item>Water</item>
+        <item>Food</item>
+        <item>Sleep</item>
+    </string-array>
 
 
 </resources>

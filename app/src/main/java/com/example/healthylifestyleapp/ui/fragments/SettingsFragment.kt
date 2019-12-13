@@ -15,7 +15,9 @@ import com.example.healthylifestyleapp.ui.activities.FeedbackFormActivity
 import com.example.healthylifestyleapp.ui.activities.HealthDataSettingsActivity
 import com.example.healthylifestyleapp.ui.activities.LanguageSettingActivity
 import com.example.healthylifestyleapp.ui.activities.ProfileScreenActivity
+import com.example.healthylifestyleapp.ui.activities.base.activity.BaseActivity
 import com.example.healthylifestyleapp.ui.activities.base.fragment.BaseFragment
+import com.example.healthylifestyleapp.utils.logout
 import kotlinx.android.synthetic.main.fragment_settings.*
 import kotlinx.android.synthetic.main.nav_header_user_profile.*
 import org.jetbrains.anko.support.v4.startActivity
@@ -66,14 +68,14 @@ class SettingsFragment : BaseFragment(), View.OnClickListener {
                 // set the custom dialog components - text, image and button
                 //TextView text = (TextView) dialog.findViewById(R.id.text);
                 //text.setText("Android custom dialog example!");
-                val ButtonNo = dialog.findViewById<View>(R.id.ButtonNo) as Button
-                val ButtonYes = dialog.findViewById<View>(R.id.ButtonYes) as Button
+                val noButton = dialog.findViewById<View>(R.id.ButtonNo) as Button
+                val buttonYes = dialog.findViewById<View>(R.id.ButtonYes) as Button
                 // if button is clicked, close the custom dialog
-                ButtonNo.setOnClickListener {
-                    //TODO         logout option
+                noButton.setOnClickListener {
+                    dialog.dismiss()
                 }
-                ButtonYes.setOnClickListener {
-                    //TODO         logout option
+                buttonYes.setOnClickListener {
+                    (activity as BaseActivity).logout()
                 }
                 dialog.show()
             }

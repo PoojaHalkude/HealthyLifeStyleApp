@@ -24,6 +24,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.database.*
 import kotlinx.android.synthetic.main.activity_user_profile.*
+import org.jetbrains.anko.startActivity
 
 class UserProfileActivity : BaseActivity() {
     override fun getRoot(): View? {
@@ -150,6 +151,9 @@ class UserProfileActivity : BaseActivity() {
     }
 
     private fun initListner() {
+        btnAddActivity.setOnClickListener {
+            startActivity<AddNewActivity>()
+        }
         bottomNavigationView.setOnNavigationItemSelectedListener {
             when (it.itemId) {
                 R.id.nav_home -> {

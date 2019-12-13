@@ -6,19 +6,20 @@
     android:id="@+id/rootView"
     android:layout_gravity="center"
     android:animateLayoutChanges="true"
-    android:background="@color/colorBlack"
+    android:background="@android:color/white"
     android:gravity="center"
     android:orientation="vertical"
     tools:context=".ui.activities.SplashActivity">
 
-    <TextView
+    <ImageView
         android:id="@+id/fullscreen_content"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="@dimen/_200sdp"
         android:layout_gravity="center"
         android:fontFamily="@font/passion_one_regular"
         android:gravity="center"
         android:keepScreenOn="true"
+        android:src="@drawable/ic_splash_screen"
         android:letterSpacing="0.2"
         android:text="@string/app_name"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"

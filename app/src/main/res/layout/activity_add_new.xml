@@ -1,151 +1,108 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rootView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.activities.AddNewActivity"
     android:orientation="vertical"
-    >
+    tools:context=".ui.activities.AddNewActivity">
 
-    <RelativeLayout
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/colorSettingBack">
-
-        <ImageView
-            android:id="@+id/imgMenuBar"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_margin="20dp"
-            android:src="@drawable/ic_menu_black"
-            android:tint="@android:color/white" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:layout_toRightOf="@id/imgMenuBar"
-            android:text="@string/Label_Activity"
-            android:textColor="@android:color/white"
-            android:textSize="20dp"
-            android:textStyle="bold"/>
-        <ImageView
-            android:id="@+id/imgSearchActivity"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_margin="20dp"
-          android:layout_alignParentRight="true"
-            android:src="@drawable/ic_search"
-            android:tint="@android:color/white" />
-    </RelativeLayout>
+        android:layout_height="wrap_content" />
 
     <LinearLayout
         android:id="@+id/llheader"
         android:layout_width="match_parent"
         android:layout_height="78dp"
         android:background="@color/colorYellow"
-        android:orientation="vertical"></LinearLayout>
+        android:orientation="vertical"
+        android:visibility="gone" />
+
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/ImageViewAddActivity"
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:layout_gravity="center"
         android:layout_marginTop="-20dp"
+        android:background="@color/colorYellow"
         android:rotation="45"
         android:src="@drawable/ic_add_circle"
-        android:background="@color/colorYellow"
         android:tint="@android:color/white"
+        android:visibility="gone"
 
 
         />
 
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:gravity="center"
+        android:padding="7dp"
+        android:text="@string/Label_AddNewActivity"
+        android:textAllCaps="false"
+        android:textColor="@android:color/black"
+        android:textSize="15dp"
+        android:visibility="gone"
 
-        <TextView
+        />
 
+
+    <Spinner
+        android:id="@+id/spinnerActivity"
+        android:layout_width="match_parent"
+        android:layout_height="?listPreferredItemHeight" />
+
+
+    <EditText
+        android:id="@+id/etActivityName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:hint="Enter activity description"
+        android:inputType="text"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+    <EditText
+        android:id="@+id/etQuantity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:hint="Quantity"
+        android:inputType="number"
+        android:maxLength="2"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+
+    <TextView
+        android:id="@+id/tvDate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="10dp"
+        android:background="?selectableItemBackground"
+        android:padding="@dimen/_4sdp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        tools:text="@tools:sample/date/ddmmyy" />
+
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp">
+
+        <Button
+            android:id="@+id/btnAddActivity"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/Label_AddNewActivity"
-            android:textSize="15dp"
-            android:textAllCaps="false"
-            android:layout_margin="20dp"
+            android:layout_alignParentBottom="true"
+            android:background="@drawable/login_btn_background"
             android:padding="7dp"
-            android:gravity="center"
-            android:textColor="@android:color/black"
-
-            />
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="2dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="40dp"
-        android:layout_marginRight="20dp"
-        android:background="@color/colorGray" />
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="horizontal"
-    android:layout_marginLeft="5dp"
-    android:layout_marginTop="20dp"
-    android:layout_marginRight="5dp">
-
-    <CheckBox
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/Label_Workput"
-        />
-    <CheckBox
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/Label_Water"
-        /> <CheckBox
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:text="@string/Label_Breakfast"
-    /> <CheckBox
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:text="@string/Label_Lunch"
-    />
-    <CheckBox
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/Label_Dinner"
-        />
-
-</LinearLayout>
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="2dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginRight="20dp"
-        android:background="@color/colorGray" />
-   <Spinner
-       android:id="@+id/SpinnerChoseDate"
-       android:layout_margin="40dp"
-       android:layout_width="150dp"
-       android:layout_height="wrap_content"
-       >
-
-   </Spinner><RelativeLayout
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_margin="20dp"
-    >
-    <Button
-        android:id="@+id/ButtonAddActivity"
-
-        android:layout_width="match_parent"
-        android:layout_alignParentBottom="true"
-        android:layout_height="wrap_content"
-        android:background="@drawable/login_btn_background"
-        android:padding="7dp"
-        android:text="@string/Label_AddActivity"
-        android:textAllCaps="false"
-        android:textSize="20dp"
-        />
-</RelativeLayout>
+            android:text="@string/Label_AddActivity"
+            android:textAllCaps="false"
+            android:textSize="20dp" />
+    </RelativeLayout>
 </LinearLayout>
