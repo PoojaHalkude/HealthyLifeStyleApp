@@ -64,7 +64,18 @@ class HomeFragment : BaseFragment(), View.OnClickListener {
         LLHeaderSleep.setOnClickListener(this)
         LLHeaderFood.setOnClickListener(this)
         llHeaderTips.setOnClickListener(this)
+        setSwipeRefreshLayout()
+    }
+
+    override fun onResume() {
+        super.onResume()
         fetchGoals()
+    }
+
+    private fun setSwipeRefreshLayout() {
+        swipeRefreshLayout.setOnRefreshListener {
+            fetchGoals()
+        }
     }
 
     private fun fetchProgress() {
@@ -101,6 +112,7 @@ class HomeFragment : BaseFragment(), View.OnClickListener {
         showDrinkProgress()
         showFoodProgress()
         showSleepProgress()
+        swipeRefreshLayout.isRefreshing = false
     }
 
     private fun showSleepProgress() {
@@ -134,6 +146,7 @@ class HomeFragment : BaseFragment(), View.OnClickListener {
     }
 
     private fun fetchGoals() {
+        resetProgress()
         if (!isNetworkAccessible(context!!)) {
             showNoInternetConnectionSnackBar()
             return
@@ -151,6 +164,14 @@ class HomeFragment : BaseFragment(), View.OnClickListener {
                     }
                 })
         }
+    }
+
+    private fun resetProgress() {
+        activities?.clear()
+        goals = null
+        progressBarDrink.progress = 0f
+        progressBarFood.progress = 0f
+        progressBarSleep.progress = 0f
     }
 
 

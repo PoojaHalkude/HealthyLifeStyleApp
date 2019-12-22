@@ -14,7 +14,8 @@ data class Physique(
     val weight: Int,
     val age: Int,
     val level: String,
-    val gender: String
+    val gender: String,
+    var isHeightInCm: Boolean = true
 ) {
     constructor() : this(0, 0, 0, "Beginner", "Male")
 }
@@ -38,7 +39,8 @@ data class Activity(
     var name: String = "",
     var quantity: Int = 0,
     var type: String,
-    var lastModifiedTimestamp: String
+    var lastModifiedTimestamp: String,
+    var id: String = ""
 ) {
     constructor() : this("", 0, "Water", "")
 }

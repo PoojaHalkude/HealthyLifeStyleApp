@@ -2,55 +2,40 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rootView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.activities.FeedbackFormActivity"
-    android:orientation="vertical">
-    <RelativeLayout
-        android:id="@+id/rlHeader"
+    android:orientation="vertical"
+    tools:context=".ui.activities.FeedbackFormActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/colorSettingBack">
+        android:layout_margin="20dp"
+        android:gravity="center"
+        android:text="@string/your_feedback_is_very_important_to_us"
+        android:textSize="20dp" />
 
-        <ImageView
-            android:id="@+id/ImageViewMenuSetting"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_margin="20dp"
-            android:src="@drawable/ic_menu_black"
-            android:tint="@android:color/white" />
+    <EditText
+        android:id="@+id/etFeedback"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_100sdp"
+        android:layout_margin="@dimen/_8sdp"
+        android:gravity="top|start"
+        android:hint="@string/enter_your_text_here" />
 
-        <TextView
-            android:id="@+id/textViewSettings"
-            android:layout_width="176dp"
-            android:layout_height="wrap_content"
-            android:layout_margin="20dp"
-            android:layout_toRightOf="@+id/ImageViewMenuSetting"
-            android:gravity="center_vertical"
-            android:text="@string/Label_Feedback"
-            android:textColor="@android:color/white"
-            android:textSize="20dp" />
-
-        <ImageView
-            android:id="@+id/ImageViewSearch"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_alignParentRight="true"
-            android:layout_marginTop="20dp"
-            android:layout_marginRight="20dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginBottom="20dp"
-            android:layout_toRightOf="@+id/textViewSettings"
-            android:src="@drawable/ic_search_black"
-            android:tint="@android:color/white" />
-    </RelativeLayout>
-<TextView
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:text="Your Feedback is very important to us"
-    android:gravity="center"
-    android:layout_margin="20dp"
-    android:textSize="20dp"
-
-    />
+    <Button
+        android:id="@+id/btnSendFeedback"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/_8sdp"
+        android:text="@string/Label_send_feedback" />
 </LinearLayout>

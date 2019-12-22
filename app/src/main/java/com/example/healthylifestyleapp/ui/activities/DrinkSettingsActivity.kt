@@ -17,6 +17,7 @@ import kotlinx.android.synthetic.main.activity_drink_settings.*
 
 class DrinkSettingsActivity : BaseActivity(), CompoundButton.OnCheckedChangeListener {
     private lateinit var preferences: Preferences
+    private var goals: Goals? = null
     override fun getRoot(): View? {
         return rootView
     }
@@ -38,7 +39,6 @@ class DrinkSettingsActivity : BaseActivity(), CompoundButton.OnCheckedChangeList
     private fun initialize() {
         setToolbar()
         initListeners()
-        fetchProgress()
         fetchPreferences()
         fetchGoals()
     }
@@ -56,9 +56,9 @@ class DrinkSettingsActivity : BaseActivity(), CompoundButton.OnCheckedChangeList
                     }
 
                     override fun onDataChange(p0: DataSnapshot) {
-                        val goals = p0.getValue(Goals::class.java)
+                        goals = p0.getValue(Goals::class.java)
                         TextViewCountGoal.text = String.format("%dL", goals?.water?.count)
-
+                        fetchProgress()
                     }
                 })
         }
@@ -110,6 +110,7 @@ class DrinkSettingsActivity : BaseActivity(), CompoundButton.OnCheckedChangeList
         }
     }
 
+    private val activities = ArrayList<Activity>()
     private fun fetchProgress() {
         if (!isNetworkAccessible(this)) {
             showNoInternetConnectionSnackBar()
@@ -123,10 +124,25 @@ class DrinkSettingsActivity : BaseActivity(), CompoundButton.OnCheckedChangeList
                     }
 
                     override fun onDataChange(p0: DataSnapshot) {
-                        val activities: ArrayList<Activity?>? = p0.value as ArrayList<Activity?>?
+                        activities.clear()
+                        p0.children.forEach {
+                            val activity = it.getValue(Activity::class.java)
+                            activities.add(activity!!)
+                        }
+                        showDrinkProgress()
                     }
                 })
         }
+    }
+
+    private fun showDrinkProgress() {
+        val drinks = activities?.filter { it.type == "Water" }
+        var progress = 0
+        drinks?.forEach {
+            progress += it.quantity
+        }
+        val percentage = (100 * progress).div(goals?.water!!.count)
+        progressBarDailyGoal.progress = percentage
     }
 
     private fun setToolbar() {

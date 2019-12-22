@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">HealthyLifeStyleApp</string>
+    <string name="app_name">Healthy Lifestyle</string>
     @string/Label_Account
     <string name="Label_Heading">Healthy Lifestyle</string>
     <string name="Label_Account">Create a new account</string>
@@ -159,7 +159,42 @@
     <string name="drinks">Drink</string>
     <string name="food">Food</string>
     <string name="activity">Activities</string>
-    <string name="health_tips_and_exercise_plans_will_be_available_soon">Health tips and exercise plans will be available soon...</string>
+    <string name="health_tips_and_exercise_plans_will_be_available_soon">Health tips and exercise plans will be available soon…</string>
+    <string name="delete_activity_confirmation">Are you sure you want to delete this activity?</string>
+    <string name="activity_delete_successful_message">Activity deleted successfully</string>
+    <string name="enter_activity_description">Enter activity description</string>
+    <string name="quantity">Quantity</string>
+    <string name="your_daily_activities_will_appear_here">Your daily activities will appear here</string>
+    <string name="your_feedback_is_very_important_to_us">Your Feedback is very important to us</string>
+    <string name="fitbit">Fitbit</string>
+    <string name="samsung_health">Samsung Health</string>
+    <string name="fit_bands">Fit bands</string>
+    <string name="e_g_7_litres">e.g. 7 litres</string>
+    <string name="e_g_8_hours">e.g. 8 hours</string>
+    <string name="e_g_3_times">e.g. 3 times</string>
+    <string name="_25">25</string>
+    <string name="_175cm">175cm</string>
+    <string name="_75_kg">75 kg</string>
+    <string name="english">English</string>
+    <string name="bengali">Bengali</string>
+    <string name="mobile_number">Mobile Number</string>
+    <string name="location">Location</string>
+    <string name="count">Count</string>
+    <string name="lose_mass">Lose Mass</string>
+    <string name="mi">MI</string>
+    <string name="enter_verification_code">Enter verification code</string>
+    <string name="please_fill_the_details">Please Fill the details</string>
+    <string name="select_profile_picture">Select Profile Picture</string>
+    <string name="enter_your_name_here">Enter Your Name Here</string>
+    <string name="enter_your_email_id">Enter Your Email Id</string>
+    <string name="enter_mobile_no">Enter Mobile No.</string>
+    <string name="upload_image_to_firebase_storage">Upload image to Firebase Storage</string>
+    <string name="chinese">Chinese</string>
+    <string name="hindi">Hindi</string>
+    <string name="share_link">"Use %s to achieve your health goals.\n\nUpgrade Yourself!\n\nDownload the app from Play Store NOW!!"</string>
+    <string name="healthy_recipes_will_appear_here">Healthy recipes will appear here</string>
+    <string name="enter_your_text_here">Enter your text here</string>
+    <string name="feedback_submitted_successfully">Feedback submitted successfully</string>
 
     <string-array name="activities">
         <item>Water</item>

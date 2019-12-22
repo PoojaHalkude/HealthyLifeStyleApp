@@ -3,6 +3,7 @@ package com.example.healthylifestyleapp.ui.activities
 import android.os.Bundle
 import android.view.MenuItem
 import android.view.View
+import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import com.crashlytics.android.Crashlytics
 import com.example.healthylifestyleapp.R
@@ -115,6 +116,31 @@ class AddNewActivity : BaseActivity() {
             android.R.id.text1,
             resources.getStringArray(R.array.activities)
         )
+        spinnerActivity.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onNothingSelected(parent: AdapterView<*>?) {
+
+            }
+
+            override fun onItemSelected(
+                parent: AdapterView<*>?,
+                view: View?,
+                position: Int,
+                id: Long
+            ) {
+                when (position) {
+                    0 -> {
+                        etQuantity.hint = "E.g. 3 litres"
+                    }
+                    1 -> {
+                        etQuantity.hint = "E.g. 3"
+                    }
+                    2 -> {
+                        etQuantity.hint = "E.g. 3 hours"
+                    }
+                }
+            }
+        }
+        spinnerActivity.setSelection(0)
     }
 
     private fun setToolbar() {

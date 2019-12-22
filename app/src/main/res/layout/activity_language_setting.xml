@@ -7,53 +7,25 @@
     android:orientation="vertical"
     tools:context=".ui.activities.LanguageSettingActivity">
 
-    <RelativeLayout
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/colorSettingBack">
-
-        <ImageView
-            android:id="@+id/imgBackSpace"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_margin="20dp"
-            android:src="@drawable/ic_keyboard_backspace"
-            android:tint="@android:color/white" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:layout_toRightOf="@id/imgBackSpace"
-            android:text="@string/Label_Language"
-            android:textColor="@android:color/white"
-            android:textSize="20dp"
-            android:textStyle="bold" />
-
-        <ImageView
-            android:id="@+id/imgEdit"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_alignParentRight="true"
-            android:layout_margin="20dp"
-            android:src="@drawable/ic_create_black"
-            android:tint="@android:color/white" />
-    </RelativeLayout>
+        android:layout_height="?attr/actionBarSize"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/txtEnglish"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_margin="20dp"
-        android:text="English"
+        android:text="@string/english"
         android:textSize="18dp"
         android:textStyle="bold" />
 
     <View
-
-
-
 
 
         android:layout_width="match_parent"
@@ -64,11 +36,11 @@
 
     <TextView
         android:id="@+id/txtHindi"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_margin="20dp"
-        android:text="Hindi"
+        android:text="@string/hindi"
         android:textSize="18dp"
         android:textStyle="bold" />
 
@@ -85,16 +57,18 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_margin="20dp"
-        android:text="Bengali"
+        android:text="@string/bengali"
         android:textSize="18dp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:visibility="gone" />
 
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:background="@android:color/darker_gray" />
+        android:background="@android:color/darker_gray"
+        android:visibility="gone" />
     <!--<Spinner
         android:id="@+id/spLanguage"
         android:layout_width="match_parent"

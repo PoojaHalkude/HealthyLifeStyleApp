@@ -64,5 +64,17 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvQuantity" />
 
+    <ImageButton
+        android:id="@+id/btnDeleteActivity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/_4sdp"
+        android:background="?selectableItemBackgroundBorderless"
+        android:padding="@dimen/_8sdp"
+        android:src="@drawable/ic_delete_black_24dp"
+        android:tint="@android:color/holo_red_dark"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvType" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

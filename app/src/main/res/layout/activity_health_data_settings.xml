@@ -2,33 +2,20 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rootView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.activities.HealthDataSettingsActivity"
-    android:orientation="vertical">
-    <RelativeLayout
+    android:orientation="vertical"
+    tools:context=".ui.activities.HealthDataSettingsActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/colorSettingBack">
+        android:layout_height="?attr/actionBarSize"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <ImageView
-            android:id="@+id/imgBackSpace"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_margin="20dp"
-            android:src="@drawable/ic_keyboard_backspace"
-            android:tint="@android:color/white" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:layout_toRightOf="@id/imgBackSpace"
-            android:text="@string/Label_HeathData"
-            android:textColor="@android:color/white"
-            android:textSize="20dp"
-            android:textStyle="bold"/>
-    </RelativeLayout>
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -40,22 +27,24 @@
             android:layout_alignParentLeft="true"
             android:text="@string/Label_Age"
             android:textSize="18dp"
-            android:textStyle="bold"/>
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/TextViewAgeCount"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
-            android:text="25"
+            android:text="@string/_25"
             android:textSize="18dp" />
+
         <View
-            android:layout_below="@+id/TextViewAgeCount"
             android:layout_width="match_parent"
             android:layout_height="1dp"
+            android:layout_below="@+id/TextViewAgeCount"
             android:layout_marginTop="10dp"
             android:background="@android:color/darker_gray" />
     </RelativeLayout>
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -67,87 +56,92 @@
             android:layout_alignParentLeft="true"
             android:text="@string/Label_Height"
             android:textSize="18dp"
-            android:textStyle="bold"/>
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/TextViewHeightCount"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
-            android:text="175cm"
+            android:text="@string/_175cm"
             android:textSize="18dp" />
+
         <View
-            android:layout_below="@+id/TextViewHeightCount"
             android:layout_width="match_parent"
             android:layout_height="1dp"
+            android:layout_below="@+id/TextViewHeightCount"
             android:layout_marginTop="10dp"
             android:background="@android:color/darker_gray" />
     </RelativeLayout>
+
     <RelativeLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_margin="20dp">
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:text="@string/Label_Weight"
-        android:textSize="18dp"
-        android:textStyle="bold"/>
-
-    <TextView
-        android:id="@+id/TextViewWeightCount"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:text="75 kg"
-        android:textSize="18dp" />
-    <View
-        android:layout_below="@+id/TextViewWeightCount"
         android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_marginTop="10dp"
-        android:background="@android:color/darker_gray" />
-</RelativeLayout>
-
-<RelativeLayout
-android:layout_width="match_parent"
-android:layout_height="wrap_content"
-android:layout_marginLeft="20dp"
-    android:layout_marginRight="20dp"
-    android:layout_marginBottom="20dp">
-
-<TextView
-    android:id="@+id/TextViewGender"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_alignParentLeft="true"
-    android:text="Gender"
-    android:textSize="18dp"
-    android:layout_centerVertical="true"
-    android:gravity="center"
-    android:textStyle="bold"/>
-
-    <ToggleButton
-        android:id="@+id/ToggleButtonGendar"
-        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:backgroundTint="@color/colorYellow"
-        android:buttonTint="@color/colorYellow"
-        android:textOff="Male"
-        android:gravity="center"
-        android:textOn="Female"
-        android:theme="@style/SCBSwitch" />
-<View
-    android:layout_below="@+id/ToggleButtonGendar"
-    android:layout_width="match_parent"
-    android:layout_height="1dp"
-    android:layout_marginTop="10dp"
-    android:background="@android:color/darker_gray" />
-</RelativeLayout>
+        android:layout_margin="20dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:text="@string/Label_Weight"
+            android:textSize="18dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/TextViewWeightCount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:text="@string/_75_kg"
+            android:textSize="18dp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_below="@+id/TextViewWeightCount"
+            android:layout_marginTop="10dp"
+            android:background="@android:color/darker_gray" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="20dp">
+
+        <TextView
+            android:id="@+id/TextViewGender"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:gravity="center"
+            android:text="@string/gender"
+            android:textSize="18dp"
+            android:textStyle="bold" />
+
+        <ToggleButton
+            android:id="@+id/ToggleButtonGendar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:backgroundTint="@color/colorYellow"
+            android:buttonTint="@color/colorYellow"
+            android:gravity="center"
+            android:textOff="@string/male"
+            android:textOn="@string/female"
+            android:theme="@style/SCBSwitch" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_below="@+id/ToggleButtonGendar"
+            android:layout_marginTop="10dp"
+            android:background="@android:color/darker_gray" />
+    </RelativeLayout>
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -159,23 +153,26 @@ android:layout_marginLeft="20dp"
             android:layout_alignParentLeft="true"
             android:text="@string/Label_MyFitnessLevel"
             android:textSize="18dp"
-            android:textStyle="bold"/>
+            android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/TextView"
+            android:id="@+id/TextViewLevel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:text="@string/Label_Beginner"
             android:textSize="18dp" />
+
         <View
-            android:layout_below="@+id/TextView"
             android:layout_width="match_parent"
             android:layout_height="1dp"
+            android:layout_below="@+id/TextViewLevel"
             android:layout_marginTop="10dp"
             android:background="@android:color/darker_gray" />
     </RelativeLayout>
+
     <RelativeLayout
+        android:visibility="gone"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="20dp">
@@ -186,7 +183,7 @@ android:layout_marginLeft="20dp"
             android:layout_alignParentLeft="true"
             android:text="@string/Label_ManageData"
             android:textSize="18dp"
-            android:textStyle="bold"/>
+            android:textStyle="bold" />
 
         <ImageView
             android:id="@+id/ImageViewmanagedata"
@@ -195,17 +192,20 @@ android:layout_marginLeft="20dp"
             android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
             android:layout_marginEnd="0dp"
-        android:src="@drawable/ic_arrow_right"
-            android:tint="@color/colorGray"/>
+            android:src="@drawable/ic_arrow_right"
+            android:tint="@color/colorGray" />
+
         <View
-            android:layout_below="@+id/ImageViewmanagedata"
             android:layout_width="match_parent"
             android:layout_height="1dp"
+            android:layout_below="@+id/ImageViewmanagedata"
             android:layout_marginTop="10dp"
 
             android:background="@android:color/darker_gray" />
     </RelativeLayout>
+
     <RelativeLayout
+        android:visibility="gone"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="20dp">
@@ -216,20 +216,18 @@ android:layout_marginLeft="20dp"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
             android:text=""
-            android:textSize="22dp"
-            android:textStyle="bold"
             android:textColor="@color/colorYellow"
-            />
+            android:textSize="22dp"
+            android:textStyle="bold" />
 
 
         <View
-            android:layout_below="@+id/TextViewRestartPlan"
             android:layout_width="match_parent"
             android:layout_height="1dp"
+            android:layout_below="@+id/TextViewRestartPlan"
             android:layout_marginTop="10dp"
             android:background="@android:color/darker_gray" />
     </RelativeLayout>
-
 
 
 </LinearLayout>

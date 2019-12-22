@@ -8,8 +8,6 @@ import android.util.Log
 import android.view.View
 import android.widget.Button
 import androidx.appcompat.widget.Toolbar
-import androidx.core.view.GravityCompat
-import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
 import com.example.healthylifestyleapp.R
 import com.example.healthylifestyleapp.ui.activities.base.activity.BaseActivity
@@ -222,14 +220,14 @@ class UserProfileActivity : BaseActivity() {
     }
 
 
-    override fun onBackPressed() {
+/*    override fun onBackPressed() {
         val drawer = findViewById<DrawerLayout>(R.id.drawer_layout)
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START)
         } else {
             super.onBackPressed()
         }
-    }
+    }*/
 
 
     private fun loadFragment(fr: Fragment) {

@@ -6,6 +6,7 @@ import android.content.Intent
 import android.content.SharedPreferences
 import android.content.res.Configuration
 import android.os.Bundle
+import android.view.MenuItem
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.example.healthylifestyleapp.R
@@ -37,12 +38,12 @@ class LanguageSettingActivity : AppCompatActivity(), View.OnClickListener {
     private fun initListener() {
         txtEnglish.setOnClickListener(this)
         txtHindi.setOnClickListener(this)
-        imgBackSpace.setOnClickListener(this)
     }
 
-    fun loadLocale() {
+    private fun loadLocale() {
         val language = sharedPreferences!!.getString(
-            Locale_KeyValue, "")
+            Locale_KeyValue, ""
+        )
         changeLocale(language!!)
     }
 
@@ -51,13 +52,15 @@ class LanguageSettingActivity : AppCompatActivity(), View.OnClickListener {
         when (view.id) {
             R.id.txtEnglish -> {
                 lang = "en"
-                val intent1 = Intent(this@LanguageSettingActivity, UserProfileActivity::class.java)
+                val intent1 = Intent(this@LanguageSettingActivity, SplashActivity::class.java)
                 startActivity(intent1)
+                finishAffinity()
             }
             R.id.txtHindi -> {
                 lang = "hi"
-                val intent2 = Intent(this@LanguageSettingActivity, UserProfileActivity::class.java)
+                val intent2 = Intent(this@LanguageSettingActivity, SplashActivity::class.java)
                 startActivity(intent2)
+                finishAffinity()
             }
             R.id.imgBackSpace -> {
 
@@ -68,9 +71,26 @@ class LanguageSettingActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     private fun initUI() {
+        setToolbar()
         sharedPreferences = getSharedPreferences(
-            Locale_Preference, Activity.MODE_PRIVATE)
+            Locale_Preference, Activity.MODE_PRIVATE
+        )
         editor = sharedPreferences!!.edit()
+    }
+
+    private fun setToolbar() {
+        setSupportActionBar(toolbar)
+        supportActionBar?.title = getString(R.string.Label_Language)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            android.R.id.home -> {
+                onBackPressed()
+            }
+        }
+        return super.onOptionsItemSelected(item)
     }
 
     private fun changeLocale(lang: String) {
@@ -83,14 +103,18 @@ class LanguageSettingActivity : AppCompatActivity(), View.OnClickListener {
         val config = Configuration()//get Configuration
         config.locale =
             myLocale//set config locale as selected locale
-        baseContext.resources.updateConfiguration(config, baseContext.resources.displayMetrics)//Update the config
+        baseContext.resources.updateConfiguration(
+            config,
+            baseContext.resources.displayMetrics
+        )//Update the config
         // updateTexts();//Update texts according to locale
 
     }
 
     private fun saveLocale(lang: String) {
         editor!!.putString(
-            Locale_KeyValue, lang)
+            Locale_KeyValue, lang
+        )
         editor!!.commit()
     }
 

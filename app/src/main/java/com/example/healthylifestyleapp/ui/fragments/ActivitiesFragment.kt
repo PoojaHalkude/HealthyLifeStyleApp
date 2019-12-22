@@ -14,6 +14,11 @@ import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.ValueEventListener
 import kotlinx.android.synthetic.main.activity_daily_agenda_activity.*
+import org.jetbrains.anko.alert
+import org.jetbrains.anko.appcompat.v7.Appcompat
+import org.jetbrains.anko.noButton
+import org.jetbrains.anko.support.v4.toast
+import org.jetbrains.anko.yesButton
 
 class ActivitiesFragment : BaseFragment() {
     private val activities: ArrayList<Activity> = ArrayList()
@@ -35,10 +40,22 @@ class ActivitiesFragment : BaseFragment() {
     }
 
     private fun initialize() {
+        setSwipeRefreshLayout()
+    }
+
+    override fun onResume() {
+        super.onResume()
         fetchProgress()
     }
 
+    private fun setSwipeRefreshLayout() {
+        swipeRefreshLayout.setOnRefreshListener {
+            fetchProgress()
+        }
+    }
+
     private fun fetchProgress() {
+        activities.clear()
         if (!isVisible) {
             return
         }
@@ -47,20 +64,26 @@ class ActivitiesFragment : BaseFragment() {
             return
         }
         if (firebaseAuth.currentUser != null) {
+            showProgressDialog()
             firebaseDatabase.getReference("activities/${firebaseAuth.currentUser?.uid}")
                 .addListenerForSingleValueEvent(object : ValueEventListener {
                     override fun onCancelled(p0: DatabaseError) {
+                        dismissProgressDialog()
                         showNoInternetConnectionSnackBar()
                     }
 
                     override fun onDataChange(p0: DataSnapshot) {
                         try {
+                            dismissProgressDialog()
+                            swipeRefreshLayout?.isRefreshing = false
                             p0.children.iterator().forEach {
                                 val activity = it.getValue(Activity::class.java)
+                                activity?.id = it.key!!
                                 activities.add(activity!!)
                             }
                             loadData()
                         } catch (e: Exception) {
+                            dismissProgressDialog()
                             e.printStackTrace()
                         }
                     }
@@ -73,7 +96,32 @@ class ActivitiesFragment : BaseFragment() {
             return
         }
         activities.reverse()
-        val adapter = ActivitiesListAdapter(activities)
+        val adapter =
+            ActivitiesListAdapter(activities, object : ActivitiesListAdapter.OnDeleteClickListener {
+                override fun onDelete(item: Activity) {
+                    activity?.alert(Appcompat, getString(R.string.delete_activity_confirmation)) {
+                        yesButton {
+                            if (!isNetworkAccessible(context!!)) {
+                                showNoInternetConnectionSnackBar()
+                                return@yesButton
+                            }
+                            showProgressDialog()
+                            firebaseDatabase.getReference("activities/${firebaseAuth.currentUser?.uid}")
+                                .child(item.id).removeValue().addOnFailureListener {
+                                    toast(it.localizedMessage)
+                                    dismissProgressDialog()
+
+                                }.addOnCompleteListener {
+                                    toast(getString(R.string.activity_delete_successful_message))
+                                    fetchProgress()
+                                }
+                        }
+                        noButton {
+
+                        }
+                    }!!.show()
+                }
+            })
         rvActivities.layoutManager = LinearLayoutManager(context)
         rvActivities.adapter = adapter
     }

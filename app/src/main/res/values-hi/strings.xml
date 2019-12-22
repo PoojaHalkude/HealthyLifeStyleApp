@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">HealthyLifeStyleApp</string>
+    <string name="app_name">Healthy Lifestyle</string>
     @string/Label_Account
     <string name="Label_Heading">Healthy Lifestyle</string>
     <string name="Label_Account">एक नया खाता बनाएं</string>
@@ -25,7 +25,7 @@
     <string name="Label_Language">भाषा</string>
     <string name="Label_HeathData">स्वास्थ्य डेटा</string>
     <string name="Label_createPlans">प्लान बनाएं</string>
-    <string name="Label_referFriend">मित्र का संदर्भ लें</string>
+    <string name="Label_referFriend">मित्र को आमंत्रित करें</string>
     <string name="Label_Feedback">प्रतिपुष्टि</string>
     <string name="Label_LogOut">लॉग आउट</string>
     <string name="Label_SelectLevel">अपने स्तर का चयन करें</string>
@@ -91,7 +91,7 @@
     <string name="nav_header_title">Android Studio</string>
     <string name="nav_header_subtitle">android.studio@android.com</string>
     <string name="nav_header_desc">Navigation header</string>
-    <string name="action_settings">Settings</string>
+    <string name="action_settings">समायोजन</string>
 
     <string name="menu_home">घर</string>
     <string name="menu_plans">योजनाओं</string>
@@ -154,7 +154,76 @@
     <string name="sleep">Sleep</string>
     <string name="drinks">Drink</string>
     <string name="food">Food</string>
-    <string name="activity">Activities</string>
+    <string name="activity">गतिविधियाँ</string>
+    <string name="health_tips_and_exercise_plans_will_be_available_soon">जल्द ही मिलेंगे हेल्थ टिप्स और एक्सरसाइज प्लान …</string>
+    <string name="delete_activity_confirmation">क्या आप वाकई इस गतिविधि को हटाना चाहते हैं?</string>
+    <string name="activity_delete_successful_message">गतिविधि सफलतापूर्वक हटा दी गई</string>
+    <string name="enter_activity_description"> गतिविधि विवरण दर्ज करें </string>
+        
+    <string name="quantity"> मात्रा </string>
+        
+    <string name="your_daily_activities_will_appear_here"> आपकी दैनिक गतिविधियाँ यहाँ दिखाई देंगी</string>
+        
+    <string name="your_feedback_is_very_important_to_us"> आपकी प्रतिक्रिया हमारे लिए बहुत महत्वपूर्ण है </string>
+        
+    <string name="fitbit"> Fitbit </string>
+        
+    <string name="samsung_health"> Samsung Health </string>
+        
+    <string name="fit_bands"> फ़िट बैंड </string>
+        
+    <string name="e_g_7_litres"> उदा। 7 लीटर </string>
+        
+    <string name="e_g_8_hours"> e.g। 8 घंटे </string>
+        
+    <string name="e_g_3_times"> उदा। 3 बार </string>
+        
+    <string name="_25"> 25 </string>
+        
+    <string name="_175cm"> 175cm </string>
+        
+    <string name="_75_kg"> 75 kg </string>
+        
+    <string name="english"> अंग्रेजी </string>
+        
+    <string name="bengali"> बंगाली </string>
+        
+    <string name="mobile_number"> मोबाइल नंबर </string>
+        
+    <string name="location"> स्थान </string>
+        
+    <string name="count"> गिनती </string>
+        
+    <string name="lose_mass"> द्रव्यमान खोना</string>
+        
+    <string name="mi"> MI </string>
+        
+    <string name="enter_verification_code"> सत्यापन कोड दर्ज करें </string>
+        
+    <string name="please_fill_the_details"> कृपया विवरण भरें </string>
+        
+    <string name="select_profile_picture"> प्रोफ़ाइल चित्र चुनें </string>
+        
+    <string name="enter_your_name_here"> अपना नाम यहाँ दर्ज करें </string>
+        
+    <string name="enter_your_email_id"> अपना ईमेल आईडी दर्ज करें </string>
+        
+    <string name="enter_mobile_no"> मोबाइल नंबर दर्ज करें। </string>
+        
+    <string name="upload_image_to_firebase_storage"> फायरबेस स्टोरेज में छवि अपलोड करें </string>
+        
+    <string name="chinese"> चीनी </string>
+        
+    <string name="hindi"> हिंदी </string>
+    <string name="share_link">"अपने स्वास्थ्य लक्ष्यों को प्राप्त करने के लिए %s का उपयोग करें।\n\nअपने आप को नवीनीकृत करें!\n\n ऐप को Play Store से अभी डाउनलोड करें !!"</string>
+    <string name="healthy_recipes_will_appear_here">स्वस्थ व्यंजनों यहाँ दिखाई देंगे</string>
+    <string name="enter_your_text_here">यहां अपना टेक्स्ट दर्ज करें</string>
+    <string name="feedback_submitted_successfully">फीडबैक सफलतापूर्वक सबमिट किया गया</string>
 
+    <string-array name="activities">
+        <item>पानी</item>
+        <item>खाना</item>
+        <item>नींद</item>
+    </string-array>
 
 </resources>

@@ -9,6 +9,7 @@
 
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/viewPager"
+        android:visibility="gone"
         android:layout_width="match_parent"
         android:layout_height="190dp"
         android:layout_marginBottom="8dp"
@@ -35,6 +36,7 @@
             android:id="@+id/ImageViewShoowCalendar"
             android:layout_width="30dp"
             android:layout_height="30dp"
+            android:visibility="gone"
             android:layout_centerVertical="true"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="10dp"
@@ -68,13 +70,20 @@
         android:layout_gravity="center"
         android:gravity="center"
         android:padding="@dimen/_16sdp"
-        android:text="Your daily activities will appear here"
+        android:text="@string/your_daily_activities_will_appear_here"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:visibility="gone" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvActivities"
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swipeRefreshLayout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvActivities"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
 
 </LinearLayout>

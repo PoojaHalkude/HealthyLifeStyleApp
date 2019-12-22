@@ -90,20 +90,15 @@ class SettingsFragment : BaseFragment(), View.OnClickListener {
                 startActivity<ProfileScreenActivity>()
             }
             R.id.rlHeaderReferFriend -> {
-                /* Intent sendIntent = new Intent();
-                sendIntent.setAction(Intent.ACTION_SEND);
-                sendIntent.putExtra(Intent.EXTRA_TEXT, "This is my text to send.");
-                sendIntent.setType("text/plain");
-
-                Intent shareIntent = Intent.createChooser(sendIntent, null);
-                startActivity(shareIntent);*/
                 val myIntent = Intent(Intent.ACTION_SEND)
                 myIntent.type = "text/plain"
-                val shareBody = "This is my text to send."
-                val shareSub = "Your subject/Link"
-                myIntent.putExtra(Intent.EXTRA_SUBJECT, shareBody)
-                myIntent.putExtra(Intent.EXTRA_TEXT, shareSub)
-                startActivity(Intent.createChooser(myIntent, "Share Link using"))
+                val shareBody =
+                    String.format(
+                        getString(R.string.share_link),
+                        context?.resources?.getString(R.string.app_name)
+                    )
+                myIntent.putExtra(Intent.EXTRA_TEXT, shareBody)
+                startActivity(Intent.createChooser(myIntent, getString(R.string.menu_share)))
             }
             R.id.rlHeaderFeedback -> {
                 startActivity<FeedbackFormActivity>()

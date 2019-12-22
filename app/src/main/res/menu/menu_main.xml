@@ -4,15 +4,15 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/action_english"
-        android:title="English" />
+        android:title="@string/english" />
 
     <item
         android:id="@+id/action_chinese"
-        android:title="Chinese" />
+        android:title="@string/chinese" />
 
     <item
         android:id="@+id/action_hindi"
-        android:title="Hindi" />
+        android:title="@string/hindi" />
 
 
 

@@ -13,6 +13,7 @@ import android.widget.RadioGroup
 import com.example.healthylifestyleapp.R
 import com.example.healthylifestyleapp.model.Physique
 import com.example.healthylifestyleapp.ui.activities.base.activity.BaseActivity
+import com.example.healthylifestyleapp.ui.customview.DrawableEditText
 import com.example.healthylifestyleapp.utils.InputRangeFilter
 import com.example.healthylifestyleapp.utils.isEmpty
 import com.example.healthylifestyleapp.utils.isNetworkAccessible
@@ -80,7 +81,35 @@ class AddVitalsDetailsActivity : BaseActivity() {
             }
         }
 
+        etHeight.setDrawableClickListener(object : DrawableEditText.DrawableClickListener {
+            override fun onClick(target: DrawableEditText.DrawableClickListener.DrawablePosition) {
+                when (target) {
+                    DrawableEditText.DrawableClickListener.DrawablePosition.RIGHT -> {
+                        if (isHeightCm) {
+                            etHeight.setCompoundDrawables(
+                                null,
+                                null,
+                                resources.getDrawable(R.drawable.ic_unit_inches),
+                                null
+                            )
+                            isHeightCm = false
+                        } else {
+                            isHeightCm = true
+                            etHeight.setCompoundDrawables(
+                                null,
+                                null,
+                                resources.getDrawable(R.drawable.ic_unit_cm),
+                                null
+                            )
+                        }
+                    }
+                }
+            }
+        })
     }
+
+    var isHeightCm: Boolean = true
+
 
     private fun submitPhysiqueDetails() {
         if (!isNetworkAccessible(this)) {
@@ -95,7 +124,8 @@ class AddVitalsDetailsActivity : BaseActivity() {
                     height = etHeight.text.toString().toInt(),
                     weight = etWeight.text.toString().toInt(),
                     level = tvLevel.text.toString(),
-                    gender = gender
+                    gender = gender,
+                    isHeightInCm = isHeightCm
                 )
             ).addOnCompleteListener {
                 dismissProgressDialog()

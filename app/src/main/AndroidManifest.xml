@@ -31,7 +31,10 @@
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
             android:windowSoftInputMode="stateHidden" />
-        <activity android:name=".ui.activities.FeedbackFormActivity" />
+        <activity
+            android:name=".ui.activities.FeedbackFormActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/ActivityTheme" />
         <activity android:name=".ui.activities.ForgotPasswordActivity" />
         <activity
             android:name=".ui.activities.AddNewActivity"
@@ -39,20 +42,56 @@
             android:theme="@style/ActivityTheme" />
         <activity android:name=".ui.activities.HealthTipsActivity" />
         <activity android:name=".ui.activities.FitnessDevice" />
-        <activity android:name=".ui.activities.HealthyRecipesActivity" />
+        <activity
+            android:name=".ui.activities.HealthyRecipesActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/ActivityTheme" />
         <activity android:name=".ui.activities.NextRecipesActivity" />
-        <activity android:name=".ui.activities.LanguageSettingActivity" />
+        <activity
+            android:name=".ui.activities.LanguageSettingActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/ActivityTheme" />
         <activity android:name=".ui.activities.PrivacyPolicyActivity" />
-        <activity android:name=".ui.activities.HealthDataSettingsActivity" />
-        <activity android:name=".ui.activities.FoodSettingActivity" />
-        <activity android:name=".ui.activities.SleepSettingActivity" />
-        <activity android:name=".ui.activities.ActivityGoalSettings" />
-        <activity android:name=".ui.activities.DrinkSettingsActivity" />
-        <activity android:name=".ui.activities.UpdateProfileDataActivity" />
-        <activity android:name=".ui.activities.VerificationActivity" />
-        <activity android:name=".ui.activities.DailyAgendaACtivity" />
-        <activity android:name=".ui.activities.HomeScreenActivity" />
-        <activity android:name=".ui.activities.ProfileScreenActivity" />
+        <activity
+            android:name=".ui.activities.HealthDataSettingsActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/ActivityTheme" />
+        <activity
+            android:name=".ui.activities.FoodSettingActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/ActivityTheme" />
+        <activity
+            android:name=".ui.activities.SleepSettingActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/ActivityTheme" />
+        <activity
+            android:name=".ui.activities.ActivityGoalSettings"
+            android:screenOrientation="portrait"
+            android:theme="@style/ActivityTheme" />
+        <activity
+            android:name=".ui.activities.DrinkSettingsActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/ActivityTheme" />
+        <activity
+            android:name=".ui.activities.UpdateProfileDataActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/ActivityTheme" />
+        <activity
+            android:name=".ui.activities.VerificationActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/ActivityTheme" />
+        <activity
+            android:name=".ui.activities.DailyAgendaACtivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/ActivityTheme" />
+        <activity
+            android:name=".ui.activities.HomeScreenActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/ActivityTheme" />
+        <activity
+            android:name=".ui.activities.ProfileScreenActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/ActivityTheme" />
 
         <activity
             android:name=".ui.activities.UserProfileActivity"

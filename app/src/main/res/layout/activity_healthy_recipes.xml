@@ -43,7 +43,7 @@
         android:layout_gravity="center"
         android:gravity="center"
         android:padding="@dimen/_16sdp"
-        android:text="Healthy recipes will appear here"
+        android:text="@string/healthy_recipes_will_appear_here"
         android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
 
