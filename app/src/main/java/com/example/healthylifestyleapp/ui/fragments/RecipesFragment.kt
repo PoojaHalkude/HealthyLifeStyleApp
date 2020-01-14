@@ -1,5 +1,6 @@
 package com.example.healthylifestyleapp.ui.fragments
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -25,7 +26,9 @@ class RecipesFragment : BaseFragment() {
         initialize()
     }
 
+    @SuppressLint("SetJavaScriptEnabled")
     private fun initialize() {
-
+        webView.settings.javaScriptEnabled = true
+        webView.loadUrl("http://www.eatingwell.com/")
     }
 }

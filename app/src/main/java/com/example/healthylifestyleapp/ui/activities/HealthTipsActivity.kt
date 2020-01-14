@@ -13,6 +13,12 @@ class HealthTipsActivity : AppCompatActivity(), View.OnClickListener {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_health_tips)
         imgBackSpaceHealthTips.setOnClickListener(this)
+        setWebView()
+    }
+
+    private fun setWebView() {
+        webView.settings.javaScriptEnabled = true
+        webView.loadUrl("https://www.fitnessblender.com/")
     }
 
     override fun onClick(v: View) {
