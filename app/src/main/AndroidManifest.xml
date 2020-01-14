@@ -141,6 +141,9 @@
         <meta-data
             android:name="io.fabric.ApiKey"
             android:value="d1592910dc394df9ce055498f1e28b2625f24bfd" />
+        <receiver
+            android:name=".alarm.AlarmReceiver"
+            android:exported="false" />
     </application>
 
 </manifest>

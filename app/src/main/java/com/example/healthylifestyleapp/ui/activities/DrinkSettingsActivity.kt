@@ -1,10 +1,15 @@
 package com.example.healthylifestyleapp.ui.activities
 
+import android.app.AlarmManager
+import android.app.PendingIntent
+import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.view.MenuItem
 import android.view.View
 import android.widget.CompoundButton
 import com.example.healthylifestyleapp.R
+import com.example.healthylifestyleapp.alarm.AlarmReceiver
 import com.example.healthylifestyleapp.model.Activity
 import com.example.healthylifestyleapp.model.Goals
 import com.example.healthylifestyleapp.model.Preferences
@@ -83,6 +88,39 @@ class DrinkSettingsActivity : BaseActivity(), CompoundButton.OnCheckedChangeList
             firebaseDatabase.getReference("preferences")
                 .child(firebaseAuth.currentUser?.uid!!).setValue(preferences)
         }
+
+        if (drinkReminder) {
+            setReminder()
+        } else {
+            cancelReminder()
+        }
+    }
+
+    private fun setReminder() {
+        val am = getSystemService(Context.ALARM_SERVICE) as AlarmManager
+        val intent = Intent(this, AlarmReceiver::class.java)
+        intent.putExtra(
+            AlarmReceiver.ACTION,
+            getString(com.example.healthylifestyleapp.R.string.water_reminder_message)
+        )
+        val pendingIntent = PendingIntent.getBroadcast(this, 0, intent, 0)
+        am.setInexactRepeating(
+            AlarmManager.RTC_WAKEUP,
+            System.currentTimeMillis(),
+            60 * 60 * 1000L,
+            pendingIntent
+        )
+    }
+
+    private fun cancelReminder() {
+        val am = getSystemService(Context.ALARM_SERVICE) as AlarmManager
+        val intent = Intent(this, AlarmReceiver::class.java)
+        intent.putExtra(
+            AlarmReceiver.ACTION,
+            getString(com.example.healthylifestyleapp.R.string.water_reminder_message)
+        )
+        val pendingIntent = PendingIntent.getBroadcast(this, 0, intent, 0)
+        am.cancel(pendingIntent)
     }
 
     private fun fetchPreferences() {
@@ -147,7 +185,7 @@ class DrinkSettingsActivity : BaseActivity(), CompoundButton.OnCheckedChangeList
 
     private fun setToolbar() {
         setSupportActionBar(toolbar)
-        supportActionBar?.title = getString(R.string.drinks)
+        supportActionBar?.title = getString(com.example.healthylifestyleapp.R.string.drinks)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
     }
 

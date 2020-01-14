@@ -229,6 +229,7 @@
     <string name="image_upload_successful">छवि सफलतापूर्वक अपलोड की गई</string>
     <string name="fill_all_details">कृपया सभी विवरण भरें</string>
     <string name="select_image">कृपया छवि का चयन करें </string>
+    <string name="water_reminder_message">यह कुछ पानी पीने का समय है!</string>
 
     <string-array name="activities">
         <item>पानी</item>
