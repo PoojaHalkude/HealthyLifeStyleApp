@@ -52,7 +52,7 @@
     <string name="Label_Sleep">Sleep</string>
     <string name="Label_DailyGoal">Daily Goal</string>
     <string name="Label_CupSize">Cup Size</string>
-    <string name="Label_Reminder">Hourly water reminder</string>
+    <string name="Label_Reminder">Reminder</string>
     <string name="Label_Time">Time Interval</string>
     <string name="Label_Start">Start</string>
     <string name="Label_End">End</string>
