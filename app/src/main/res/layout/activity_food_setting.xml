@@ -103,8 +103,30 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentRight="true"
-                        tools:text="8 hr"
-                        android:textSize="18dp" />
+                        android:textSize="18dp"
+                        tools:text="8 hr" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="20dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:text="@string/Label_Reminder"
+                        android:textSize="18dp"
+                        android:textStyle="bold" />
+
+                    <Switch
+                        android:id="@+id/simpleSwitch"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:checked="false"
+                        android:theme="@style/SCBSwitch" />
                 </RelativeLayout>
 
                 <View
