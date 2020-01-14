@@ -154,11 +154,7 @@ class UserProfileActivity : BaseActivity() {
         }
         bottomNavigationView.setOnNavigationItemSelectedListener {
             when (it.itemId) {
-                R.id.nav_home -> {
-                    val homeIntent = Intent(this, ProfileScreenActivity::class.java)
-                    startActivity(homeIntent)
 
-                }
                 R.id.menu_activity -> {
                     supportActionBar?.title = getString(R.string.activity)
                     loadFragment(ActivitiesFragment())

@@ -4,20 +4,26 @@ package com.example.healthylifestyleapp.ui.fragments
 import android.app.Dialog
 import android.content.Intent
 import android.os.Bundle
+import android.text.TextUtils
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import androidx.fragment.app.Fragment
-import com.bumptech.glide.Glide
 import com.example.healthylifestyleapp.R
+import com.example.healthylifestyleapp.model.UserUploadInfo
 import com.example.healthylifestyleapp.ui.activities.FeedbackFormActivity
 import com.example.healthylifestyleapp.ui.activities.HealthDataSettingsActivity
 import com.example.healthylifestyleapp.ui.activities.LanguageSettingActivity
-import com.example.healthylifestyleapp.ui.activities.ProfileScreenActivity
+import com.example.healthylifestyleapp.ui.activities.UpdateProfileDataActivity
 import com.example.healthylifestyleapp.ui.activities.base.activity.BaseActivity
 import com.example.healthylifestyleapp.ui.activities.base.fragment.BaseFragment
 import com.example.healthylifestyleapp.utils.logout
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.ValueEventListener
+import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.fragment_settings.*
 import kotlinx.android.synthetic.main.nav_header_user_profile.*
 import org.jetbrains.anko.support.v4.startActivity
@@ -43,9 +49,61 @@ class SettingsFragment : BaseFragment(), View.OnClickListener {
     }
 
     private fun showProfile() {
-        nav_userEmail.text = firebaseAuth.currentUser!!.email
-        nav_userName.text = firebaseAuth.currentUser!!.displayName
-        Glide.with(context).load(firebaseAuth.currentUser!!.photoUrl).into(nav_userPhoto)
+//        nav_userEmail.text = firebaseAuth.currentUser!!.email
+//        nav_userName.text = firebaseAuth.currentUser!!.displayName
+//        Glide.with(context).load(firebaseAuth.currentUser!!.photoUrl).into(nav_userPhoto)
+        fetchProfileDetails()
+    }
+
+    private fun fetchProfileDetails() {
+        val user = FirebaseAuth.getInstance().currentUser
+        val name =
+            if (user != null && !TextUtils.isEmpty(user.displayName)) user.displayName else ""
+        val email = if (user != null && !TextUtils.isEmpty(user.email)) user.email else ""
+        val phoneNumber =
+            if (user != null && !TextUtils.isEmpty(user.phoneNumber)) user.phoneNumber else ""
+        val photoUrl =
+            if (user != null && !TextUtils.isEmpty(user.photoUrl.toString())) user.photoUrl.toString() else ""
+        firebaseDatabase.getReference("users/${firebaseAuth.currentUser!!.uid}")
+            .addListenerForSingleValueEvent(object : ValueEventListener {
+                override fun onCancelled(p0: DatabaseError) {
+
+                }
+
+                override fun onDataChange(p0: DataSnapshot) {
+                    val profile = p0.getValue(UserUploadInfo::class.java)
+                    if (profile != null) {
+                        if (!TextUtils.isEmpty(profile.userName)) {
+                            nav_userName.text = profile.userName
+                        } else {
+                            nav_userName.text = name
+                        }
+
+                        if (!TextUtils.isEmpty(profile.myemail)) {
+                            nav_userEmail.text = profile.myemail
+                        } else {
+                            nav_userEmail.text = email
+                        }
+
+                        if (!TextUtils.isEmpty(profile.mobile)) {
+                            nav_userPhoneNumber.text = profile.mobile
+                        } else {
+                            nav_userPhoneNumber.text = phoneNumber
+                        }
+
+                        if (!TextUtils.isEmpty(photoUrl) && photoUrl != "null") {
+                            Picasso.get().load(photoUrl).placeholder(R.drawable.ic_account_circle)
+                                .into(nav_userPhoto)
+                        } else {
+                            Picasso.get().load(profile.imageURL)
+                                .placeholder(R.drawable.ic_account_circle)
+                                .into(nav_userPhoto)
+                        }
+                    } else {
+
+                    }
+                }
+            })
     }
 
     private fun initLisetner() {
@@ -87,7 +145,7 @@ class SettingsFragment : BaseFragment(), View.OnClickListener {
                 startActivity<HealthDataSettingsActivity>()
             }
             R.id.rlHeaderProfile -> {
-                startActivity<ProfileScreenActivity>()
+                startActivity<UpdateProfileDataActivity>()
             }
             R.id.rlHeaderReferFriend -> {
                 val myIntent = Intent(Intent.ACTION_SEND)

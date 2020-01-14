@@ -219,6 +219,16 @@
     <string name="healthy_recipes_will_appear_here">स्वस्थ व्यंजनों यहाँ दिखाई देंगे</string>
     <string name="enter_your_text_here">यहां अपना टेक्स्ट दर्ज करें</string>
     <string name="feedback_submitted_successfully">फीडबैक सफलतापूर्वक सबमिट किया गया</string>
+    <string name="edit">संपादित करें</string>
+    <string name="image_selected">छवि चयनित</string>
+    <string name="select_image_or_enter_details">कृपया छवि का चयन करें या अपना विवरण जोड़ें</string>
+    <string name="image_is_uploading">छवि अपलोड हो रही है …</string>
+    <string name="failed_to_upload_image">छवि अपलोड करने में विफल</string>
+    <string name="update_profile_failed">प्रोफ़ाइल अपडेट करने में विफल</string>
+    <string name="profile_update_success">प्रोफ़ाइल सफलतापूर्वक अपडेट की गई </string>
+    <string name="image_upload_successful">छवि सफलतापूर्वक अपलोड की गई</string>
+    <string name="fill_all_details">कृपया सभी विवरण भरें</string>
+    <string name="select_image">कृपया छवि का चयन करें </string>
 
     <string-array name="activities">
         <item>पानी</item>

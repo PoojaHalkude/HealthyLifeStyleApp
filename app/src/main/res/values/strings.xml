@@ -113,7 +113,7 @@
     <string name="Label_SelectProfile"> Select Profile Picture</string>
     <string name="Label_Save">Save</string>
     <string name="Label_Skip">Skip</string>
-    <string name="Label_fillDetails"> Please Fill the details</string>
+    <string name="Label_fillDetails"> Please fill the details</string>
     <string name="Label_SundayDate">Sunday,Aug 26</string>
     <string name="Label_GetCode">Get Verification Code</string>
     <string name="Label_ManageData">Manage My Data</string>
@@ -195,6 +195,16 @@
     <string name="healthy_recipes_will_appear_here">Healthy recipes will appear here</string>
     <string name="enter_your_text_here">Enter your text here</string>
     <string name="feedback_submitted_successfully">Feedback submitted successfully</string>
+    <string name="edit">Edit</string>
+    <string name="image_selected">Image Selected</string>
+    <string name="select_image_or_enter_details">Please select image or add your details</string>
+    <string name="image_is_uploading">Image is uploading...</string>
+    <string name="failed_to_upload_image">Failed to upload image</string>
+    <string name="update_profile_failed">Failed to update profile</string>
+    <string name="profile_update_success">Profile updated successfully</string>
+    <string name="image_upload_successful">Image uploaded successfully</string>
+    <string name="fill_all_details">Please fill all the details</string>
+    <string name="select_image">Please select image</string>
 
     <string-array name="activities">
         <item>Water</item>

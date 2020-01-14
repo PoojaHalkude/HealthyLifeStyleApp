@@ -5,4 +5,6 @@ data class UserUploadInfo(
     var imageURL: String,
     var myemail: String,
     var mobile: String
-)
+) {
+    constructor() : this("", "", "", "")
+}

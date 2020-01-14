@@ -1,80 +1,56 @@
 package com.example.healthylifestyleapp.ui.activities
 
-import android.annotation.SuppressLint
 import android.app.Activity
 import android.app.ProgressDialog
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
+import android.text.TextUtils
+import android.view.View
 import android.webkit.MimeTypeMap
 import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
 import com.example.healthylifestyleapp.R
-import com.example.healthylifestyleapp.model.UserData
 import com.example.healthylifestyleapp.model.UserUploadInfo
+import com.example.healthylifestyleapp.ui.activities.base.activity.BaseActivity
+import com.example.healthylifestyleapp.utils.isNetworkAccessible
+import com.example.healthylifestyleapp.utils.next
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.database.DatabaseReference
-import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.ValueEventListener
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
+import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_update_profile_data.*
+import org.jetbrains.anko.toast
 import java.io.IOException
 
-class UpdateProfileDataActivity : AppCompatActivity() {
+class UpdateProfileDataActivity : BaseActivity() {
+    override fun getRoot(): View? {
+        return rootView
+    }
 
-
-    private val mDatabase = FirebaseDatabase.getInstance()
-    private var mDatabaseReference = mDatabase.reference
-    // Creating ImageView.
-
-    // Folder path for Firebase Storage.
-    internal var Storage_Path = "All_Image_Uploads/"
-
-    // Root Database Name for Firebase Database.
-    internal var Database_Path = "All_Image_Uploads_Database"
     // Creating URI.
-    internal var FilePathUri: Uri? = null
+    private var filePathUri: Uri? = null
     // Creating StorageReference and DatabaseReference object.
-    internal lateinit var storageReference: StorageReference
-    internal lateinit var databaseReference: DatabaseReference
+    private lateinit var storageReference: StorageReference
 
     // Image request code for onActivityResult() .
-    internal var Image_Request_Code = 71
-    internal lateinit var progressDialog: ProgressDialog
-    internal var user = FirebaseAuth.getInstance().currentUser
+    private var code = 71
+    private lateinit var progressDialog: ProgressDialog
+    private var profile: UserUploadInfo? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_update_profile_data)
         // Assign FirebaseStorage instance to storageReference.
         storageReference = FirebaseStorage.getInstance().reference
 
-        // Assign FirebaseDatabase instance with root database name.
-        databaseReference = FirebaseDatabase.getInstance().getReference(Database_Path)
+        fetchProfileDetails()
 
-        //Assign ID'S to button.
-        // Assign ID's to EditText.
-        @SuppressLint("RestrictedApi")
-        val userNew =
-            UserData("Pooja", "pooja@gmail.com", "9049651515")
-        mDatabaseReference = mDatabase.reference.child("user")
-        mDatabaseReference.setValue(user)
-
-        // Assign ID'S to image view.
-        mDatabaseReference = mDatabase.reference.child("name")
-        mDatabaseReference.setValue("Pooja Halkude")
         // Assigning Id to ProgressDialog.
         progressDialog = ProgressDialog(this)
-        if (user != null) {
-            // Name, email address, and profile photo Url
-            val name = user!!.displayName
-            val email = user!!.email
-            val photoUrl = user!!.photoUrl
-            // The user's ID, unique to the Firebase project. Do NOT use this value to
-            // authenticate with your backend server, if you have one. Use
-            // FirebaseUser.getToken() instead.
-            val uid = user!!.uid
-        }
+
 
         // Adding click listener to Choose image button.
         ButtonChooseImage.setOnClickListener {
@@ -85,32 +61,67 @@ class UpdateProfileDataActivity : AppCompatActivity() {
             intent.type = "image/*"
             intent.action = Intent.ACTION_GET_CONTENT
             startActivityForResult(
-                Intent.createChooser(intent, "Please Select Image"),
-                Image_Request_Code
+                Intent.createChooser(intent, getString(R.string.select_image)),
+                code
             )
         }
-        /* UserProfileChangeRequest profileUpdates = new UserProfileChangeRequest.Builder()
-                .setDisplayName("Jar It")
-                .setPhotoUri(Uri.parse("https://example.com/jane-q-user/profile.jpg"))
-                .build();
-        user.updateProfile(profileUpdates)
-                .addOnCompleteListener(new OnCompleteListener<Void>() {
-                    @Override
-                    public void onComplete(@NonNull Task<Void> task) {
-                        if (task.isSuccessful()) {
-                            Log.d("pooja", "User profile updated.");
-                        }
-                    }
-                });*/
+
         // Adding click listener to Upload image button.
         ButtonUploadImage.setOnClickListener {
             // Calling method to upload selected image on Firebase storage.
-            UploadImageFileToFirebaseStorage()
+            uploadImageFileToFirebaseStorage()
         }
-        ButtonSkip.setOnClickListener {
-            val myIntent1 = Intent(applicationContext, UserProfileActivity::class.java)
-            startActivity(myIntent1)
-        }
+    }
+
+    private fun fetchProfileDetails() {
+        val user = FirebaseAuth.getInstance().currentUser
+        val name =
+            if (user != null && !TextUtils.isEmpty(user.displayName)) user.displayName else ""
+        val email = if (user != null && !TextUtils.isEmpty(user.email)) user.email else ""
+        val phoneNumber =
+            if (user != null && !TextUtils.isEmpty(user.phoneNumber)) user.phoneNumber else ""
+        val photoUrl =
+            if (user != null && !TextUtils.isEmpty(user.photoUrl.toString())) user.photoUrl.toString() else ""
+        firebaseDatabase.getReference("users/${firebaseAuth.currentUser!!.uid}")
+            .addListenerForSingleValueEvent(object : ValueEventListener {
+                override fun onCancelled(p0: DatabaseError) {
+
+                }
+
+                override fun onDataChange(p0: DataSnapshot) {
+                    profile = p0.getValue(UserUploadInfo::class.java)
+                    if (profile != null) {
+                        if (!TextUtils.isEmpty(profile!!.userName)) {
+                            EditTextName.setText(profile!!.userName)
+                        } else {
+                            EditTextName.setText(name)
+                        }
+
+                        if (!TextUtils.isEmpty(profile!!.myemail)) {
+                            EditTextEmail.setText(profile!!.myemail)
+                        } else {
+                            EditTextEmail.setText(email)
+                        }
+
+                        if (!TextUtils.isEmpty(profile!!.mobile)) {
+                            EditTextMobileNo.setText(profile!!.mobile)
+                        } else {
+                            EditTextMobileNo.setText(phoneNumber)
+                        }
+
+                        if (!TextUtils.isEmpty(photoUrl) && photoUrl != "null") {
+                            Picasso.get().load(photoUrl).placeholder(R.drawable.ic_account_circle)
+                                .into(showImageView)
+                        } else {
+                            Picasso.get().load(profile!!.imageURL)
+                                .placeholder(R.drawable.ic_account_circle)
+                                .into(showImageView)
+                        }
+                    } else {
+
+                    }
+                }
+            })
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -118,20 +129,20 @@ class UpdateProfileDataActivity : AppCompatActivity() {
         super.onActivityResult(requestCode, resultCode, data)
 
 
-        if (requestCode == Image_Request_Code && resultCode == Activity.RESULT_OK && data != null && data.data != null) {
+        if (requestCode == code && resultCode == Activity.RESULT_OK && data != null && data.data != null) {
 
-            FilePathUri = data.data
+            filePathUri = data.data
 
             try {
 
                 // Getting selected image into Bitmap.
-                val bitmap = MediaStore.Images.Media.getBitmap(contentResolver, FilePathUri)
+                val bitmap = MediaStore.Images.Media.getBitmap(contentResolver, filePathUri)
 
                 // Setting up bitmap selected image into ImageView.
-                ShowImageView.setImageBitmap(bitmap)
+                showImageView.setImageBitmap(bitmap)
 
                 // After selecting image change choose button above text.
-                ButtonChooseImage.text = "Image Selected"
+                ButtonChooseImage.text = getString(R.string.image_selected)
 
             } catch (e: IOException) {
 
@@ -143,7 +154,7 @@ class UpdateProfileDataActivity : AppCompatActivity() {
     }
 
     // Creating Method to get the selected image file Extension from File Path URI.
-    fun GetFileExtension(uri: Uri): String? {
+    private fun getFileExtension(uri: Uri): String? {
 
         val contentResolver = contentResolver
 
@@ -154,63 +165,79 @@ class UpdateProfileDataActivity : AppCompatActivity() {
 
     }
 
-    // Creating UploadImageFileToFirebaseStorage method to upload image on storage.
-    fun UploadImageFileToFirebaseStorage() {
+    // Creating uploadImageFileToFirebaseStorage method to upload image on storage.
+    private fun uploadImageFileToFirebaseStorage() {
 
-        // Checking whether FilePathUri Is empty or not.
-        if (FilePathUri != null) {
+        if (!isNetworkAccessible(this)) {
+            showNoInternetConnectionSnackBar()
+            return
+        }
+
+        if (!isFormEmpty()) {
+            toast(getString(R.string.fill_all_details))
+            return
+        }
+
+        // Checking whether filePathUri Is empty or not.
+        if (filePathUri != null) {
 
             // Setting progressDialog Title.
-            progressDialog.setTitle("Image is Uploading...")
+            progressDialog.setTitle(getString(R.string.image_is_uploading))
 
             // Showing progressDialog.
             progressDialog.show()
 
             // Creating second StorageReference.
             val storageReference2nd = storageReference.child(
-                "images/" + System.currentTimeMillis() + "." + GetFileExtension(FilePathUri!!)
+                "images/" + System.currentTimeMillis() + "." + getFileExtension(filePathUri!!)
             )
 
             // Adding addOnSuccessListener to second StorageReference.
-            storageReference2nd.putFile(FilePathUri!!)
-                .addOnSuccessListener { taskSnapshot ->
-                    // Getting image name from EditText and store into string variable.
-                    val Name = EditTextName.text.toString().trim { it <= ' ' }
-                    val email = EditTextEmail.text.toString().trim { it <= ' ' }
-                    val mobile = EditTextMobileNo.text.toString().trim { it <= ' ' }
-                    // Hiding the progressDialog after done uploading.
-                    progressDialog.dismiss()
+            storageReference2nd.putFile(filePathUri!!)
+                .addOnSuccessListener { _ ->
+                    storageReference2nd.downloadUrl.addOnCompleteListener { uriTask ->
 
-                    // Showing toast message after done uploading.
-                    Toast.makeText(
-                        applicationContext,
-                        "Image Uploaded Successfully ",
-                        Toast.LENGTH_LONG
-                    ).show()
+                        // Getting image name from EditText and store into string variable.
+                        val name = EditTextName.text.toString().trim { it <= ' ' }
+                        val email = EditTextEmail.text.toString().trim { it <= ' ' }
+                        val mobile = EditTextMobileNo.text.toString().trim { it <= ' ' }
+                        // Hiding the progressDialog after done uploading.
+                        progressDialog.dismiss()
 
-                    val imageUploadInfo =
-                        UserUploadInfo(
-                            Name,
-                            email,
-                            mobile,
-                            taskSnapshot.javaClass.toString()
-                        )
+                        // Showing toast message after done uploading.
+                        Toast.makeText(
+                            applicationContext,
+                            getString(R.string.image_upload_successful),
+                            Toast.LENGTH_LONG
+                        ).show()
 
-                    // Getting image upload ID.
-                    val ImageUploadId = databaseReference.push().key
+                        val uploadInfo =
+                            UserUploadInfo(
+                                userName = name,
+                                myemail = email,
+                                mobile = mobile,
+                                imageURL = uriTask.result.toString()
+                            )
 
-                    // Adding image upload id s child element into databaseReference.
-                    databaseReference.child(ImageUploadId!!).setValue(imageUploadInfo)
+                        // Adding image upload id s child element into databaseReference.
+                        firebaseDatabase.getReference("users/${firebaseAuth.currentUser!!.uid}")
+                            .setValue(uploadInfo).addOnCompleteListener {
+                                toast(getString(R.string.profile_update_success))
+                                next()
+                            }
+                            .addOnFailureListener {
+                                toast(getString(R.string.update_profile_failed))
+                            }
+                    }
+
                 }
                 // If something goes wrong .
-                .addOnFailureListener { exception ->
+                .addOnFailureListener {
                     // Hiding the progressDialog.
                     progressDialog.dismiss()
-
-                    // Showing exception erro message.
                     Toast.makeText(
-                        this@UpdateProfileDataActivity,
-                        "failed" + exception.message,
+                        applicationContext,
+                        getString(R.string.failed_to_upload_image),
                         Toast.LENGTH_LONG
                     ).show()
                 }
@@ -218,20 +245,29 @@ class UpdateProfileDataActivity : AppCompatActivity() {
                 // On progress change upload time.
                 .addOnProgressListener {
                     // Setting progressDialog Title.
-                    progressDialog.setTitle("Image is Uploading...")
+                    progressDialog.setTitle(getString(R.string.image_is_uploading))
                 }
-            val myIntent = Intent(this, UserProfileActivity::class.java)
-            startActivity(myIntent)
         } else {
+            // Adding image upload id s child element into databaseReference.
+            profile!!.userName = EditTextName.text.toString().trim { it <= ' ' }
+            profile!!.myemail = EditTextEmail.text.toString().trim { it <= ' ' }
+            profile!!.mobile = EditTextMobileNo.text.toString().trim { it <= ' ' }
 
-            Toast.makeText(
-                this@UpdateProfileDataActivity,
-                "Please Select Image or Add Your Details",
-                Toast.LENGTH_LONG
-            ).show()
-
+            firebaseDatabase.getReference("users/${firebaseAuth.currentUser!!.uid}")
+                .setValue(profile).addOnCompleteListener {
+                    toast(getString(R.string.profile_update_success))
+                    next()
+                }
+                .addOnFailureListener {
+                    toast(getString(R.string.update_profile_failed))
+                }
         }
+    }
 
+    private fun isFormEmpty(): Boolean {
+        return !TextUtils.isEmpty(EditTextName.text.toString())
+                && !TextUtils.isEmpty(EditTextEmail.text.toString())
+                && !TextUtils.isEmpty(EditTextMobileNo.text.toString())
     }
 
 

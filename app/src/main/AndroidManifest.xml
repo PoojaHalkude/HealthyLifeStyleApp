@@ -88,10 +88,6 @@
             android:name=".ui.activities.HomeScreenActivity"
             android:screenOrientation="portrait"
             android:theme="@style/ActivityTheme" />
-        <activity
-            android:name=".ui.activities.ProfileScreenActivity"
-            android:screenOrientation="portrait"
-            android:theme="@style/ActivityTheme" />
 
         <activity
             android:name=".ui.activities.UserProfileActivity"
