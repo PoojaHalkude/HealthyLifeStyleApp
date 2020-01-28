@@ -1,8 +1,10 @@
 package com.example.healthylifestyleapp.ui.activities
 
 import android.os.Bundle
+import android.view.Menu
 import android.view.MenuItem
 import android.view.View
+import androidx.core.content.ContextCompat
 import com.example.healthylifestyleapp.R
 import com.example.healthylifestyleapp.model.Physique
 import com.example.healthylifestyleapp.ui.activities.base.activity.BaseActivity
@@ -11,6 +13,7 @@ import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.ValueEventListener
 import kotlinx.android.synthetic.main.activity_health_data_settings.*
+import org.jetbrains.anko.startActivity
 
 class HealthDataSettingsActivity : BaseActivity() {
     override fun getRoot(): View? {
@@ -39,7 +42,7 @@ class HealthDataSettingsActivity : BaseActivity() {
             return
         }
         showProgressDialog()
-        firebaseDatabase.getReference("preferences").child("${firebaseAuth.currentUser?.uid}")
+        firebaseDatabase.getReference("physiques").child("${firebaseAuth.currentUser?.uid}")
             .addListenerForSingleValueEvent(object : ValueEventListener {
                 override fun onCancelled(p0: DatabaseError) {
 
@@ -57,7 +60,7 @@ class HealthDataSettingsActivity : BaseActivity() {
         if (physique != null) {
             TextViewAgeCount.text = String.format("%s", physique.age)
             TextViewHeightCount.text =
-                String.format("%s %s", physique.height, if (physique.isHeightInCm) "cm" else "ft")
+                String.format("%s", physique.height)
             TextViewWeightCount.text = String.format("%s kg", physique.weight)
             TextViewLevel.text = String.format("%s", physique.level)
         }
@@ -67,6 +70,7 @@ class HealthDataSettingsActivity : BaseActivity() {
         setSupportActionBar(toolbar)
         supportActionBar?.title = getString(R.string.Label_HeathData)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        toolbar.navigationIcon = ContextCompat.getDrawable(this, R.drawable.ic_arrow_back_black)
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -74,7 +78,15 @@ class HealthDataSettingsActivity : BaseActivity() {
             android.R.id.home -> {
                 onBackPressed()
             }
+            R.id.edit -> {
+                startActivity<AddVitalsDetailsActivity>()
+            }
         }
         return super.onOptionsItemSelected(item)
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.menu_health_data, menu)
+        return super.onCreateOptionsMenu(menu)
     }
 }

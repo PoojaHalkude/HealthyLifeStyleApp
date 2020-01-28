@@ -13,13 +13,15 @@ import android.widget.RadioGroup
 import com.example.healthylifestyleapp.R
 import com.example.healthylifestyleapp.model.Physique
 import com.example.healthylifestyleapp.ui.activities.base.activity.BaseActivity
-import com.example.healthylifestyleapp.ui.customview.DrawableEditText
 import com.example.healthylifestyleapp.utils.InputRangeFilter
 import com.example.healthylifestyleapp.utils.isEmpty
 import com.example.healthylifestyleapp.utils.isNetworkAccessible
+import com.example.healthylifestyleapp.utils.next
 import com.google.android.material.snackbar.Snackbar
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.ValueEventListener
 import kotlinx.android.synthetic.main.activity_add_vitals_details.*
-import org.jetbrains.anko.startActivity
 import org.jetbrains.anko.toast
 
 class AddVitalsDetailsActivity : BaseActivity() {
@@ -37,7 +39,6 @@ class AddVitalsDetailsActivity : BaseActivity() {
     }
 
     private fun initListener() {
-        setInputRangeListeners()
         btnMale.isSelected = true
         btnFemale.isSelected = false
         btnMale.setOnClickListener {
@@ -80,32 +81,7 @@ class AddVitalsDetailsActivity : BaseActivity() {
                 submitPhysiqueDetails()
             }
         }
-
-        etHeight.setDrawableClickListener(object : DrawableEditText.DrawableClickListener {
-            override fun onClick(target: DrawableEditText.DrawableClickListener.DrawablePosition) {
-                when (target) {
-                    DrawableEditText.DrawableClickListener.DrawablePosition.RIGHT -> {
-                        if (isHeightCm) {
-                            etHeight.setCompoundDrawables(
-                                null,
-                                null,
-                                resources.getDrawable(R.drawable.ic_unit_inches),
-                                null
-                            )
-                            isHeightCm = false
-                        } else {
-                            isHeightCm = true
-                            etHeight.setCompoundDrawables(
-                                null,
-                                null,
-                                resources.getDrawable(R.drawable.ic_unit_cm),
-                                null
-                            )
-                        }
-                    }
-                }
-            }
-        })
+        fetchHealthData()
     }
 
     var isHeightCm: Boolean = true
@@ -121,7 +97,7 @@ class AddVitalsDetailsActivity : BaseActivity() {
             .setValue(
                 Physique(
                     age = etAge.text.toString().toInt(),
-                    height = etHeight.text.toString().toInt(),
+                    height = etHeight.text.toString(),
                     weight = etWeight.text.toString().toInt(),
                     level = tvLevel.text.toString(),
                     gender = gender,
@@ -130,7 +106,7 @@ class AddVitalsDetailsActivity : BaseActivity() {
             ).addOnCompleteListener {
                 dismissProgressDialog()
                 if (it.isSuccessful) {
-                    startActivity<GoalsActivity>()
+                    next()
                     finish()
                 } else {
                     toast("Failed to save your data. Please try again!")
@@ -174,6 +150,42 @@ class AddVitalsDetailsActivity : BaseActivity() {
             ).show()
         }
         return valid
+    }
+
+
+    private fun fetchHealthData() {
+        if (!isNetworkAccessible(this)) {
+            showNoInternetConnectionSnackBar()
+            return
+        }
+        showProgressDialog()
+        firebaseDatabase.getReference("physiques").child("${firebaseAuth.currentUser?.uid}")
+            .addListenerForSingleValueEvent(object : ValueEventListener {
+                override fun onCancelled(p0: DatabaseError) {
+
+                }
+
+                override fun onDataChange(p0: DataSnapshot) {
+                    dismissProgressDialog()
+                    val physique = p0.getValue(Physique::class.java)
+                    showHealthData(physique)
+                }
+            })
+    }
+
+    private fun showHealthData(physique: Physique?) {
+        if (physique != null) {
+            etAge.setText(String.format("%s", physique.age))
+            etHeight.setText(
+                String.format(
+                    "%s",
+                    physique.height
+                )
+            )
+            etWeight.setText(String.format("%s", physique.weight))
+            tvLevel.text = String.format("%s", physique.level)
+            setInputRangeListeners()
+        }
     }
 }
 

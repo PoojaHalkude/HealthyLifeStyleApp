@@ -155,7 +155,7 @@
                 android:drawableTint="@color/colorBlack"
                 android:gravity="center"
                 android:hint="@string/Label_Height"
-                android:inputType="number"
+                android:inputType="text"
                 android:paddingStart="@dimen/_8sdp"
                 android:paddingEnd="@dimen/_8sdp"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
